@@ -13,7 +13,9 @@
 <style>
 
 :root{
---primary-red: #E01010; /* Merah Identitas */
+/* ✅ WARNA MERAH DIPERBAIKI: Lebih terang, standar, konsisten di semua tampilan */
+--primary-red: #FF0000; /* Merah terang murni, tidak berubah jadi coklat */
+--primary-red-dark: #D00000; /* Merah sedikit gelap untuk efek hover */
 --primary-black: #050505; /* Hitam Identitas */
 --light: #FFFFFF;
 --gray-light: #F5F5F5;
@@ -269,17 +271,17 @@ transition:.3s;
 font-size: 15px;
 border: none;
 cursor: pointer;
-box-shadow: 0 3px 10px rgba(224, 16, 16, 0.3);
+box-shadow: 0 3px 10px rgba(255, 0, 0, 0.3);
 text-align: center;
 }
 
 .btn-primary:hover{
 transform: translateY(-3px);
-box-shadow: 0 6px 15px rgba(224, 16, 16, 0.4);
-background: #c00000;
+box-shadow: 0 6px 15px rgba(255, 0, 0, 0.4);
+background: var(--primary-red-dark);
 }
 
-/* ✅ KONTEN UMUM - TANPA KOTAK KAKU */
+/* ✅ KONTEN UMUM - TANPA KOTAK KAKU (KECUALI HALAMAN PEMESANAN) */
 .content-wrapper{
 position: relative;
 z-index: 2;
@@ -313,7 +315,7 @@ border-bottom: 3px solid var(--primary-red);
 text-align: center;
 }
 
-/* ✅ BAGIAN INFORMASI - TANPA KOTAK, LEBIH LEMBUT */
+/* ✅ BAGIAN INFORMASI - TANPA KOTAK */
 .info-section{
 margin-bottom: 35px;
 padding: 10px 0;
@@ -350,11 +352,19 @@ padding-left: 20px;
 margin-bottom: 8px;
 }
 
-/* ✅ FORMULIR - TANPA KOTAK TEGAS */
+/* ✅ FORMULIR PEMESANAN - KHUSUS DIBUATKAN KOTAK AGAR RAPI */
 .form-wrapper{
 max-width: 600px;
 margin: 0 auto;
 padding: 20px 0;
+}
+
+.form-box{
+background: rgba(0, 0, 0, 0.6);
+border: 2px solid var(--primary-red);
+border-radius: 12px;
+padding: 25px;
+backdrop-filter: blur(5px);
 }
 
 .form-box h3{
@@ -420,7 +430,7 @@ gap: 8px;
 }
 
 .btn-submit:hover{
-background: #c00000;
+background: var(--primary-red-dark);
 transform: translateY(-2px);
 }
 
@@ -430,6 +440,11 @@ margin-top: 20px;
 font-size: 14px;
 color: rgba(255,255,255,0.7);
 font-style: italic;
+}
+
+.note span{
+color: var(--primary-red);
+font-weight:600;
 }
 
 /* ✅ KONTAK - TANPA KOTAK KAKU */
@@ -565,6 +580,9 @@ font-size: 14px;
 }
 .content-wrapper{
 padding: 15px;
+}
+.form-box{
+padding: 20px;
 }
 }
 
@@ -740,7 +758,7 @@ Kontraktor & Mekanikal Elektrikal.
 </div>
 </section>
 
-<!-- ✅ PESAN LAYANAN - TANPA KOTAK KAKU -->
+<!-- ✅ PESAN LAYANAN - KHUSUS DIBUATKAN KOTAK AGAR RAPI -->
 <section id="pesan" class="page-section">
 <div class="content-wrapper">
 
@@ -754,22 +772,22 @@ Kontraktor & Mekanikal Elektrikal.
 <h3><i class="fas fa-file-text"></i> Data Pemesanan</h3>
 
 <div class="form-group">
-<label>Nama Lengkap / Perusahaan <span style="color:#E01010">*</span></label>
+<label>Nama Lengkap / Perusahaan <span>*</span></label>
 <input type="text" name="nama" class="form-control" placeholder="Contoh: PT Mitra Sejahtera / Bapak Andi" required>
 </div>
 
 <div class="form-group">
-<label>Nomor WhatsApp / Telepon <span style="color:#E01010">*</span></label>
+<label>Nomor WhatsApp / Telepon <span>*</span></label>
 <input type="tel" name="telepon" class="form-control" placeholder="Contoh: 0812 3456 7890" required>
 </div>
 
 <div class="form-group">
-<label>Alamat Lengkap <span style="color:#E01010">*</span></label>
+<label>Alamat Lengkap <span>*</span></label>
 <input type="text" name="alamat" class="form-control" placeholder="Contoh: Jl. Merdeka No. 10, Makassar" required>
 </div>
 
 <div class="form-group">
-<label>Jenis Layanan yang Dipesan <span style="color:#E01010">*</span></label>
+<label>Jenis Layanan yang Dipesan <span>*</span></label>
 <select name="layanan" class="form-control" required>
 <option value="">-- Pilih Jenis Layanan --</option>
 <option value="outsourcing">Outsourcing Tenaga Kerja</option>
@@ -805,7 +823,7 @@ Kontraktor & Mekanikal Elektrikal.
 <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Kirim Pemesanan</button>
 
 <p class="note">
-<span style="color:#E01010; font-weight:600">*</span> Wajib diisi<br>
+<span>*</span> Wajib diisi<br>
 Setelah mengirim, kami akan menghubungi Anda maksimal dalam 1x24 jam melalui WhatsApp / Telepon
 </p>
 </form>
