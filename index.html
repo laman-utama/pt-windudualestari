@@ -1,1020 +1,1056 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WINDU DUA LESTARI - WIDURI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary-blue: #003399;
-      --dark-blue: #0A2342;
-      --light: #FFFFFF;
-      --gray-soft: #F5F5F7;
-      --text: #333333;
-      --wa-green: #25D366;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Roboto', sans-serif;
-    }
-    body {
-      color: var(--text);
-      line-height: 1.6;
-      background-color: var(--gray-soft);
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Windu Dua Lestari (WIDURI)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #003399;
+            --light-blue: #e6f0ff;
+            --gray-light: #f0f0f0;
+            --dark-blue: #0A2342;
+            --light: #FFFFFF;
+            --gray-soft: #F5F5F7;
+            --text: #333333;
+            --wa-green: #25D366;
+            --red-accent: #ff0000;
+        }
+        * { 
+            box-sizing: border-box; 
+            margin: 0; 
+            padding: 0; 
+        }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background-color: #f9f9f9; 
+            color: var(--text); 
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-    /* HEADER */
-    header {
-      background: var(--light);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-      position: sticky;
-      top: 0;
-      z-index: 999;
-      padding: 8px 0;
-    }
-    .header-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 12px 25px;
-    }
-    .logo {
-      display: flex;
-      align-items: center;
-      text-decoration: none;
-      gap: 12px;
-    }
-    .logo img {
-      width: 180px;
-      height: auto;
-      object-fit: contain;
-      content:url("https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PT_WIDURI%20LOGO.png");
-    }
-    .menu-toggle {
-      font-size: 30px;
-      cursor: pointer;
-      color: var(--dark);
-    }
-    .sidebar-menu {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 300px;
-      height: 100vh;
-      background: var(--light);
-      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
-      z-index: 9999;
-      transform: translateX(-100%);
-      transition: 0.3s ease;
-      padding: 30px 20px;
-    }
-    .sidebar-menu.active {
-      transform: translateX(0);
-    }
-    .close-btn {
-      position: absolute;
-      top: 15px;
-      right: 15px;
-      font-size: 24px;
-      cursor: pointer;
-      color: var(--dark);
-    }
-    .menu-list {
-      list-style: none;
-      margin-top: 40px;
-    }
-    .menu-list li {
-      margin: 8px 0;
-    }
-    .menu-list a {
-      display: block;
-      padding: 12px 10px;
-      color: var(--primary-blue);
-      text-decoration: none;
-      font-size: 17px;
-      border-bottom: 1px solid #eee;
-      transition: 0.2s;
-      font-weight: 400;
-    }
-    .menu-list a:hover, .menu-list a.active {
-      color: #0055CC;
-      font-weight: 500;
-    }
+        /* Header Umum */
+        .header { 
+            padding: 12px 20px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            background: white; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+            position: sticky; 
+            top: 0; 
+            z-index: 999; 
+        }
+        .logo { height: 40px; }
+        .menu-toggle { 
+            font-size: 24px; 
+            cursor: pointer; 
+            color: var(--primary-blue); 
+            transition: color 0.2s ease;
+        }
+        .menu-toggle:hover { color: var(--red-accent); }
 
-    /* BANNER LAYANAN */
-    .service-banner {
-      position: relative;
-      height: 300px;
-      background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-      url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center top/cover no-repeat;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: left;
-      color: var(--light);
-      margin-bottom: 30px;
-      overflow: hidden;
-      padding-left: 50px;
-    }
-    .service-banner h1 {
-      font-size: 60px;
-      font-weight: 700;
-      margin-bottom: 25px;
-      color: var(--light);
-      letter-spacing: 1px;
-      line-height: 1.1;
-    }
-    .breadcrumb {
-      font-size: 20px;
-      font-weight: 400;
-    }
-    .breadcrumb a {
-      color: var(--light);
-      text-decoration: none;
-    }
-    .breadcrumb span {
-      color: #0099FF;
-      margin: 0 8px;
-      font-weight: 500;
-    }
+        /* Sidebar Menu */
+        .sidebar-menu { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            width: 280px; 
+            height: 100vh; 
+            background: #ffffff; 
+            box-shadow: 4px 0 20px rgba(0, 51, 153, 0.12); 
+            transform: translateX(-100%); 
+            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+            z-index: 1000; 
+            padding: 30px 25px;
+        }
+        .sidebar-menu.active { transform: translateX(0); }
+        .close-btn { 
+            text-align: right; 
+            font-size: 26px; 
+            cursor: pointer; 
+            margin-bottom: 30px;
+            color: var(--primary-blue); 
+            font-weight: 300;
+            transition: color 0.2s ease;
+        }
+        .close-btn:hover { color: var(--red-accent); }
+        .menu-list { list-style: none; }
+        .menu-list li { margin-bottom: 6px; }
+        .menu-list a { 
+            text-decoration: none; 
+            color: var(--primary-blue); 
+            font-size: 20px; 
+            font-weight: 500; 
+            display: block; 
+            padding: 14px 12px;
+            border-bottom: 1px solid #e8edf5; 
+            border-radius: 6px;
+            transition: all 0.25s ease;
+            letter-spacing: 0.2px;
+        }
+        .menu-list a:hover { 
+            background-color: #f5f8ff; 
+            color: var(--primary-blue);
+            padding-left: 18px;
+        }
+        .menu-list a.active { 
+            color: var(--red-accent); 
+            font-weight: 600;
+            background-color: #fff5f5;
+        }
 
-    /* KONTAINER LAYANAN - IKON DIPINDAH KE ATAS MENEMPEL GAMBAR */
-    .services-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    .service-item {
-      background: var(--light);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      margin-bottom: 45px;
-      position: relative;
-      text-align: center;
-      padding: 0 0 30px 0;
-      width: 100%;
-      transition: all 0.3s ease;
-    }
-    .service-item:hover {
-      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-      transform: translateY(-3px);
-    }
-    .service-item img {
-      width: 100%;
-      height: auto;
-      max-height: 420px;
-      object-fit: contain;
-      background-color: #fcfcfc;
-      display: block;
-      margin-bottom: 0; /* Hapus jarak bawah gambar agar ikon menempel */
-    }
-    /* ✅ IKON DIPINDAH KE ATAS, MENEMPEL SETENGAH LINGKARAN DI BAWAH GAMBAR ✅ */
-    .icon-wrapper {
-      position: relative;
-      margin-top: -37.5px; /* Naikkan ikon hingga setengah lingkaran menutupi bagian bawah gambar */
-      margin-bottom: 10px;
-      z-index: 2;
-    }
-    .service-icon-circle {
-      width: 75px;
-      height: 75px;
-      background-color: var(--primary-blue);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--light);
-      font-size: 30px;
-      margin: 0 auto;
-      border: 4px solid var(--light);
-      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .service-icon-circle:hover {
-      transform: scale(1.08);
-      background-color: #0044CC;
-    }
-    .service-title {
-      font-size: 20px;
-      color: var(--primary-blue);
-      font-weight: 500;
-      margin-top: 6px;
-      margin-bottom: 10px;
-      letter-spacing: 0.5px;
-    }
-    .service-desc {
-      max-width: 800px;
-      margin: 0 auto 20px;
-      padding: 0 25px;
-      color: var(--text);
-      font-size: 16px;
-      line-height: 1.7;
-      display: none;
-      animation: fadeIn 0.3s ease;
-    }
-    @keyframes fadeIn {
-      from {opacity: 0; transform: translateY(8px);}
-      to {opacity: 1; transform: translateY(0);}
-    }
+        /* Tombol WA Mengambang */
+        .wa-float-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99999;
+            padding: 8px 12px;
+            font-size: 14px;
+            border-radius: 30px;
+            background-color: var(--wa-green);
+            color: var(--light);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+        .wa-float-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
+            color: var(--light);
+        }
+        .wa-float-button i {
+            font-size: 16px;
+        }
 
-    /* PAGINASI */
-    .pagination {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      margin: 35px 0 60px;
-    }
-    .page-num {
-      width: 45px;
-      height: 45px;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 18px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .page-num.active {
-      background-color: var(--primary-blue);
-      color: var(--light);
-    }
-    .page-num.inactive {
-      background-color: #E8E8EB;
-      color: var(--text);
-    }
-    .page-num:hover:not(.active) {
-      background-color: #DEDEE2;
-    }
+        /* Banner Halaman & Breadcrumb */
+        .page-banner {
+            position: relative;
+            height: 260px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center top/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            text-align: left;
+            color: var(--light);
+            margin-bottom: 25px;
+            overflow: hidden;
+            padding-left: 40px;
+        }
+        .page-banner h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--light);
+            letter-spacing: 0.3px;
+            line-height: 1.1;
+        }
+        .breadcrumb {
+            font-size: 17px;
+            font-weight: 400;
+        }
+        .breadcrumb a {
+            color: #66b3ff;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .breadcrumb a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+        .breadcrumb span {
+            color: #ffffff;
+            margin: 0 6px;
+            font-weight: 500;
+        }
 
-    /* PETA */
-    .map-section {
-      max-width: 1100px;
-      margin: 0 auto 60px;
-      padding: 0 20px;
-      text-align: center;
-    }
-    .map-section h3 {
-      font-size: 24px;
-      color: var(--primary-blue);
-      margin-bottom: 20px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-    }
-    .map-img {
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-    }
+        /* Halaman Beranda */
+        .home-hero { 
+            background: linear-gradient(rgba(0, 26, 51, 0.85), rgba(0, 26, 51, 0.85)), 
+                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000');
+            background-size: cover; 
+            background-position: center;
+            height: 400px;
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            color: white; 
+            text-align: center; 
+            padding: 20px;
+        }
+        .home-hero h1 { font-size: 24px; margin-bottom: 12px; line-height: 1.3; }
+        .home-hero p { margin-bottom: 20px; font-weight: 300; opacity: 0.9; }
+        
+        .btn-cta { 
+            background: var(--red-accent); 
+            color: white; 
+            padding: 10px 26px;
+            text-decoration: none; 
+            border-radius: 5px; 
+            font-weight: bold; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+            transition: all 0.25s ease;
+        }
+        .btn-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.25);
+            background-color: #cc0000;
+        }
 
-    /* BAGIAN BAWAH / FOOTER */
-    .info-footer {
-      background-color: var(--dark-blue);
-      color: var(--light);
-      padding: 40px 0;
-      margin-top: 40px;
-      position: relative;
-    }
-    /* ✅ REVISI 1: Logo bulat kecil di tengah antara putih & biru */
-    .footer-logo-wrapper {
-      text-align: center;
-      margin-bottom: 25px;
-      margin-top: -60px; /* Posisi pas di batas putih & biru */
-      position: relative;
-      z-index: 10;
-    }
-    .footer-logo {
-      width: 80px; /* Ukuran diperkecil */
-      height: auto;
-      background: transparent;
-      border-radius: 0;
-      padding: 0;
-      box-shadow: none;
-      display: inline-block;
-    }
-    .footer-logo img {
-      width: 100%;
-      height: auto;
-      /* Pakai logo bulat tanpa tulisan dari GitHub */
-      content:url("https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/WIDURI_LOGO.png");
-    }
+        .section-title { 
+            text-align: center; 
+            padding: 25px 20px 12px;
+            color: var(--primary-blue); 
+            font-size: 26px;
+            font-weight: 700; 
+        }
 
-    .info-container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0 25px;
-    }
-    /* ✅ REVISI 2: Tulisan satu baris & diperkecil */
-    .company-name {
-      font-size: 22px; /* Ukuran diperkecil */
-      font-weight: 700;
-      margin-bottom: 5px;
-      text-align: left;
-      color: var(--light);
-      letter-spacing: 0.5px;
-      line-height: 1.2;
-    }
-    .company-name-small {
-      font-size: 18px; /* Ukuran diperkecil */
-      font-weight: 500;
-      margin-bottom: 20px;
-      text-align: left;
-      color: #ddd;
-    }
+        /* Daftar Layanan - Tulisan diperbesar */
+        .grid-layanan { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 12px;
+            padding: 0 20px 15px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .layanan-item { 
+            display: block;
+            padding: 18px 22px;
+            border-radius: 8px;
+            border: 1px solid #e0e7ff; 
+            text-align: left; 
+            font-size: 18px; /* Diperbesar */
+            font-weight: 500; 
+            color: var(--primary-blue);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background-color: var(--light);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .layanan-item:hover {
+            background-color: #f8fbff;
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,51,153,0.15);
+            color: var(--primary-blue);
+            padding-left: 26px;
+        }
+        .layanan-item:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 6px rgba(0,51,153,0.1);
+        }
+        .layanan-item i {
+            font-size: 24px;
+            width: 32px;
+            text-align: center;
+            color: var(--primary-blue);
+            transition: transform 0.2s ease;
+        }
+        .layanan-item:hover i {
+            transform: scale(1.08);
+        }
 
-    .company-desc {
-      font-size: 16px;
-      line-height: 1.7;
-      margin-bottom: 30px;
-      text-align: left;
-      opacity: 0.9;
-      max-width: 800px;
-    }
+        /* HALAMAN PROFIL & LAYANAN */
+        .profile-content, .services-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 30px;
+        }
+        .card { 
+            background: white; 
+            margin: 15px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
+            text-align: center; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        .icon-circle { 
+            width: 55px;
+            height: 55px;
+            background-color: var(--primary-blue); 
+            color: white; 
+            border-radius: 50%; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 0 auto 12px auto;
+            font-size: 24px;
+            transition: transform 0.2s ease;
+        }
+        .card:hover .icon-circle {
+            transform: scale(1.05);
+        }
+        .card h2 { 
+            color: var(--primary-blue); 
+            margin-bottom: 12px;
+            font-size: 22px;
+            text-align: center;
+        }
+        .card p, .service-desc { 
+            text-align: center;
+            line-height: 1.5;
+            font-size: 16px; 
+            color: var(--text); 
+            margin: 0;
+            word-spacing: normal !important;
+            letter-spacing: 0.1px !important;
+            white-space: normal !important;
+        }
 
-    .info-row {
-      margin-bottom: 25px;
-      text-align: left;
-    }
-    .info-title {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: #B3D1FF;
-      text-align: left;
-    }
-    .info-text {
-      font-size: 16px;
-      line-height: 1.7;
-      opacity: 0.9;
-      text-align: left;
-    }
-    .info-text p {
-      margin: 6px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+        .motto-block { 
+            background-color: var(--primary-blue); 
+            color: white; 
+            padding: 25px 20px;
+            text-align: center; 
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        .section-header { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-bottom: 12px;
+            font-size: 13px; 
+        }
+        .line { width: 25px; height: 1px; background-color: white; margin: 0 8px; }
+        
+        .img-fluid { width: 100%; border-radius: 6px; margin-top: 8px; }
+        .cert-title { color: var(--primary-blue); font-weight: bold; margin: 8px 0; font-size: 17px; }
 
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin: 15px 0;
-      text-align: left;
-    }
-    .social-links a {
-      color: var(--light);
-      font-size: 22px;
-      opacity: 0.8;
-      transition: 0.2s;
-    }
-    .social-links a:hover {
-      opacity: 1;
-    }
+        /* Halaman Layanan Detail */
+        .btn-kembali {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: var(--primary-blue);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            margin-bottom: 20px;
+            font-size: 15px;
+            box-shadow: 0 2px 6px rgba(0,51,153,0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-kembali:hover {
+            background-color: #0044cc;
+            transform: translateX(-3px);
+            box-shadow: 0 4px 12px rgba(0,51,153,0.25);
+            color: white;
+        }
+        .btn-kembali:active {
+            transform: translateX(-1px);
+        }
+        .btn-kembali i {
+            transition: transform 0.2s ease;
+        }
+        .btn-kembali:hover i {
+            transform: translateX(-2px);
+        }
 
-    .visitor-counter {
-      background-color: rgba(255,255,255,0.12);
-      padding: 20px;
-      border-radius: 6px;
-      margin: 25px 0;
-      text-align: left;
-    }
-    .visitor-counter p {
-      font-size: 15px;
-      margin: 5px 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .visitor-number {
-      font-weight: 500;
-      color: #fff;
-    }
+        .service-item {
+            background: var(--light);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+            margin-bottom: 30px;
+            position: relative;
+            text-align: center;
+            padding: 20px 20px 25px;
+            width: 100%;
+            opacity: 0;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            display: none;
+        }
+        .service-item.active {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+            display: block;
+        }
+        .service-item img {
+            width: 100%;
+            height: auto;
+            max-height: 350px;
+            object-fit: cover;
+            background-color: #fcfcfc;
+            display: block;
+            margin: 0 auto 20px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .service-item:hover img {
+            transform: scale(1.01);
+        }
+        .icon-wrapper {
+            position: relative;
+            margin-top: -30px;
+            margin-bottom: 15px;
+            z-index: 2;
+        }
+        .service-icon-circle {
+            width: 65px;
+            height: 65px;
+            background-color: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 26px;
+            margin: 0 auto;
+            border: 3px solid var(--light);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s ease;
+        }
+        .service-item:hover .service-icon-circle {
+            transform: scale(1.05);
+        }
+        .service-title {
+            font-size: 26px;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin-bottom: 18px;
+            letter-spacing: 0.2px;
+        }
 
-    footer {
-      background: transparent;
-      color: var(--light);
-      text-align: center;
-      padding: 20px 0 0;
-      border-top: 1px solid rgba(255,255,255,0.15);
-      font-size: 14px;
-      opacity: 0.8;
-      margin-top: 20px;
-    }
+        /* Peta Jangkauan - Jarak diperpendek */
+        .map-section {
+            max-width: 1100px;
+            margin: 15px auto 35px;
+            padding: 0 20px;
+            text-align: center;
+        }
+        .map-section h3 {
+            font-size: 26px;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 0.2px;
+        }
+        .map-img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        .map-img:hover {
+            transform: scale(1.01);
+        }
 
-    /* TOMBOL WA MENGAMBANG KECIL */
-    .wa-float-button {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 99999;
-      padding: 8px 12px;
-      font-size: 14px;
-      border-radius: 30px;
-      background-color: var(--wa-green);
-      color: var(--light);
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-      transition: all 0.3s ease;
-    }
-    .wa-float-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-      color: var(--light);
-    }
-    .wa-float-button i {
-      font-size: 16px;
-    }
+        /* Halaman Kontak */
+        .contact-container { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 0 20px 30px;
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px;
+        }
 
-    .section {
-      padding: 60px 25px;
-      max-width: 1100px;
-      margin: 0 auto;
-      background: var(--light);
-      border-radius: 12px;
-      margin-bottom: 20px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    }
-    .section-white {
-      background: var(--light);
-    }
-    .section-gray {
-      background: var(--gray-soft);
-    }
-    .title-wrap {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .title-wrap h2 {
-      font-size: clamp(22px, 4vw, 32px);
-      color: var(--primary-blue);
-      margin-bottom: 10px;
-      position: relative;
-      display: inline-block;
-      font-weight: 500;
-      letter-spacing: 0.5px;
-    }
-    .title-wrap h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 50px;
-      height: 3px;
-      background: var(--primary-blue);
-    }
-    .visi-misi-wrap {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 30px;
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    @media (min-width: 768px) {
-      .visi-misi-wrap {
-        grid-template-columns: 1fr 1fr;
-      }
-    }
-    .box-vm {
-      background: var(--light);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .box-vm:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    }
-    .box-vm .icon {
-      width: 65px;
-      height: 65px;
-      background: var(--primary-blue);
-      color: var(--light);
-      font-size: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      margin: 0 auto 20px;
-    }
-    .box-vm h3 {
-      font-size: 22px;
-      color: var(--primary-blue);
-      margin-bottom: 15px;
-      font-weight: 500;
-    }
-    .motto-box {
-      background: var(--primary-blue);
-      color: var(--light);
-      text-align: center;
-      padding: 25px 20px;
-      margin: 40px 0;
-      border-radius: 12px;
-    }
-    .motto-box h2 {
-      font-size: clamp(20px, 4vw, 28px);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 500;
-    }
-    .about-text {
-      max-width: 850px;
-      margin: 0 auto;
-      text-align: center;
-      font-size: 16px;
-      line-height: 1.8;
-      font-weight: 300;
-    }
-    .btn-blue {
-      display: inline-block;
-      padding: 12px 30px;
-      background: var(--primary-blue);
-      color: var(--light);
-      text-decoration: none;
-      border-radius: 6px;
-      margin-top: 20px;
-      transition: 0.3s;
-      font-weight: 400;
-      letter-spacing: 0.5px;
-    }
-    .btn-blue:hover {
-      background: #0044CC;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(0,51,153,0.2);
-    }
-    .form-container {
-      max-width: 600px;
-      margin: 40px auto 0;
-      background: var(--light);
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 8px;
-      font-weight: 300;
-      color: var(--primary-blue);
-      font-size: 15px;
-    }
-    .form-group input,
-    .form-group textarea {
-      width: 100%;
-      padding: 12px 15px;
-      border: 1px solid #ddd;
-      border-radius: 6px;
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 300;
-      transition: all 0.2s ease;
-    }
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--primary-blue);
-      box-shadow: 0 0 0 2px rgba(0, 51, 153, 0.1);
-    }
-    .form-group textarea {
-      min-height: 150px;
-      resize: vertical;
-    }
-    .btn-submit {
-      width: 100%;
-      padding: 12px;
-      background: var(--primary-blue);
-      color: var(--light);
-      border: none;
-      border-radius: 6px;
-      font-size: 16px;
-      font-weight: 400;
-      cursor: pointer;
-      transition: 0.3s;
-      letter-spacing: 0.5px;
-    }
-    .btn-submit:hover {
-      background: #0044CC;
-    }
-    .map-container {
-      width: 100%;
-      height: 350px;
-      background: #eee;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .contact-bottom {
-      background: var(--dark);
-      color: var(--light);
-      padding: 50px 25px;
-      border-radius: 12px;
-      margin: 20px 0;
-    }
-    .contact-wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .contact-bottom h2 {
-      font-size: 22px;
-      color: #B3D1FF;
-      margin-bottom: 20px;
-      font-weight: 500;
-    }
-    .contact-row p {
-      margin: 8px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-weight: 300;
-      font-size: 15px;
-    }
-    .contact-row a {
-      color: var(--light);
-      text-decoration: none;
-      font-weight: 300;
-    }
-    .contact-row a:hover {
-      text-decoration: underline;
-    }
-  </style>
+        .info-card, .form-card { 
+            background: white; 
+            padding: 18px;
+            border-radius: 8px; 
+            border: 1px solid #eee; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .info-card:hover, .form-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        .info-card h3, .form-card h3 { 
+            font-size: 17px; 
+            color: var(--primary-blue); 
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eee; 
+            font-weight: bold; 
+        }
+        .info-item { margin-bottom: 10px; font-size: 14px; line-height: 1.5; word-spacing: normal; text-align: center; }
+        .info-card p, .info-card a { font-size: 14px; color: var(--text); text-decoration: none; transition: color 0.2s ease; text-align: center; }
+        .info-card a:hover { color: var(--red-accent); text-decoration: underline; }
+
+        .form-group { margin-bottom: 12px; }
+        .form-group label { display: block; margin-bottom: 4px; font-size: 13px; font-weight: 600; text-align: left; }
+        .form-group input, .form-group select, .form-group textarea { 
+            width: 100%; 
+            padding: 9px;
+            border: 1px solid #ddd; 
+            border-radius: 4px; 
+            font-size: 13px; 
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 2px rgba(0, 51, 153, 0.1);
+        }
+        .form-group textarea { height: 90px; }
+        .btn-submit { 
+            background: var(--red-accent); 
+            color: white; 
+            border: none; 
+            padding: 10px 26px;
+            border-radius: 5px; 
+            font-size: 14px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            width: 100%; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2); 
+            transition: all 0.25s ease;
+        }
+        .btn-submit:hover {
+            background-color: #cc0000;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.25);
+        }
+
+        .map-section-kontak { max-width: 1000px; margin: 0 auto 15px; padding: 0 20px; }
+        .map-card { background: white; padding: 15px; border-radius: 8px; border: 1px solid #eee; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .map-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+        .map-container { width: 100%; height: 280px; border-radius: 4px; overflow: hidden; margin-top: 8px; }
+        .map-container iframe { width: 100%; height: 100%; border: none; }
+
+        /* Info Perusahaan - Semua teks rata tengah */
+        .info-lengkap {
+            max-width: 1000px;
+            margin: 0 auto 30px;
+            padding: 25px 20px;
+            background-color: var(--dark-blue);
+            color: #ffffff;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .info-lengkap .logo-tengah {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .info-lengkap .logo-tengah img {
+            width: 75px;
+            height: auto;
+            border-radius: 50%;
+        }
+        .info-lengkap h2 {
+            font-size: 22px;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+        .info-lengkap h3 {
+            font-size: 17px;
+            font-weight: normal;
+            margin-bottom: 15px;
+            text-align: center;
+            opacity: 0.9;
+        }
+        .info-lengkap .deskripsi {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            text-align: center;
+            word-spacing: normal;
+        }
+        .info-lengkap h4 {
+            font-size: 19px;
+            color: #B3D1FF;
+            margin: 15px 0 8px;
+            text-align: center;
+        }
+        .info-lengkap .jam-kerja p,
+        .info-lengkap .kontak-item p {
+            font-size: 15px;
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: 0.9;
+            word-spacing: normal;
+            text-align: center;
+        }
+        .info-lengkap .sosial {
+            display: flex;
+            gap: 12px;
+            margin: 15px 0;
+            justify-content: center;
+        }
+        .info-lengkap .sosial a {
+            color: #ffffff;
+            font-size: 22px;
+            opacity: 0.8;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .info-lengkap .sosial a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        .visitor-box {
+            background-color: rgba(255,255,255,0.12);
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+        .visitor-box p {
+            margin: 5px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            word-spacing: normal;
+        }
+        .visitor-box .small-text {
+            font-size: 12px;
+            opacity: 0.7;
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* Footer Hak Cipta - Diedit sesuai permintaan */
+        .footer { 
+            background-color: #001a33; 
+            color: white; 
+            padding: 25px 20px;
+            text-align: center; 
+            font-size: 14px; 
+            margin-top: 15px;
+        }
+        .footer p {
+            margin: 5px 0;
+            line-height: 1.6;
+        }
+
+        /* Responsif */
+        @media(max-width: 768px) {
+            .grid-layanan { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; }
+            .page-banner h1 { font-size: 28px; }
+            .info-lengkap { padding: 20px 15px; }
+            .layanan-item { font-size: 17px; padding: 16px 20px; }
+            .service-title { font-size: 22px; }
+            .service-desc { font-size: 15px; }
+            .map-section h3 { font-size: 22px; }
+            .page-banner { padding-left: 20px; height: 220px; }
+        }
+    </style>
 </head>
 <body>
+    <!-- Tombol WA Mengambang -->
+    <a href="https://wa.me/6285750681600" class="wa-float-button" target="_blank">
+        <i class="fab fa-whatsapp"></i> Hubungi Kami
+    </a>
 
-<!-- TOMBOL WA MENGAMBANG KECIL -->
-<a href="https://wa.me/6285750681600" class="wa-float-button" target="_blank">
-  <i class="fab fa-whatsapp"></i> Hubungi Kami
-</a>
-
-<!-- SIDEBAR MENU -->
-<div class="sidebar-menu" id="sidebarMenu">
-  <div class="close-btn" onclick="closeMenu()"><i class="fas fa-times"></i></div>
-  <div class="logo" style="justify-content: center; margin-bottom: 20px;">
-    <img alt="Logo PT. Widuri">
-  </div>
-  <ul class="menu-list">
-    <li><a href="#beranda" class="active" onclick="changePage('beranda'); closeMenu()">Beranda</a></li>
-    <li><a href="#tentang" onclick="changePage('tentang'); closeMenu()">Tentang Kami</a></li>
-    <li><a href="#layanan" onclick="changePage('layanan'); closeMenu()">Layanan Kami</a></li>
-    <li><a href="#kontak" onclick="changePage('kontak'); closeMenu()">Kontak</a></li>
-  </ul>
-</div>
-
-<!-- HEADER -->
-<header>
-  <div class="header-container">
-    <div class="logo">
-      <img alt="Logo PT. Widuri">
-    </div>
-    <div class="menu-toggle" onclick="openMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
-  </div>
-</header>
-
-<!-- BERANDA -->
-<section id="beranda" class="page-content active">
-  <div class="hero">
-    <div class="hero-content">
-      <h1>PT. WINDU DUA LESTARI</h1>
-      <p>"WIDURI"</p>
-    </div>
-  </div>
-
-  <!-- VISI & MISI -->
-  <div class="section section-white">
-    <div class="title-wrap">
-      <h2>Visi & Misi</h2>
-    </div>
-    <div class="visi-misi-wrap">
-      <div class="box-vm">
-        <div class="icon"><i class="fas fa-bullseye"></i></div>
-        <h3>Visi</h3>
-        <p>Menjadi perusahaan penyedia jasa dan perdagangan terpercaya di Indonesia yang mengutamakan kualitas, kecepatan pelayanan melalui pengelolaan SDM dan manajemen yang berkualitas & profesional.</p>
-      </div>
-      <div class="box-vm">
-        <div class="icon"><i class="fas fa-rocket"></i></div>
-        <h3>Misi</h3>
-        <p>Menciptakan lapangan kerja dan menerapkan sistem pelatihan pengelolaan SDM dengan manajemen berkualitas. Meningkatkan kepedulian terhadap lingkungan, individu dan komunitas. Mengutamakan kepuasan pelanggan dengan solusi tepat dan penyelesaian cepat.</p>
-      </div>
+    <!-- Sidebar Menu -->
+    <div class="sidebar-menu" id="sidebarMenu">
+        <div class="close-btn" onclick="toggleMenu()">✕</div>
+        <ul class="menu-list">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#layanan">Layanan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
     </div>
 
-    <div class="motto-box">
-      <h2>SIGAP - CEPAT - TUNTAS</h2>
-    </div>
-  </div>
-
-  <!-- TENTANG SINGKAT -->
-  <div class="section section-gray">
-    <div class="title-wrap">
-      <h2>Tentang Perusahaan</h2>
-    </div>
-    <div class="about-text">
-      <p>PT. Windu Dua Lestari "Widuri" adalah perusahaan perseroan terbatas yang baru berdiri resmi, bergerak di bidang jasa tenaga kerja (outsourcing), cleaning service, suplai bahan kimia & alat kebersihan, perdagangan umum, pengadaan barang, jasa desain & percetakan, serta jasa kontraktor & mekanikal elektrikal. Kami berkomitmen memberikan pelayanan terbaik, harga yang kompetitif serta hasil kerja yang memuaskan dan terjamin kualitasnya.</p>
-      <a href="#tentang" class="btn-blue" onclick="changePage('tentang')">Selengkapnya →</a>
-    </div>
-  </div>
-</section>
-
-<!-- TENTANG KAMI -->
-<section id="tentang" class="page-content" style="display:none;">
-  <div class="section section-white">
-    <div class="title-wrap">
-      <h2>Tentang Kami</h2>
-    </div>
-    <div class="about-text">
-      <p>PT. Windu Dua Lestari "Widuri" merupakan perusahaan yang didirikan dengan tujuan untuk membantu memenuhi kebutuhan tenaga kerja, pelayanan kebersihan, pengadaan barang, serta jasa pendukung lainnya bagi perusahaan, instansi maupun perorangan.</p>
-      <p style="margin-top:15px;">Kami memiliki izin usaha yang lengkap dan resmi, didukung oleh tenaga kerja yang terlatih, berpengalaman dan bersertifikat di bidangnya masing-masing. Kami berkomitmen memberikan pelayanan terbaik, harga yang kompetitif serta hasil kerja yang memuaskan dan terjamin kualitasnya.</p>
-      <p style="margin-top:15px;">Saat ini kami siap melayani berbagai jenis usaha mulai dari perkantoran, pabrik, rumah sakit, hotel, sekolah, hingga instansi pemerintahan di berbagai wilayah Indonesia.</p>
-    </div>
-
-    <div class="title-wrap" style="margin-top:60px;">
-      <h2>Sertifikat & Legalitas</h2>
-    </div>
-    <div style="display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:center; margin-top:30px;">
-      <div style="text-align:center;"><img src="https://via.placeholder.com/80x60?text=SIUP" alt="SIUP"></div>
-      <div style="text-align:center;"><img src="https://via.placeholder.com/80x60?text=TDP" alt="TDP"></div>
-      <div style="text-align:center;"><img src="https://via.placeholder.com/80x60?text=NPWP" alt="NPWP"></div>
-      <div style="text-align:center;"><img src="https://via.placeholder.com/80x60?text=AKTA" alt="AKTA"></div>
-    </div>
-  </div>
-</section>
-
-<!-- LAYANAN KAMI -->
-<section id="layanan" class="page-content" style="display:none; padding:0; background:transparent;">
-  <div class="service-banner">
-    <h1>Layanan Kami</h1>
-    <div class="breadcrumb">
-      <a href="#beranda" onclick="changePage('beranda')">Beranda</a>
-      <span>›</span>
-      <span>Layanan Kami</span>
-    </div>
-  </div>
-
-  <div class="services-container">
-    <!-- CLEANING SERVICE - FOTO SUDAH DIGANTI YANG BARU DARI GITHUB -->
-    <div class="service-item">
-      <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/CLAENING%20SERVICE.JPG" alt="Cleaning Service">
-      <div class="icon-wrapper">
-        <div class="service-icon-circle" onclick="toggleDesc(this)">
-          <i class="fas fa-building"></i>
+    <!-- Header -->
+    <header class="header">
+        <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PT_WIDURI%20LOGO.png" alt="Logo PT Windu Dua Lestari" class="logo">
+        <span class="menu-toggle" onclick="toggleMenu()">☰</span>
+    </header>
+    <!-- Halaman Beranda -->
+    <section id="beranda">
+        <div class="home-hero">
+            <h1>Solusi Profesional untuk Kebutuhan Bisnis Anda</h1>
+            <p>Jasa Tenaga Kerja, Kebersihan, Perdagangan, Percetakan & Kontraktor Terpercaya</p>
+            <a href="#layanan" class="btn-cta">LIHAT SEMUA LAYANAN</a>
         </div>
-        <h3 class="service-title">Cleaning Service</h3>
-      </div>
-      <p class="service-desc">Kami menyediakan tenaga kebersihan profesional untuk perkantoran, gedung, rumah sakit, hotel, sekolah, dan perumahan. Dilengkapi alat dan bahan pembersih berkualitas, tenaga terlatih, berpengalaman dan bersertifikat, menjamin kebersihan, kenyamanan dan kesehatan lingkungan kerja Anda.</p>
-    </div>
 
-    <!-- GARDENER -->
-    <div class="service-item">
-      <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/GARDEDER.JPG" alt="Gardener">
-      <div class="icon-wrapper">
-        <div class="service-icon-circle" onclick="toggleDesc(this)">
-          <i class="fas fa-leaf"></i>
+        <h2 class="section-title">Layanan Unggulan</h2>
+        <div class="grid-layanan">
+            <a href="#layanan" class="layanan-item" data-target="layanan-1">
+                <i class="fas fa-building"></i> Cleaning Service
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-2">
+                <i class="fas fa-leaf"></i> Gardener / Perawatan Taman
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-3">
+                <i class="fas fa-shopping-basket"></i> Pengadaan Barang & Kimia Cleaning
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-4">
+                <i class="fas fa-cog"></i> MEP (Mekanikal, Elektrikal, Plumbing)
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-5">
+                <i class="fas fa-hard-hat"></i> Jasa Kontraktor & Konstruksi
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-6">
+                <i class="fas fa-print"></i> Advertising & Percetakan
+            </a>
         </div>
-        <h3 class="service-title">Gardener / Perawatan Taman</h3>
-      </div>
-      <p class="service-desc">Layanan perawatan taman, lanskap dan ruang hijau meliputi pemangkasan, penanaman, penyiraman, pemupukan, pembasmian hama, serta pemeliharaan rutin. Tenaga ahli kami menjamin taman tetap asri, indah, sehat dan terawat dengan baik sepanjang waktu.</p>
-    </div>
+    </section>
 
-    <!-- PENGADAAN BARANG & KIMIA -->
-    <div class="service-item">
-      <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PERALATAN%20KIMIA.JPG" alt="Pengadaan Barang Peralatan & Kimia Cleaning Service">
-      <div class="icon-wrapper">
-        <div class="service-icon-circle" onclick="toggleDesc(this)">
-          <i class="fas fa-shopping-basket"></i>
+    <!-- Halaman Profil -->
+    <section id="profil">
+        <div class="page-banner">
+            <h1>Profil Perusahaan</h1>
+            <div class="breadcrumb">
+                <a href="#beranda">Beranda</a>
+                <span>›</span>
+                <span>Profil</span>
+            </div>
         </div>
-        <h3 class="service-title">Pengadaan Barang Peralatan & Kimia Cleaning Service</h3>
-      </div>
-      <p class="service-desc">Kami menyediakan dan menyuplai berbagai jenis bahan kimia pembersih berkualitas, peralatan kebersihan, mesin pembersih, serta perlengkapan pendukung untuk kebutuhan kebersihan gedung, kantor, rumah sakit, hotel dan perumahan. Produk kami asli, terstandar, aman digunakan, dan tersedia dalam berbagai ukuran serta jenis sesuai kebutuhan Anda.</p>
-    </div>
 
-    <!-- MEP -->
-    <div class="service-item">
-      <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/MEKANIKAL.JPG" alt="MEP">
-      <div class="icon-wrapper">
-        <div class="service-icon-circle" onclick="toggleDesc(this)">
-          <i class="fas fa-cog"></i>
+        <div class="profile-content">
+            <div class="card">
+                <h2>Profil Singkat</h2>
+                <p>
+                    <strong>PT. Windu Dua Lestari</strong> didirikan pada tahun 2020 di Kabupaten Gowa, Sulawesi Selatan. Sejak awal berdirinya, kami bergerak di bidang jasa tenaga kerja outsourcing, layanan kebersihan, pengadaan barang dan bahan kimia, perdagangan umum, advertising, percetakan, jasa kontraktor serta mekanikal elektrikal.<br><br>
+                    Selama beroperasi, kami selalu berkomitmen memberikan pelayanan yang profesional, amanah dan berkualitas. Didukung oleh tenaga kerja terlatih dan sistem manajemen yang baik, kami hadir menjadi mitra terpercaya untuk membantu kelancaran operasional usaha Anda, dengan prinsip utama <em>Sigap – Cepat – Tuntas</em>.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon-circle">🎯</div>
+                <h2>Visi</h2>
+                <p>Menjadi perusahaan pelayanan jasa terdepan di Indonesia yang mengutamakan kualitas, kecepatan pelayanan melalui pengelolaan SDM dan manajemen yang berkualitas & profesional.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon-circle">✔</div>
+                <h2>Misi</h2>
+                <p>Menciptakan lapangan pekerjaan dan mengaplikasikan sistem pelatihan pengelolaan SDM dengan manajemen yang berkualitas dan profesional.</p>
+            </div>
+
+            <div class="motto-block">
+                <div class="section-header"><div class="line"></div>Motto Perusahaan<div class="line"></div></div>
+                <h2>SIGAP – CEPAT – TUNTAS</h2>
+            </div>
+
+            <div class="card">
+                <h3 class="cert-title">Tim Kami</h3>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/TEAM.JPG" alt="Tim Perusahaan" class="img-fluid">
+            </div>
+
+            <div class="card">
+                <h3 class="cert-title">Sertifikat Perusahaan</h3>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/SERTIFIKAT.JPG" alt="Sertifikat" class="img-fluid">
+            </div>
         </div>
-        <h3 class="service-title">MEP (Mekanikal, Elektrikal, Plumbing)</h3>
-      </div>
-      <p class="service-desc">Jasa pemasangan, perbaikan, perawatan dan perbaikan sistem mekanikal, listrik dan pipa air gedung, kantor, rumah tinggal maupun industri. Tenaga teknisi bersertifikat, terampil dan berpengalaman menangani instalasi listrik, AC, perpipaan, pompa air dan peralatan mekanik lainnya.</p>
-    </div>
+    </section>
 
-    <!-- KONTRAKTOR -->
-    <div class="service-item">
-      <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/KONTRAKTOR.JPG" alt="Kontraktor">
-      <div class="icon-wrapper">
-        <div class="service-icon-circle" onclick="toggleDesc(this)">
-          <i class="fas fa-hard-hat"></i>
+    <!-- Halaman Layanan -->
+    <section id="layanan">
+        <div class="page-banner">
+            <h1>Layanan Kami</h1>
+            <div class="breadcrumb">
+                <a href="#beranda">Beranda</a>
+                <span>›</span>
+                <span>Layanan Kami</span>
+            </div>
         </div>
-        <h3 class="service-title">Jasa Kontraktor & Konstruksi</h3>
-      </div>
-      <p class="service-desc">Melayani pembangunan, renovasi, perbaikan dan pemeliharaan gedung, rumah, ruko, kantor maupun fasilitas umum. Mulai dari perencanaan, perancangan hingga pelaksanaan konstruksi dikerjakan secara profesional, aman, berkualitas dan tepat waktu.</p>
-    </div>
 
-    <!-- ADVERTISING & PERCETAKAN -->
-    <div class="service-item">
-      <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/AD%20ERTISING%20%26%20PERCETAKAN.JPG" alt="Advertising & Percetakan">
-      <div class="icon-wrapper">
-        <div class="service-icon-circle" onclick="toggleDesc(this)">
-          <i class="fas fa-print"></i>
+        <h2 class="section-title">Daftar Layanan Kami</h2>
+        <div class="grid-layanan">
+            <a href="#layanan" class="layanan-item" data-target="layanan-1">
+                <i class="fas fa-building"></i> Cleaning Service
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-2">
+                <i class="fas fa-leaf"></i> Gardener / Perawatan Taman
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-3">
+                <i class="fas fa-shopping-basket"></i> Pengadaan Barang & Kimia Cleaning
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-4">
+                <i class="fas fa-cog"></i> MEP (Mekanikal, Elektrikal, Plumbing)
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-5">
+                <i class="fas fa-hard-hat"></i> Jasa Kontraktor & Konstruksi
+            </a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-6">
+                <i class="fas fa-print"></i> Advertising & Percetakan
+            </a>
         </div>
-        <h3 class="service-title">Advertising & Percetakan</h3>
-      </div>
-      <p class="service-desc">Penyedia jasa desain grafis, periklanan, pembuatan spanduk, baliho, stiker, kartu nama, brosur, buku, kalender, seragam dan berbagai produk cetak lainnya. Hasil cetak berkualitas, tajam, warna cerah dan tahan lama dengan harga terjangkau.</p>
-    </div>
+        <div class="services-container">
+            <div class="service-item" id="layanan-1">
+                <a href="#layanan" class="btn-kembali">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Layanan
+                </a>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/CLEANING%20SERVICE.JPG" alt="Cleaning Service">
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="service-title">Cleaning Service</h3>
+                </div>
+                <p class="service-desc">Kami menyediakan tenaga kebersihan profesional untuk perkantoran, gedung, rumah sakit, hotel, sekolah, dan perumahan. Dilengkapi alat dan bahan pembersih berkualitas, tenaga terlatih, berpengalaman dan bersertifikat, menjamin kebersihan, kenyamanan dan kesehatan lingkungan kerja Anda.</p>
+            </div>
 
-    <div class="pagination">
-      <div class="page-num active">1</div>
-      <div class="page-num inactive">2</div>
-      <div class="page-num inactive">›</div>
-    </div>
-  </div>
+            <div class="service-item" id="layanan-2">
+                <a href="#layanan" class="btn-kembali">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Layanan
+                </a>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/GARDENER.JPG" alt="Gardener">
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="service-title">Gardener / Perawatan Taman</h3>
+                </div>
+                <p class="service-desc">Layanan perawatan taman, lanskap dan ruang hijau meliputi pemangkasan, penanaman, penyiraman, pemupukan, pembasmian hama, serta pemeliharaan rutin. Tenaga ahli kami menjamin taman tetap asri, indah, sehat dan terawat dengan baik sepanjang waktu.</p>
+            </div>
 
-  <div class="map-section">
-    <h3>Jangkauan Layanan Kami</h3>
-    <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PETA%20INDONESIA.JPG" alt="Peta Indonesia" class="map-img">
-  </div>
+            <div class="service-item" id="layanan-3">
+                <a href="#layanan" class="btn-kembali">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Layanan
+                </a>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PERALATAN%20KIMIA.JPG" alt="Pengadaan Barang & Kimia Cleaning">
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                    <h3 class="service-title">Pengadaan Barang & Kimia Cleaning</h3>
+                </div>
+                <p class="service-desc">Kami menyediakan dan menyuplai berbagai jenis bahan kimia pembersih berkualitas, peralatan kebersihan, mesin pembersih, serta perlengkapan pendukung untuk kebutuhan kebersihan gedung, kantor, rumah sakit, hotel dan perumahan. Produk kami asli, terstandar, aman digunakan, dan tersedia dalam berbagai ukuran serta jenis sesuai kebutuhan Anda.</p>
+            </div>
 
-  <!-- BAGIAN BAWAH YANG SUDAH DIREVISI -->
-  <div class="info-footer">
-    <!-- LOGO BULAT KECIL DI TENGAH -->
-    <div class="footer-logo-wrapper">
-      <div class="footer-logo">
-        <img alt="Logo PT Widuri Bulat">
-      </div>
-    </div>
+            <div class="service-item" id="layanan-4">
+                <a href="#layanan" class="btn-kembali">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Layanan
+                </a>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/MEKANIKAL.JPG" alt="MEP Mekanikal Elektrikal Plumbing">
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="service-title">MEP (Mekanikal, Elektrikal, Plumbing)</h3>
+                </div>
+                <p class="service-desc">Jasa pemasangan, perbaikan, perawatan sistem mekanikal, listrik dan perpipaan gedung, kantor, rumah tinggal maupun industri. Tenaga teknisi bersertifikat, terampil dan berpengalaman menangani instalasi listrik, AC, perpipaan, pompa air dan peralatan mekanik lainnya.</p>
+            </div>
 
-    <div class="info-container">
-      <!-- ✅ REVISI 2: Tulisan diperkecil & satu baris -->
-      <h2 class="company-name">PT. Windu Dua Lestari</h2>
-      <p class="company-name-small">(Widuri)</p>
+            <div class="service-item" id="layanan-5">
+                <a href="#layanan" class="btn-kembali">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Layanan
+                </a>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/KONTRAKTOR.JPG" alt="Jasa Kontraktor & Konstruksi">
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3 class="service-title">Jasa Kontraktor & Konstruksi</h3>
+                </div>
+                <p class="service-desc">Melayani pembangunan, renovasi, perbaikan dan pemeliharaan gedung, rumah, ruko, kantor maupun fasilitas umum. Mulai dari perencanaan, perancangan hingga pelaksanaan konstruksi dikerjakan secara profesional, aman, berkualitas dan tepat waktu.</p>
+            </div>
 
-      <p class="company-desc">
-        Bergerak dalam bidang Jasa Pelayanan Kebersihan Cleaning Service Outsource dimana kami menyiapkan tenaga kerja profesional cleaning service untuk gedung, perkantoran, hotel, dan lain-lain.
-      </p>
-
-      <div class="info-row">
-        <h3 class="info-title">Office Hours :</h3>
-        <div class="info-text">
-          <p>Mon – Sat: 8 am – 5 pm,</p>
-          <p>Sunday: CLOSED</p>
+            <div class="service-item" id="layanan-6">
+                <a href="#layanan" class="btn-kembali">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Daftar Layanan
+                </a>
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/AD%20ERTISING%20%26%20PERCETAKAN.JPG" alt="Advertising & Percetakan">
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-print"></i>
+                    </div>
+                    <h3 class="service-title">Advertising & Percetakan</h3>
+                </div>
+                <p class="service-desc">Penyedia jasa desain grafis, periklanan, pembuatan spanduk, baliho, stiker, kartu nama, brosur, buku, kalender, seragam dan berbagai produk cetak lainnya. Hasil cetak berkualitas, tajam, warna cerah dan tahan lama dengan harga terjangkau.</p>
+            </div>
         </div>
-      </div>
 
-      <div class="social-links">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-      </div>
-
-      <div class="info-row">
-        <h3 class="info-title">Official info:</h3>
-        <div class="info-text">
-          <p><i class="fas fa-map-marker-alt"></i> BTN Minasa Indah Blok B No.2 RT.001/RW.004, Kel. Batangkaluku, Kec. Somba Opu, Kab. Gowa 92111, Sulawesi Selatan</p>
-          <p><i class="fas fa-phone"></i> 0857 5068 1600 / 0822 9159 3455</p>
-          <!-- ✅ REVISI 3: Email diganti baru -->
-          <p><i class="fas fa-envelope"></i> info@pt.widuri27517@gmail.com</p>
+        <div class="map-section">
+            <h3>Jangkauan Layanan Kami</h3>
+            <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PETA%20INDONESIA.JPG" alt="Peta Indonesia" class="map-img">
         </div>
-      </div>
+    </section>
 
-      <!-- STATISTIK PENGUNJUNG: ANGKA RENDAH, RATA KIRI -->
-      <div class="info-row">
-        <h3 class="info-title">Visitor</h3>
-        <div class="visitor-counter">
-          <p>📊 Total Users : <span class="visitor-number">125</span></p>
-          <p>📅 Views Today : <span class="visitor-number">8</span></p>
-          <p>📆 Views This Month : <span class="visitor-number">45</span></p>
-          <p>📅 Views This Year : <span class="visitor-number">125</span></p>
-          <p>📊 Total views : <span class="visitor-number">580</span></p>
-          <p style="font-size:13px; opacity:0.7;">Powered By WPS Visitor Counter</p>
+    <!-- Halaman Kontak -->
+    <section id="kontak">
+        <div class="page-banner">
+            <h1>Hubungi Kami</h1>
+            <div class="breadcrumb">
+                <a href="#beranda">Beranda</a>
+                <span>›</span>
+                <span>Kontak</span>
+            </div>
         </div>
-      </div>
 
-      <!-- HAK CIPTA: RATA TENGAH -->
-      <footer>
-        <p>2026 © All rights reserved by PT. Windu Dua Lestari (Widuri)</p>
-      </footer>
-    </div>
-  </div>
-</section>
+        <h2 class="section-title">Informasi & Pesan</h2>
 
-<!-- KONTAK -->
-<section id="kontak" class="page-content" style="display:none;">
-  <div class="map-container">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.881662345761!2d119.4338837738933!3d-5.133260294854444!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2d9cfa5f0b9d9f9d%3A0x6b9d7f8e6a7b8c9d!2sBTN%20Minasa%20Indah%20Blok%20B%20No.2!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
-  </div>
+        <div class="contact-container">
+            <div class="info-card">
+                <h3>📞 Informasi Perusahaan</h3>
+                <div class="info-item"><strong>Alamat:</strong><br>BTN Minasa Indah Blok B No.2 RT.001/RW.004<br>Kel. Batangkaluku, Kec. Somba Opu<br>Kab. Gowa 92111, Sulawesi Selatan</div>
+                <div class="info-item"><strong>Telepon:</strong><br><a href="tel:085750681600">0857 5068 1600</a><br><a href="tel:082291593455">0822 9159 3455</a></div>
+                <div class="info-item"><strong>Email:</strong><br><a href="mailto:info@pt.widuri27517@gmail.com">info@pt.widuri27517@gmail.com</a></div>
+                <div class="info-item"><strong>Jam Kerja:</strong><br>Senin - Sabtu: 08.00 - 17.00 WITA<br>Minggu & Libur: Tutup</div>
+            </div>
 
-  <div class="contact-bottom">
-    <div class="contact-wrap">
-      <h2>PT. WINDU DUA LESTARI "WIDURI"</h2>
-      <p style="margin-bottom:20px;">Bergerak di bidang jasa tenaga kerja, kebersihan, perdagangan, pengadaan barang, percetakan dan kontraktor mekanikal elektrikal.</p>
+            <div class="form-card">
+                <h3>✉️ Kirim Pesan</h3>
+                <form>
+                    <div class="form-group">
+                        <label>Nama Lengkap *</label>
+                        <input type="text" placeholder="Masukkan nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Perusahaan</label>
+                        <input type="text" placeholder="Nama perusahaan">
+                    </div>
+                    <div class="form-group">
+                        <label>Telepon *</label>
+                        <input type="tel" placeholder="Nomor WA/Telepon" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Layanan Dibutuhkan *</label>
+                        <select required>
+                            <option value="">-- Pilih Layanan --</option>
+                            <option>Cleaning Service</option>
+                            <option>Gardener / Perawatan Taman</option>
+                            <option>Pengadaan Barang & Kimia Cleaning</option>
+                            <option>MEP Mekanikal Elektrikal</option>
+                            <option>Jasa Kontraktor</option>
+                            <option>Advertising & Percetakan</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Pesan *</label>
+                        <textarea placeholder="Tulis pesan Anda..." required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit">KIRIM PESAN</button>
+                </form>
+            </div>
+        </div>
 
-      <h3 style="color:#99CCFF; margin:25px 0 10px;">Jam Operasional</h3>
-      <div class="contact-row">
-        <p><i class="fas fa-clock"></i> Senin - Sabtu: 08.00 - 17.00 WITA</p>
-        <p><i class="fas fa-clock"></i> Minggu: Libur</p>
-      </div>
+        <div class="map-section-kontak">
+            <div class="map-card">
+                <h3 style="font-size:17px; color: var(--primary-blue); margin-bottom:10px;">🗺️ Lokasi Kami</h3>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.88!2d119.4405!3d-5.1992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbefd7c4b5d7b9b%3A0x7d7b8c9d0e1f2a3b!2sBTN%20Minasa%20Indah%20Blok%20B%20No.2!5e0!3m2!1sid!2sid" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="info-lengkap">
+            <div class="logo-tengah">
+                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/WIDURI_LOGO.png" alt="Logo PT Windu Dua Lestari">
+            </div>
+            <h2>PT. Windu Dua Lestari</h2>
+            <h3>(Widuri)</h3>
+            <p class="deskripsi">
+                Bergerak dalam bidang Jasa Pelayanan Kebersihan, Outsourcing Tenaga Kerja, Pengadaan Barang, Perdagangan Umum, Advertising, Percetakan, Kontraktor dan Mekanikal Elektrikal. Kami berkomitmen memberikan pelayanan terbaik, profesional dan terpercaya untuk mitra kerja kami.
+            </p>
 
-      <h3 style="color:#99CCFF; margin:25px 0 10px;">Informasi Resmi</h3>
-      <div class="contact-row">
-        <p><i class="fas fa-map-marker-alt"></i> BTN Minasa Indah Blok B No.2 RT.001/RW.004, Kel. Batangkaluku, Kec. Somba Opu, Kab. Gowa 92111, Sulawesi Selatan</p>
-        <p><i class="fas fa-phone"></i> <a href="tel:085750681600">0857 5068 1600</a> / <a href="tel:082291593455">0822 9159 3455</a></p>
-        <!-- ✅ REVISI 3: Email diganti baru di halaman kontak juga -->
-        <p><i class="fas fa-envelope"></i> <a href="mailto:info@pt.widuri27517@gmail.com">info@pt.widuri27517@gmail.com</a></p>
-      </div>
+            <h4>Jam Kerja</h4>
+            <div class="jam-kerja">
+                <p>📅 Senin – Sabtu: 08.00 – 17.00 WITA</p>
+                <p>📅 Minggu & Hari Libur Nasional: Tutup</p>
+            </div>
 
-      <div class="visitor-counter">
-        <p>Total Pengunjung: 125</p>
-        <p>Hari Ini: 8 | Bulan Ini: 45 | Tahun Ini: 125</p>
-        <p style="font-size:13px; color:#aaa;">Dihitung secara otomatis</p>
-      </div>
-    </div>
-  </div>
+            <div class="sosial">
+                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/6285750681600" target="_blank"><i class="fab fa-whatsapp"></i></a>
+            </div>
 
-  <div class="section section-white">
-    <div class="title-wrap">
-      <h2>Kirim Pesan Kepada Kami</h2>
-      <p style="text-align:center; max-width:600px; margin:0 auto;">Silakan isi formulir di bawah ini jika Anda memiliki pertanyaan, permintaan penawaran, atau informasi lainnya. Kami akan merespons secepat mungkin.</p>
-    </div>
+            <h4>Informasi Resmi</h4>
+            <div class="kontak-item">
+                <p>📍 BTN Minasa Indah Blok B No.2 RT.001/RW.004, Kel. Batangkaluku, Kec. Somba Opu, Kab. Gowa 92111, Sulawesi Selatan</p>
+                <p>📞 0857 5068 1600 / 0822 9159 3455</p>
+                <p>✉️ info@pt.widuri27517@gmail.com</p>
+            </div>
 
-    <form class="form-container" action="#" method="POST">
-      <div class="form-group">
-        <label for="nama">Nama Lengkap *</label>
-        <input type="text" id="nama" name="nama" required placeholder="Masukkan nama lengkap Anda">
-      </div>
+            <div class="visitor-box">
+                <h4>Statistik Pengunjung</h4>
+                <p>👥 Total Pengunjung: 125</p>
+                <p>📅 Kunjungan Hari Ini: 8</p>
+                <p>📊 Kunjungan
+                <p>📊 Kunjungan Bulan Ini: 42</p>
+                <p class="small-text">*Data simulasi</p>
+            </div>
+        </div>
+    </section>
 
-      <div class="form-group">
-        <label for="email">Alamat Email *</label>
-        <input type="email" id="email" name="email" required placeholder="contoh: nama@email.com">
-      </div>
+    <!-- Footer Hak Cipta -->
+    <footer class="footer">
+        <p>&copy; 2026 PT. Windu Dua Lestari (Widuri)</p>
+        <p>Semua Hak Dilindungi Undang-Undang</p>
+    </footer>
 
-      <div class="form-group">
-        <label for="telepon">Nomor Telepon / WhatsApp *</label>
-        <input type="tel" id="telepon" name="telepon" required placeholder="contoh: 08123456789">
-      </div>
+    <!-- JavaScript -->
+    <script>
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebarMenu');
+            sidebar.classList.toggle('active');
+        }
 
-      <div class="form-group">
-        <label for="subjek">Subjek Pesan *</label>
-        <input type="text" id="subjek" name="subjek" required placeholder="contoh: Permintaan Penawaran Harga">
-      </div>
+        document.addEventListener('DOMContentLoaded', function() {
+            const layananItems = document.querySelectorAll('.layanan-item');
+            const serviceItems = document.querySelectorAll('.service-item');
+            const kembaliButtons = document.querySelectorAll('.btn-kembali');
+            const menuLinks = document.querySelectorAll('.menu-list a');
 
-      <div class="form-group">
-        <label for="pesan">Isi Pesan *</label>
-        <textarea id="pesan" name="pesan" required placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."></textarea>
-      </div>
+            layananItems.forEach(item => {
+                item.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    
+                    serviceItems.forEach(service => service.classList.remove('active'));
 
-      <button type="submit" class="btn-submit">Kirim Pesan</button>
-    </form>
-  </div>
-</section>
+                    setTimeout(() => {
+                        document.getElementById(targetId).classList.add('active');
+                        document.getElementById(targetId).scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }, 100);
+                });
+            });
 
-<script>
-function openMenu() {
-  document.getElementById('sidebarMenu').classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function closeMenu() {
-  document.getElementById('sidebarMenu').classList.remove('active');
-  document.body.style.overflow = 'auto';
-}
-function changePage(pageId) {
-  document.querySelectorAll('.page-content').forEach(sec => sec.style.display = 'none');
-  document.getElementById(pageId).style.display = 'block';
-  document.querySelectorAll('.menu-list a').forEach(a => a.classList.remove('active'));
-  event.target.classList.add('active');
-  window.scrollTo({top: 0, behavior: 'smooth'});
-}
+            kembaliButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    serviceItems.forEach(service => service.classList.remove('active'));
+                    document.querySelector('.section-title').scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                });
+            });
 
-function toggleDesc(iconElement) {
-  const desc = iconElement.parentElement.parentElement.querySelector('.service-desc');
-  if (desc.style.display === 'block') {
-    desc.style.display = 'none';
-  } else {
-    desc.style.display = 'block';
-  }
-}
-</script>
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    toggleMenu();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
