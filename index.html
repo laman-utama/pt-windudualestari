@@ -166,7 +166,7 @@
         .breadcrumb a:hover { color: #ffffff; text-decoration: underline; }
         .breadcrumb span { color: #ffffff; margin: 0 6px; font-weight: 500; }
 
-        /* Beranda */
+        /* Beranda ✅ Teks diperbarui lengkap */
         .home-hero { 
             background: linear-gradient(rgba(0, 26, 51, 0.85), rgba(0, 26, 51, 0.85)), 
                         url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000');
@@ -182,7 +182,9 @@
             padding: 20px;
         }
         .home-hero h1 { font-size: 24px; margin-bottom: 12px; line-height: 1.3; }
-        .home-hero p { margin-bottom: 20px; font-weight: 300; opacity: 0.9; }
+        .home-hero p { 
+            margin-bottom: 20px; font-weight: 300; opacity: 0.9; font-size: 17px; line-height: 1.6;
+        }
         
         .btn-cta { 
             background: var(--red-accent); 
@@ -311,7 +313,7 @@
         .map-section h3 { font-size: 26px; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
         .map-img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
 
-        /* Halaman Kontak — PERUBAHAN: info rata kiri */
+        /* Halaman Kontak — Info rata kiri + Judul & Tombol diperbarui */
         .contact-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .info-card, .form-card { background: white; padding: 18px; border-radius: 8px; border: 1px solid #eee; }
         .info-card:hover, .form-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
@@ -390,11 +392,11 @@
         <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     </header>
 
-    <!-- Beranda -->
+    <!-- Beranda ✅ Teks lengkap semua layanan -->
     <section id="beranda">
         <div class="home-hero">
             <h1>Solusi Profesional untuk Kebutuhan Bisnis Anda</h1>
-            <p>Jasa Tenaga Kerja, Kebersihan, Perdagangan, Percetakan & Kontraktor Terpercaya</p>
+            <p>Jasa Tenaga Kerja, Kebersihan, Perawatan Taman,  Keamanan, Pengadaan Barang, Mekanikal‑Elektrikal, Konstruksi, Perdagangan, Percetakan & Konveksi — Terpercaya</p>
             <a href="#layanan" class="btn-cta">LIHAT SEMUA LAYANAN</a>
         </div>
 
@@ -466,7 +468,7 @@
                 <p class="service-desc">Pemangkasan, penanaman, penyiraman, pemupukan, pengendalian hama & pemeliharaan rutin agar taman tetap asri, indah & sehat.</p>
             </div>
 
-            <!-- 3 Security ✅ BARU -->
+            <!-- 3 Security -->
             <div class="service-item" id="layanan-3">
                 <a href="#layanan" class="btn-kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                 <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/SECURITY.JPG" alt="Keamanan">
@@ -498,7 +500,7 @@
                 <p class="service-desc">Pembangunan, renovasi, perbaikan & pemeliharaan gedung, rumah, ruko & fasilitas umum — dari perencanaan hingga selesai tepat waktu & berkualitas.</p>
             </div>
 
-            <!-- 7 ✅ DIPERBAIKI Judul + Konveksi -->
+            <!-- 7 Advertising & Konveksi -->
             <div class="service-item" id="layanan-7">
                 <a href="#layanan" class="btn-kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                 <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/ADVERTISING%20(PERCETAKAN)%20%26%20KONVEKSI.JPG" alt="Advertising Percetakan Konveksi">
@@ -512,14 +514,14 @@
             <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PETA%20INDONESIA.JPG" class="map-img" alt="Peta Indonesia">
         </div>
     </section>
-    <!-- Kontak ✅ Judul → Formulir Pesan + Info rata kiri + Email benar -->
+    <!-- Kontak ✅ Judul → Formulir Pesanan + Tombol ada ikon ✈️ -->
     <section id="kontak">
         <div class="page-banner">
             <h1>Hubungi Kami</h1>
             <div class="breadcrumb"><a href="#beranda">Beranda</a><span>›</span><span>Kontak</span></div>
         </div>
 
-        <h2 class="section-title">Informasi & Pesan</h2>
+        <h2 class="section-title">Informasi & Pesanan</h2>
 
         <div class="contact-container">
             <div class="info-card">
@@ -531,7 +533,8 @@
             </div>
 
             <div class="form-card">
-                <h3>✉️ Formulir Pesan</h3>
+                <!-- ✅ Judul baru -->
+                <h3>✉️ Formulir Pesanan</h3>
                 <form>
                     <div class="form-group"><label>Nama Lengkap *</label><input type="text" placeholder="Masukkan nama Anda" required></div>
                     <div class="form-group"><label>Perusahaan</label><input type="text" placeholder="Nama perusahaan"></div>
@@ -549,8 +552,9 @@
                             <option>Advertising (Percetakan) & Konveksi</option>
                         </select>
                     </div>
-                    <div class="form-group"><label>Pesan *</label><textarea placeholder="Tulis pesan Anda…" required></textarea></div>
-                    <button type="submit" class="btn-submit">KIRIM PESAN</button>
+                    <div class="form-group"><label>Pesan *</label><textarea placeholder="Tulis pesan atau kebutuhan pesanan Anda…" required></textarea></div>
+                    <!-- ✅ Tombol dengan ikon pesawat kertas -->
+                    <button type="submit" class="btn-submit">✈️ KIRIM PESAN</button>
                 </form>
             </div>
         </div>
