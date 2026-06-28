@@ -9,354 +9,158 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            color-scheme: only light !important;
             --primary-blue: #003399;
-            --light-blue: #e6f0ff;
-            --gray-light: #f0f0f0;
             --dark-blue: #0A2342;
             --light: #FFFFFF;
+            --gray-light: #f0f0f0;
             --gray-soft: #F5F5F7;
             --text: #333333;
             --wa-green: #25D366;
-            --red-accent: #ff0000;
+            --red-main: #D90000;
+            --red-dark: #B00000;
+            --red-light: #E62E2E;
         }
-        * { 
-            box-sizing: border-box; 
-            margin: 0; 
-            padding: 0; 
-        }
-        body {
-            font-family: 'Roboto', sans-serif; 
-            background-color: #f9f9f9; 
-            color: var(--text); 
-            line-height: 1.5;
-            scroll-behavior: smooth;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Roboto', sans-serif; background: #f9f9f9; color: var(--text); line-height: 1.5; scroll-behavior: smooth; }
+        img { max-width: 100%; height: auto; }
 
         /* Header */
-        .header { 
-            padding: 12px 20px;
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            background: white; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
-            position: sticky; 
-            top: 0; 
-            z-index: 999; 
-        }
-        .logo { height: 40px; }
-        .menu-toggle { 
-            font-size: 24px; 
-            cursor: pointer; 
-            color: var(--primary-blue); 
-            transition: color 0.2s ease;
-        }
-        .menu-toggle:hover { color: var(--red-accent); }
+        .header { padding:12px 20px; display:flex; justify-content:space-between; align-items:center; background:#fff; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:999; }
+        .logo { height:40px; }
+        .menu-toggle { font-size:24px; cursor:pointer; color:var(--primary-blue); transition:color .2s; }
+        .menu-toggle:hover { color:var(--red-main); }
 
         /* Sidebar */
-        .sidebar-menu { 
-            position: fixed; 
-            top: 0; 
-            left: 0; 
-            width: 280px; 
-            height: 100vh; 
-            background: #ffffff; 
-            box-shadow: 4px 0 20px rgba(0, 51, 153, 0.12); 
-            transform: translateX(-100%); 
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
-            z-index: 1000; 
-            padding: 30px 25px;
-        }
-        .sidebar-menu.active { transform: translateX(0); }
-        .close-btn { 
-            text-align: right; 
-            font-size: 26px; 
-            cursor: pointer; 
-            margin-bottom: 30px;
-            color: var(--primary-blue); 
-            font-weight: 300;
-            transition: color 0.2s ease;
-        }
-        .close-btn:hover { color: var(--red-accent); }
-        .menu-list { list-style: none; }
-        .menu-list li { margin-bottom: 6px; }
-        .menu-list a { 
-            text-decoration: none; 
-            color: var(--primary-blue); 
-            font-size: 20px; 
-            font-weight: 500; 
-            display: block; 
-            padding: 14px 12px;
-            border-bottom: 1px solid #e8edf5; 
-            border-radius: 6px;
-            transition: all 0.25s ease;
-            letter-spacing: 0.2px;
-        }
-        .menu-list a:hover { 
-            background-color: #f5f8ff; 
-            color: var(--primary-blue);
-            padding-left: 18px;
-        }
-        .menu-list a.active { 
-            color: var(--red-accent); 
-            font-weight: 600;
-            background-color: #fff5f5;
-        }
+        .sidebar-menu { position:fixed; top:0; left:0; width:280px; height:100vh; background:#fff; box-shadow:4px 0 20px rgba(0,51,153,.12); transform:translateX(-100%); transition:.3s cubic-bezier(.4,0,.2,1); z-index:1000; padding:30px 25px; }
+        .sidebar-menu.active { transform:translateX(0); }
+        .close-btn { text-align:right; font-size:26px; cursor:pointer; margin-bottom:30px; color:var(--primary-blue); transition:color .2s; }
+        .close-btn:hover { color:var(--red-main); }
+        .menu-list { list-style:none; }
+        .menu-list li { margin-bottom:6px; }
+        .menu-list a { display:block; padding:14px 12px; color:var(--primary-blue); text-decoration:none; font-size:20px; font-weight:500; border-bottom:1px solid #e8edf5; border-radius:6px; transition:all .25s; letter-spacing:.2px; }
+        .menu-list a:hover { background:#f5f8ff; padding-left:18px; }
+        .menu-list a.active { color:var(--red-main); background:#fff5f5; font-weight:600; }
 
         /* Tombol WA Mengambang */
-        .wa-float-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 99999;
-            padding: 8px 12px;
-            font-size: 14px;
-            border-radius: 30px;
-            background-color: var(--wa-green);
-            color: var(--light);
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-            transition: all 0.3s ease;
-        }
-        .wa-float-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px rgba(37, 211, 102, 0.3);
-            color: var(--light);
-        }
-        .wa-float-button i { font-size: 16px; }
+        .wa-float-button { position:fixed; bottom:20px; right:20px; z-index:99999; padding:8px 12px; border-radius:30px; background:var(--wa-green); color:#fff; text-decoration:none; display:flex; align-items:center; gap:5px; font-size:14px; box-shadow:0 2px 8px rgba(0,0,0,.15); transition:all .3s; }
+        .wa-float-button:hover { transform:translateY(-2px); box-shadow:0 4px 10px rgba(37,211,102,.3); color:#fff; }
+        .wa-float-button i { font-size:16px; }
 
         /* Banner Halaman */
-        .page-banner {
-            position: relative;
-            height: 260px;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center top/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            text-align: left;
-            color: var(--light);
-            margin-bottom: 25px;
-            overflow: hidden;
-            padding-left: 40px;
-        }
-        .page-banner h1 {
-            font-size: 42px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            color: var(--light);
-            letter-spacing: 0.3px;
-            line-height: 1.1;
-        }
-        .breadcrumb { font-size: 17px; font-weight: 400; }
-        .breadcrumb a {
-            color: #66b3ff;
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        .breadcrumb a:hover { color: #ffffff; text-decoration: underline; }
-        .breadcrumb span { color: #ffffff; margin: 0 6px; font-weight: 500; }
+        .page-banner { position:relative; height:260px; background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding-left:40px; color:#fff; margin-bottom:25px; overflow:hidden; }
+        .page-banner h1 { font-size:42px; font-weight:700; margin-bottom:12px; line-height:1.1; letter-spacing:.3px; }
+        .breadcrumb { font-size:17px; font-weight:400; }
+        .breadcrumb a { color:#66b3ff; text-decoration:none; transition:color .2s; }
+        .breadcrumb a:hover { color:#fff; text-decoration:underline; }
+        .breadcrumb span { color:#fff; margin:0 6px; font-weight:500; }
 
-        /* Beranda ✅ Teks diperbarui lengkap */
-        .home-hero { 
-            background: linear-gradient(rgba(0, 26, 51, 0.85), rgba(0, 26, 51, 0.85)), 
-                        url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000');
-            background-size: cover; 
-            background-position: center;
-            height: 400px;
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center;
-            color: white; 
-            text-align: center; 
-            padding: 20px;
-        }
-        .home-hero h1 { font-size: 24px; margin-bottom: 12px; line-height: 1.3; }
-        .home-hero p { 
-            margin-bottom: 20px; font-weight: 300; opacity: 0.9; font-size: 17px; line-height: 1.6;
-        }
-        
-        .btn-cta { 
-            background: var(--red-accent); 
-            color: white; 
-            padding: 10px 26px;
-            text-decoration: none; 
-            border-radius: 5px; 
-            font-weight: bold; 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: all 0.25s ease;
-        }
-        .btn-cta:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(255, 0, 0, 0.25);
-            background-color: #cc0000;
-        }
+        /* Beranda */
+        .home-hero { background:linear-gradient(rgba(0,26,51,.85),rgba(0,26,51,.85)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000') center/cover no-repeat; height:400px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; color:#fff; padding:20px; }
+        .home-hero h1 { font-size:24px; margin-bottom:12px; line-height:1.3; }
+        .home-hero p { font-size:17px; font-weight:300; opacity:.9; margin-bottom:20px; line-height:1.6; }
+        .btn-cta { background:var(--red-main); color:#fff; padding:10px 26px; border-radius:6px; text-decoration:none; font-weight:bold; box-shadow:0 4px 6px rgba(0,0,0,.2); transition:all .25s; }
+        .btn-cta:hover { background:var(--red-dark); transform:translateY(-2px); box-shadow:0 6px 12px rgba(217,0,0,.25); }
 
-        .section-title { 
-            text-align: center; 
-            padding: 25px 20px 12px;
-            color: var(--primary-blue); 
-            font-size: 26px;
-            font-weight: 700; 
-        }
+        .section-title { text-align:center; padding:25px 20px 12px; color:var(--primary-blue); font-size:26px; font-weight:700; }
 
-        /* Daftar Layanan */
-        .grid-layanan { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 12px;
-            padding: 0 20px 15px;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .layanan-item { 
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            padding: 18px 22px;
-            border-radius: 8px;
-            border: 1px solid #e0e7ff; 
-            text-align: left; 
-            font-size: 18px;
-            font-weight: 500; 
-            color: var(--primary-blue);
-            text-decoration: none;
-            background-color: var(--light);
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            cursor: pointer;
-            position: relative;
-            overflow: hidden;
-        }
-        .layanan-item:hover {
-            background-color: #f8fbff;
-            border-color: var(--primary-blue);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,51,153,0.15);
-            padding-left: 26px;
-        }
-        .layanan-item:active { transform: translateY(0); }
-        .layanan-item i {
-            font-size: 24px;
-            width: 32px;
-            text-align: center;
-            color: var(--primary-blue);
-            transition: transform 0.2s ease;
-        }
-        .layanan-item:hover i { transform: scale(1.08); }
+        /* ✅ Daftar Layanan: Posisi ditukar sesuai tanda panah */
+        .grid-layanan { display:grid; grid-template-columns:1fr; gap:12px; padding:0 20px 15px; max-width:700px; margin:0 auto; }
+        .layanan-item { display:flex; align-items:center; gap:14px; padding:18px 22px; background:#fff; border:1px solid #e0e7ff; border-radius:8px; color:var(--primary-blue); font-size:18px; font-weight:500; text-decoration:none; box-shadow:0 2px 4px rgba(0,0,0,.05); transition:all .3s cubic-bezier(.4,0,.2,1); cursor:pointer; overflow:hidden; }
+        .layanan-item:hover { background:#f8fbff; border-color:var(--primary-blue); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,51,153,.15); padding-left:26px; }
+        .layanan-item:active { transform:translateY(0); }
+        .layanan-item i { font-size:24px; width:32px; text-align:center; color:var(--primary-blue); transition:transform .2s; }
+        .layanan-item:hover i { transform:scale(1.08); }
 
-        /* Profil & Konten Umum */
-        .profile-content, .services-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 20px 30px;
-        }
-        .card { 
-            background: white; 
-            margin: 15px 0;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1); 
-            text-align: center; 
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.12); }
-        .icon-circle { 
-            width: 55px; height: 55px; background: var(--primary-blue); color: white; border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; font-size: 24px;
-        }
-        .card:hover .icon-circle { transform: scale(1.05); }
-        .card h2 { color: var(--primary-blue); margin-bottom: 12px; font-size: 22px; text-align: center; }
-        .card p, .service-desc { 
-            text-align: center; line-height: 1.5; font-size: 16px; color: var(--text); margin: 0;
-        }
-        .motto-block { background: var(--primary-blue); color: white; padding: 25px 20px; border-radius: 8px; margin: 15px 0; text-align: center; }
-        .section-header { display: flex; align-items: center; justify-content: center; margin-bottom: 12px; font-size: 13px; }
-        .line { width: 25px; height: 1px; background: white; margin: 0 8px; }
-        .img-fluid { width: 100%; border-radius: 6px; margin-top: 8px; }
-        .cert-title { color: var(--primary-blue); font-weight: bold; margin: 8px 0; font-size: 17px; }
+        /* Profil & Umum */
+        .profile-content, .services-container { max-width:1000px; margin:0 auto; padding:0 20px 30px; }
+        .card { background:#fff; margin:15px 0; padding:20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.1); text-align:center; transition:transform .3s, box-shadow .3s; }
+        .card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.12); }
+        .icon-circle { width:55px; height:55px; background:var(--primary-blue); color:#fff; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:24px; }
+        .card:hover .icon-circle { transform:scale(1.05); }
+        .card h2 { color:var(--primary-blue); margin-bottom:12px; font-size:22px; text-align:center; }
+        .card p, .service-desc { text-align:center; line-height:1.5; font-size:16px; color:var(--text); margin:0; }
+        .motto-block { background:var(--primary-blue); color:#fff; padding:25px 20px; border-radius:8px; margin:15px 0; text-align:center; }
+        .section-header { display:flex; align-items:center; justify-content:center; margin-bottom:12px; font-size:13px; }
+        .line { width:25px; height:1px; background:#fff; margin:0 8px; }
+        .img-fluid { width:100%; border-radius:6px; margin-top:8px; }
+        .cert-title { color:var(--primary-blue); font-weight:bold; margin:8px 0; font-size:17px; }
 
         /* Layanan Detail */
-        .btn-kembali {
-            display: inline-flex; align-items: center; gap: 8px;
-            background: var(--primary-blue); color: white; padding: 10px 20px; border-radius: 8px;
-            text-decoration: none; font-weight: 500; margin-bottom: 20px; font-size: 15px;
-            box-shadow: 0 2px 6px rgba(0,51,153,0.15); transition: all 0.3s;
-        }
-        .btn-kembali:hover { background: #0044cc; transform: translateX(-3px); box-shadow: 0 4px 12px rgba(0,51,153,0.25); color: white; }
-        .service-item {
-            background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.06);
-            margin-bottom: 30px; padding: 20px; text-align: center; width: 100%;
-            opacity: 0; transform: translateY(15px); transition: all 0.4s; pointer-events: none; display: none;
-        }
-        .service-item.active { opacity: 1; transform: translateY(0); pointer-events: auto; display: block; }
-        .service-item img { max-width: 100%; max-height: 350px; object-fit: cover; border-radius: 8px; margin: 0 auto 20px; }
-        .icon-wrapper { position: relative; margin-top: -30px; margin-bottom: 15px; z-index: 2; }
-        .service-icon-circle {
-            width: 65px; height: 65px; background: var(--primary-blue); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center; color: white; font-size: 26px; margin: 0 auto; border: 3px solid white;
-        }
-        .service-title { font-size: 26px; color: var(--primary-blue); font-weight: 700; margin-bottom: 18px; }
+        .btn-kembali { display:inline-flex; align-items:center; gap:8px; background:var(--primary-blue); color:#fff; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:500; margin-bottom:20px; font-size:15px; box-shadow:0 2px 6px rgba(0,51,153,.15); transition:all .3s; }
+        .btn-kembali:hover { background:#0044cc; transform:translateX(-3px); box-shadow:0 4px 12px rgba(0,51,153,.25); color:#fff; }
+        .service-item { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,.06); margin-bottom:30px; padding:20px; text-align:center; width:100%; opacity:0; transform:translateY(15px); transition:all .4s; pointer-events:none; display:none; }
+        .service-item.active { opacity:1; transform:translateY(0); pointer-events:auto; display:block; }
+        .service-item img { max-width:100%; max-height:350px; object-fit:cover; border-radius:8px; margin:0 auto 20px; }
+        .icon-wrapper { position:relative; margin-top:-30px; margin-bottom:15px; z-index:2; }
+        .service-icon-circle { width:65px; height:65px; background:var(--primary-blue); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:26px; margin:0 auto; border:3px solid #fff; }
+        .service-title { font-size:26px; color:var(--primary-blue); font-weight:700; margin-bottom:18px; }
 
         /* Peta Jangkauan */
-        .map-section { max-width: 1100px; margin: 15px auto 35px; padding: 0 20px; text-align: center; }
-        .map-section h3 { font-size: 26px; color: var(--primary-blue); margin-bottom: 15px; font-weight: 700; }
-        .map-img { width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .map-section { max-width:1100px; margin:15px auto 35px; padding:0 20px; text-align:center; }
+        .map-section h3 { font-size:26px; color:var(--primary-blue); margin-bottom:15px; font-weight:700; }
+        .map-img { width:100%; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.08); }
 
-        /* Halaman Kontak — Info rata kiri + Judul & Tombol diperbarui */
-        .contact-container { max-width: 1000px; margin: 0 auto; padding: 0 20px 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
-        .info-card, .form-card { background: white; padding: 18px; border-radius: 8px; border: 1px solid #eee; }
-        .info-card:hover, .form-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
-        .info-card h3, .form-card h3 { font-size: 17px; color: var(--primary-blue); margin-bottom: 12px; padding-bottom: 6px; border-bottom: 1px solid #eee; font-weight: bold; }
-        .info-item { margin-bottom: 10px; font-size: 14px; line-height: 1.5; text-align: left !important; }
-        .info-card p, .info-card a { font-size: 14px; color: var(--text); text-decoration: none; text-align: left; }
-        .info-card a:hover { color: var(--red-accent); text-decoration: underline; }
+        /* Kontak & TOMBOL KIRIM PESAN */
+        .contact-container { max-width:1000px; margin:0 auto; padding:0 20px 30px; display:grid; grid-template-columns:1fr 1fr; gap:15px; }
+        .info-card, .form-card { background:#fff; padding:18px; border-radius:8px; border:1px solid #eee; }
+        .info-card:hover, .form-card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.08); }
+        .info-card h3, .form-card h3 { font-size:17px; color:var(--primary-blue); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid #eee; font-weight:bold; }
+        .info-item { margin-bottom:10px; font-size:14px; line-height:1.5; text-align:left !important; }
+        .info-card p, .info-card a { font-size:14px; color:var(--text); text-decoration:none; text-align:left; }
+        .info-card a:hover { color:var(--red-main); text-decoration:underline; }
 
-        .form-group { margin-bottom: 12px; }
-        .form-group label { display: block; margin-bottom: 4px; font-size: 13px; font-weight: 600; text-align: left; }
-        .form-group input, .form-group select, .form-group textarea { 
-            width:100%; padding:9px; border:1px solid #ddd; border-radius:4px; font-size:13px;
-        }
-        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--primary-blue); box-shadow:0 0 0 2px rgba(0,51,153,0.1); }
+        .form-group { margin-bottom:12px; }
+        .form-group label { display:block; margin-bottom:4px; font-size:13px; font-weight:600; text-align:left; }
+        .form-group input, .form-group select, .form-group textarea { width:100%; padding:9px; border:1px solid #ddd; border-radius:6px; font-size:13px; transition:border-color .2s, box-shadow .2s; }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--red-main); box-shadow:0 0 0 3px rgba(217,0,0,.08); }
         .form-group textarea { height:90px; }
-        .btn-submit { 
-            background:var(--red-accent); color:white; border:none; padding:10px 26px; border-radius:5px; font-size:14px; font-weight:bold; cursor:pointer; width:100%;
-            box-shadow:0 4px 6px rgba(0,0,0,0.2); transition: all 0.25s ease;
+
+        .btn-submit {
+            background: linear-gradient(135deg, var(--red-light), var(--red-main));
+            color: #ffffff;
+            border: none;
+            padding: 11px 28px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            box-shadow: 0 3px 8px rgba(217, 0, 0, 0.22);
+            transition: all 0.28s ease;
+            letter-spacing: 0.3px;
         }
-        .btn-submit:hover { background-color:#cc0000; transform:translateY(-2px); }
+        .btn-submit i { color: #ffffff; font-size: 16px; }
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--red-main), var(--red-dark));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(176, 0, 0, 0.28);
+        }
+        .btn-submit:active { transform: translateY(0); box-shadow: 0 2px 5px rgba(176, 0, 0, 0.2); }
 
         .map-section-kontak { max-width:1000px; margin:0 auto 15px; padding:0 20px; }
-        .map-card { background:white; padding:15px; border-radius:8px; border:1px solid #eee; }
+        .map-card { background:#fff; padding:15px; border-radius:8px; border:1px solid #eee; }
         .map-container { width:100%; height:280px; border-radius:4px; overflow:hidden; margin-top:8px; }
         .map-container iframe { width:100%; height:100%; border:none; }
 
-        .info-lengkap {
-            max-width:1000px; margin:0 auto 30px; padding:25px 20px; background:var(--dark-blue); color:white; border-radius:8px; text-align:center;
-        }
+        .info-lengkap { max-width:1000px; margin:0 auto 30px; padding:25px 20px; background:var(--dark-blue); color:#fff; border-radius:8px; text-align:center; }
         .info-lengkap .logo-tengah img { width:75px; border-radius:50%; }
         .info-lengkap h2 { font-size:22px; margin-bottom:4px; }
-        .info-lengkap h3 { font-size:17px; font-weight:normal; opacity:0.9; margin-bottom:15px; }
+        .info-lengkap h3 { font-size:17px; font-weight:normal; opacity:.9; margin-bottom:15px; }
         .info-lengkap .deskripsi { font-size:15px; line-height:1.5; margin-bottom:20px; }
         .info-lengkap h4 { font-size:19px; color:#B3D1FF; margin:15px 0 8px; }
-        .info-lengkap .jam-kerja p, .info-lengkap .kontak-item p { font-size:15px; margin:6px 0; display:flex; align-items:center; justify-content:center; gap:8px; opacity:0.9; }
+        .info-lengkap .jam-kerja p, .info-lengkap .kontak-item p { font-size:15px; margin:6px 0; display:flex; align-items:center; justify-content:center; gap:8px; opacity:.9; }
         .info-lengkap .sosial { display:flex; gap:12px; justify-content:center; margin:15px 0; }
-        .info-lengkap .sosial a { color:white; font-size:22px; opacity:0.8; }
+        .info-lengkap .sosial a { color:#fff; font-size:22px; opacity:.8; transition:all .2s; }
         .info-lengkap .sosial a:hover { opacity:1; transform:translateY(-2px); }
-        .visitor-box { background:rgba(255,255,255,0.12); padding:15px; border-radius:6px; margin-top:20px; }
+        .visitor-box { background:rgba(255,255,255,.12); padding:15px; border-radius:6px; margin-top:20px; }
         .visitor-box p { font-size:14px; margin:5px 0; display:flex; align-items:center; justify-content:center; gap:6px; }
-        .small-text { font-size:12px; opacity:0.7; margin-top:8px; }
+        .small-text { font-size:12px; opacity:.7; margin-top:8px; }
 
-        .footer { background:#001a33; color:white; padding:25px 20px; text-align:center; font-size:14px; margin-top:15px; }
+        .footer { background:#001a33; color:#fff; padding:25px 20px; text-align:center; font-size:14px; margin-top:15px; }
         .footer p { margin:5px 0; line-height:1.6; }
 
         @media(max-width:768px) {
@@ -392,11 +196,11 @@
         <span class="menu-toggle" onclick="toggleMenu()">☰</span>
     </header>
 
-    <!-- Beranda ✅ Teks lengkap semua layanan -->
+    <!-- Beranda -->
     <section id="beranda">
         <div class="home-hero">
             <h1>Solusi Profesional untuk Kebutuhan Bisnis Anda</h1>
-            <p>Jasa Tenaga Kerja, Kebersihan, Perawatan Taman,  Keamanan, Pengadaan Barang, Mekanikal‑Elektrikal, Konstruksi, Perdagangan, Percetakan & Konveksi — Terpercaya</p>
+            <p>Jasa Tenaga Kerja, Kebersihan, Perawatan Taman, Keamanan, Pengadaan Barang, Mekanikal‑Elektrikal, Konstruksi, Perdagangan, Percetakan & Konveksi — Terpercaya</p>
             <a href="#layanan" class="btn-cta">LIHAT SEMUA LAYANAN</a>
         </div>
 
@@ -404,8 +208,9 @@
         <div class="grid-layanan">
             <a href="#layanan" class="layanan-item" data-target="layanan-1"><i class="fas fa-building"></i> Cleaning Service</a>
             <a href="#layanan" class="layanan-item" data-target="layanan-2"><i class="fas fa-leaf"></i> Gardener / Perawatan Taman</a>
-            <a href="#layanan" class="layanan-item" data-target="layanan-3"><i class="fas fa-shield-alt"></i> Jasa Keamanan / Security</a>
-            <a href="#layanan" class="layanan-item" data-target="layanan-4"><i class="fas fa-shopping-basket"></i> Pengadaan Barang & Kimia Cleaning</a>
+            <!-- ✅ DITUKAR SESUAI TANDA PANAH -->
+            <a href="#layanan" class="layanan-item" data-target="layanan-4"><i class="fas fa-shield-alt"></i> Keamanan / Security</a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-3"><i class="fas fa-shopping-basket"></i> Pengadaan Barang & Kimia Cleaning</a>
             <a href="#layanan" class="layanan-item" data-target="layanan-5"><i class="fas fa-cog"></i> MEP (Mekanikal, Elektrikal, Plumbing)</a>
             <a href="#layanan" class="layanan-item" data-target="layanan-6"><i class="fas fa-hard-hat"></i> Jasa Kontraktor & Konstruksi</a>
             <a href="#layanan" class="layanan-item" data-target="layanan-7"><i class="fas fa-print"></i> Advertising (Percetakan) & Konveksi</a>
@@ -444,10 +249,11 @@
         <div class="grid-layanan">
             <a href="#layanan" class="layanan-item" data-target="layanan-1"><i class="fas fa-building"></i> Cleaning Service</a>
             <a href="#layanan" class="layanan-item" data-target="layanan-2"><i class="fas fa-leaf"></i> Gardener / Perawatan Taman</a>
-            <a href="#layanan" class="layanan-item" data-target="layanan-3"><i class="fas fa-shield-alt"></i> Jasa Keamanan / Security</a>
-            <a href="#layanan" class="layanan-item" data-target="layanan-4"><i class="fas fa-shopping-basket"></i> Pengadaan Barang & Kimia Cleaning</a>
+            <!-- ✅ POSISI DITUKAR -->
+            <a href="#layanan" class="layanan-item" data-target="layanan-4"><i class="fas fa-shield-alt"></i> Keamanan / Security</a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-3"><i class="fas fa-shopping-basket"></i> Pengadaan Barang & Kimia Cleaning</a>
             <a href="#layanan" class="layanan-item" data-target="layanan-5"><i class="fas fa-cog"></i> MEP (Mekanikal, Elektrikal, Plumbing)</a>
-            <a href="#layanan" class="layanan-item" data-target="layanan-6"><i class="fas fa-hard-hat"></i> Jasa Kontraktor & Konstruksi</a>
+            <a href="#layanan" class="layanan-item" data-target="layanan-6"><i class="fas fa-hard-hat"></i> Kontraktor & Konstruksi</a>
             <a href="#layanan" class="layanan-item" data-target="layanan-7"><i class="fas fa-print"></i> Advertising (Percetakan) & Konveksi</a>
         </div>
 
@@ -468,20 +274,20 @@
                 <p class="service-desc">Pemangkasan, penanaman, penyiraman, pemupukan, pengendalian hama & pemeliharaan rutin agar taman tetap asri, indah & sehat.</p>
             </div>
 
-            <!-- 3 Security -->
+            <!-- 3 Pengadaan Barang -->
             <div class="service-item" id="layanan-3">
-                <a href="#layanan" class="btn-kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
-                <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/SECURITY.JPG" alt="Keamanan">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-shield-alt"></i></div><h3 class="service-title">Jasa Keamanan / Security</h3></div>
-                <p class="service-desc">Tenaga keamanan terlatih, bersertifikat dan sah hukumnya untuk kantor, pabrik, perumahan, kawasan komersial & acara. Operasi teratur, disiplin tinggi, diawasi rutin demi keamanan aset & lingkungan.</p>
-            </div>
-
-            <!-- 4 Pengadaan -->
-            <div class="service-item" id="layanan-4">
                 <a href="#layanan" class="btn-kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
                 <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PERALATAN%20KIMIA.JPG" alt="Kimia & Alat">
                 <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-shopping-basket"></i></div><h3 class="service-title">Pengadaan Barang & Kimia Cleaning</h3></div>
                 <p class="service-desc">Pasokan bahan kimia pembersih berkualitas, alat & mesin kebersihan sesuai standar, aman dan lengkap untuk kebutuhan gedung, rumah sakit, hotel & kantor.</p>
+            </div>
+
+            <!-- 4 Keamanan / Security -->
+            <div class="service-item" id="layanan-4">
+                <a href="#layanan" class="btn-kembali"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/SECURITY.JPG" alt="Keamanan">
+                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-shield-alt"></i></div><h3 class="service-title">Keamanan / Security</h3></div>
+                <p class="service-desc">Tenaga keamanan terlatih, bersertifikat dan sah hukumnya untuk kantor, pabrik, perumahan, kawasan komersial & acara. Operasi teratur, disiplin tinggi, diawasi rutin demi keamanan aset & lingkungan.</p>
             </div>
 
             <!-- 5 MEP -->
@@ -514,7 +320,7 @@
             <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PETA%20INDONESIA.JPG" class="map-img" alt="Peta Indonesia">
         </div>
     </section>
-    <!-- Kontak ✅ Judul → Formulir Pesanan + Tombol ada ikon ✈️ -->
+    <!-- Kontak -->
     <section id="kontak">
         <div class="page-banner">
             <h1>Hubungi Kami</h1>
@@ -533,7 +339,6 @@
             </div>
 
             <div class="form-card">
-                <!-- ✅ Judul baru -->
                 <h3>✉️ Formulir Pesanan</h3>
                 <form>
                     <div class="form-group"><label>Nama Lengkap *</label><input type="text" placeholder="Masukkan nama Anda" required></div>
@@ -545,16 +350,16 @@
                             <option value="">-- Pilih Layanan --</option>
                             <option>Cleaning Service</option>
                             <option>Gardener / Perawatan Taman</option>
-                            <option>Jasa Keamanan / Security</option>
+                            <option>Keamanan / Security</option>
                             <option>Pengadaan Barang & Kimia Cleaning</option>
                             <option>MEP Mekanikal Elektrikal</option>
-                            <option>Jasa Kontraktor</option>
+                            <option>Jasa Kontraktor & Konstruksi</option>
                             <option>Advertising (Percetakan) & Konveksi</option>
                         </select>
                     </div>
-                    <div class="form-group"><label>Pesan *</label><textarea placeholder="Tulis pesan atau kebutuhan pesanan Anda…" required></textarea></div>
-                    <!-- ✅ Tombol dengan ikon pesawat kertas -->
-                    <button type="submit" class="btn-submit">✈️ KIRIM PESAN</button>
+                    <div class="form-group"><label>Keterangan Pesanan *</label><textarea placeholder="Tulis kebutuhan atau pesanan Anda…" required></textarea></div>
+                    <!-- ✅ TOMBOL MERAH ELEGAN + IKON PESAWAT KERTAS PUTIH -->
+                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> KIRIM PESAN</button>
                 </form>
             </div>
         </div>
