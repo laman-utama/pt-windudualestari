@@ -45,24 +45,18 @@
         .menu-toggle { font-size:24px; cursor:pointer; color:var(--primary-blue); transition:all .25s; padding:4px 8px; border-radius:50%; }
         .menu-toggle:hover { background:var(--primary-blue-soft); color:var(--red-main); }
 
-        /* === BILAH MENU — TETAP ESTETIK, FUNGSI DIPERBAIKI === */
+        /* === BILAH MENU — TANPA TOMBOL TUTUP & TANDA + === */
         .sidebar-menu { 
-            position:fixed; top:0; left:0; width:300px; height:100vh; 
+            position:fixed; top:65px; left:0; width:100%; height:calc(100vh - 65px); 
             background: linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%) !important;
             transform:translateX(-100%); transition:.35s cubic-bezier(.4,0,.2,1); z-index:1000; 
             padding:0; border-right:none; box-shadow: 2px 0 20px rgba(0, 51, 153, 0.08);
             overflow-y: auto; -webkit-overflow-scrolling: touch;
+            border-top: 1px solid rgba(0,51,153,0.08);
         }
         .sidebar-menu.active { transform:translateX(0); }
 
-        .close-btn { 
-            position:absolute; top:18px; right:18px; width:38px; height:38px; border-radius:50%;
-            background: rgba(0, 51, 153, 0.06); color:var(--primary-blue); border:none; font-size:22px; 
-            cursor:pointer; display:flex; align-items:center; justify-content:center; transition:.25s;
-        }
-        .close-btn:hover { background: rgba(0, 51, 153, 0.12); color:var(--red-main); }
-
-        .menu-list { list-style:none; margin-top:70px; padding:0 12px; }
+        .menu-list { list-style:none; margin-top:40px; padding:0 12px; }
         .menu-list li { margin-bottom:4px; border-radius:10px; transition:all .25s ease; }
         .menu-list a { 
             display:flex; justify-content:space-between; align-items:center;
@@ -74,30 +68,44 @@
         .menu-list a.active { 
             background: rgba(0, 51, 153, 0.08); color:var(--primary-blue);
         }
-        .menu-list a::after { content:"+"; font-size:18px; color:#B8C7E0; font-weight:300; transition:.2s; }
-        .menu-list a:hover::after { color:var(--primary-blue); }
+        /* === TANDA + DIHAPUS === */
+        .menu-list a::after { content:""; }
 
-        /* === SUB-MENU — FUNGSI DIPERBAIKI === */
-        .menu-parent { position:relative; }
-        .has-submenu { cursor:pointer; user-select:none; }
-        .submenu-icon { font-size:14px; color:#667E99; transition:transform .3s ease; pointer-events:none; }
-        .menu-parent.open .submenu-icon { transform:rotate(180deg); color:var(--primary-blue); }
-        .submenu { 
-            list-style:none; padding:6px 0 10px 0; margin:0 12px; 
-            max-height:0; overflow:hidden; transition:max-height .35s ease;
-            background: rgba(255,255,255,0.8); border-radius:8px;
+        /* === DAFTAR LAYANAN — PANAH DI PERKECIL & TENGAH, TIDAK ADA PANAH DI SUB-MENU === */
+        .daftar-layanan-parent { position:relative; }
+        .daftar-layanan-link { cursor:pointer; user-select:none; }
+        .daftar-layanan-icon { 
+            position:absolute; 
+            right:20px; 
+            top:50%; 
+            transform:translateY(-50%);
+            font-size:14px; /* === DIPERKECIL === */
+            color:#667E99; 
+            transition:transform .3s ease; 
+            pointer-events:none; 
         }
-        .menu-parent.open .submenu { max-height:600px; }
-        .submenu li { border-radius:6px; margin:2px 6px; }
-        .submenu-link { 
-            display:block; padding:12px 14px 12px 36px; 
+        .daftar-layanan-parent.open .daftar-layanan-icon { 
+            transform:translateY(-50%) rotate(180deg); 
+            color:var(--primary-blue); 
+        }
+        .daftar-layanan-submenu { 
+            list-style:none; padding:8px 0 12px 0; margin:0; 
+            max-height:0; overflow:hidden; transition:max-height .35s ease;
+            background: rgba(255,255,255,0.8); border-radius:8px; margin-top:4px;
+        }
+        .daftar-layanan-parent.open .daftar-layanan-submenu { max-height:800px; }
+        .daftar-layanan-submenu li { border-radius:6px; margin:2px 0; }
+        .daftar-layanan-submenu a { 
+            display:block; padding:12px 18px; 
             font-size:15px !important; font-weight:500 !important; color:#3A4B6C; 
             text-decoration:none; transition:all .2s ease; border-radius:6px;
-            white-space: nowrap; cursor:pointer;
+            white-space: normal; cursor:pointer;
+            justify-content:flex-start;
         }
-        .submenu-link:hover { 
+        /* === PANAH DI DALAM DAFTAR LAYANAN DIHAPUS === */
+        .daftar-layanan-submenu a::after { content:""; display:none; }
+        .daftar-layanan-submenu a:hover { 
             background: rgba(0, 51, 153, 0.06); color:var(--primary-blue); 
-            padding-left:40px;
         }
 
         .wa-float-button { position:fixed; bottom:20px; right:20px; z-index:99999; padding:8px 12px; border-radius:30px; background:var(--wa-green); color:#fff !important; text-decoration:none; display:flex; align-items:center; gap:5px; font-size:14px; box-shadow:0 4px 10px rgba(37,211,102,.25); transition:all .3s; }
@@ -148,12 +156,24 @@
             display: none; opacity:0; transform:translateY(12px); transition:.3s ease; position:relative;
         }
         .service-item.active { display:block; opacity:1; transform:translateY(0); margin:15px auto 30px; }
-        .tutup-btn { position:absolute; top:12px; right:16px; width:36px; height:36px; border-radius:50%; background:rgba(0,0,0,.65); color:#fff; border:none; font-size:20px; font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:.2s ease; box-shadow:0 2px 6px rgba(0,0,0,.2); }
+        .tutup-btn { position:absolute; top:15px; right:16px; width:36px; height:36px; border-radius:50%; background:rgba(0,0,0,.65); color:#fff; border:none; font-size:20px; font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:.2s ease; box-shadow:0 2px 6px rgba(0,0,0,.2); }
         .tutup-btn:hover { background:var(--red-main); transform:scale(1.08); }
-        .service-item img { width:100%; height:auto; min-height:190px; object-fit:cover !important; background:#f5f7fa; display:block; margin:0; border-radius:24px 24px 0 0 !important; }
-        .icon-wrapper { position:relative; margin-top:-38px !important; margin-bottom:14px !important; z-index:2; }
+        
+        /* === FOTO LAYANAN — NAIK KE ATAS, TAMPIL PENUH UTUH TIDAK TERPOTONG === */
+        .service-item img { 
+            width:100%; height:auto; object-fit:cover !important; background:#f5f7fa; display:block; 
+            margin:0; border-radius:24px 24px 0 0 !important; 
+            position:relative; top:0; 
+            min-height:220px;
+        }
+        .icon-wrapper { 
+            position:relative; 
+            margin-top:-35px !important; 
+            margin-bottom:14px !important; 
+            z-index:2; 
+        }
         .service-icon-circle { width:74px !important; height:74px !important; background:var(--primary-blue); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff !important; font-size:29px !important; margin:0 auto; border:4px solid #fff !important; box-shadow:0 3px 8px rgba(0,0,0,.18) !important; }
-        .service-title { font-size:28px !important; color:var(--primary-blue); font-weight:700; margin:8px auto 12px !important; padding:0 22px !important; text-align:center !important; letter-spacing:.2px; }
+        .service-title { font-size:28px !important; color:var(--primary-blue); font-weight:700; margin:15px auto 12px !important; padding:0 22px !important; text-align:center !important; letter-spacing:.2px; }
         .service-desc { padding:0 26px 28px !important; font-size:20px !important; line-height:1.7 !important; color:var(--text) !important; margin:0; text-align:center !important; border-bottom: none !important; }
 
         .profile-content { max-width:1000px; margin:0 auto; padding:0 20px 25px; }
@@ -231,39 +251,42 @@
             .layanan-item { font-size:17px; padding:15px 16px; }
             .service-title { font-size:24px !important; padding:0 18px !important; margin:8px auto 12px !important; }
             .service-desc { font-size:18px !important; padding:0 18px 24px !important; line-height:1.7 !important; }
-            .service-item img { min-height:170px !important; border-radius:20px 20px 0 0 !important; }
-            .icon-wrapper { margin-top:-36px !important; margin-bottom:14px !important; }
+            .service-item img { border-radius:20px 20px 0 0 !important; margin-top:0; min-height:180px; }
+            .icon-wrapper { margin-top:-25px !important; margin-bottom:14px !important; }
             .service-icon-circle { width:70px !important; height:70px !important; font-size:28px !important; border-width:3px !important; }
             .home-hero h1 { font-size:22px; }
             .home-hero .ringkas { font-size:16px; }
             section { margin-bottom:22px !important; padding-top:8px !important; padding-bottom:8px !important; }
             .checkbox-group label { font-size:13px; padding:7px 9px; }
-            .submenu-link { padding:12px 20px 12px 35px; font-size:16px; }
-            .sidebar-menu { width:280px; }
+            .daftar-layanan-submenu a { padding:12px 18px; font-size:16px; white-space:normal; }
+            .sidebar-menu { width:100%; top:65px; height:calc(100vh - 65px); }
+            .menu-list { margin-top:30px; }
+            .daftar-layanan-icon { right:18px; font-size:12px; }
         }
     </style>
 </head>
 <body>
     <a href="https://wa.me/6285750681600" class="wa-float-button" target="_blank"><i class="fab fa-whatsapp"></i> Hubungi Kami</a>
 
+    <!-- === BILAH MENU — PANAH DI PERKECIL & TENGAH, TIDAK ADA PANAH DI SUB-MENU === -->
     <div class="sidebar-menu" id="sidebarMenu">
-        <div class="close-btn" id="closeMenuBtn">✕</div>
         <ul class="menu-list">
             <li><a href="#beranda" class="menu-link" onclick="tutupMenu()"><span>Beranda</span></a></li>
             <li><a href="#profil" class="menu-link" onclick="tutupMenu()"><span>Profil</span></a></li>
-            <li class="menu-parent">
-                <a href="#layanan" class="menu-link has-submenu" onclick="toggleSubmenu(event)">
-                    <span>Layanan</span>
-                    <i class="fas fa-chevron-down submenu-icon"></i>
+            <li><a href="#layanan" class="menu-link" onclick="tutupMenu()"><span>Layanan</span></a></li>
+            <li class="daftar-layanan-parent">
+                <a class="menu-link daftar-layanan-link" onclick="toggleDaftarLayanan(event)">
+                    <span>Daftar Layanan</span>
+                    <i class="fas fa-chevron-down daftar-layanan-icon"></i>
                 </a>
-                <ul class="submenu" id="submenuLayanan">
-                    <li><a class="submenu-link" onclick="bukaLayanan('layanan-1')">• Cleaning Service</a></li>
-                    <li><a class="submenu-link" onclick="bukaLayanan('layanan-2')">• Gardener / Perawatan Taman</a></li>
-                    <li><a class="submenu-link" onclick="bukaLayanan('layanan-4')">• Keamanan / Security</a></li>
-                    <li><a class="submenu-link" onclick="bukaLayanan('layanan-3')">• Pengadaan Barang & Kimia Cleaning</a></li>
-                    <li><a class="submenu-link" onclick="bukaLayanan('layanan-5')">• MEP (Mekanikal, Elektrikal, Plumbing)</a></li>
-                    <li><a class="submenu-link" onclick="bukaLayanan('layanan-6')">• Kontraktor & Konstruksi</a></li>
-                    <li><a class="submenu-link" onclick="bukaLayanan('layanan-7')">• Advertising (Percetakan) & Konveksi</a></li>
+                <ul class="daftar-layanan-submenu">
+                    <li><a onclick="bukaLayanan('layanan-1'); tutupMenu();">Cleaning Service</a></li>
+                    <li><a onclick="bukaLayanan('layanan-2'); tutupMenu();">Gardener / Perawatan Taman</a></li>
+                    <li><a onclick="bukaLayanan('layanan-4'); tutupMenu();">Keamanan / Security</a></li>
+                    <li><a onclick="bukaLayanan('layanan-3'); tutupMenu();">Pengadaan Barang & Kimia Cleaning</a></li>
+                    <li><a onclick="bukaLayanan('layanan-5'); tutupMenu();">MEP (Mekanikal, Elektrikal, Plumbing)</a></li>
+                    <li><a onclick="bukaLayanan('layanan-6'); tutupMenu();">Kontraktor & Konstruksi</a></li>
+                    <li><a onclick="bukaLayanan('layanan-7'); tutupMenu();">Advertising (Percetakan) & Konveksi</a></li>
                 </ul>
             </li>
             <li><a href="#kontak" class="menu-link" onclick="tutupMenu()"><span>Kontak</span></a></li>
@@ -298,8 +321,8 @@
             <div class="card"><div class="icon-circle">🎯</div><h2>Visi</h2><p>Menjadi penyedia jasa terdepan di Indonesia yang mengutamakan kualitas dan pelayanan prima melalui manajemen & SDM berkualitas.</p></div>
             <div class="card"><div class="icon-circle">✔</div><h2>Misi</h2><p>Membuka lapangan kerja serta menerapkan pelatihan dan manajemen profesional agar pelayanan tepat, cepat dan terjamin.</p></div>
             <div class="motto-block"><div class="section-header"><div class="line"></div>Motto<div class="line"></div></div><h2>SIGAP – CEPAT – TUNTAS</h2></div>
-            <div class="card"><h3 class="cert-title">Tim Kami</h3><img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/TEAM.JPG" class="img-fluid"></div>
-            <div class="card"><h3 class="cert-title">Sertifikat</h3><img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/SERTIFIKAT.JPG" class="img-fluid"></div>
+            <div class="card"><h3 class="cert-title">Tim Kami</h3><img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/TEAM.JPG" class="img-fluid" alt="Tim Kami"></div>
+            <div class="card"><h3 class="cert-title">Sertifikat</h3><img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/SERTIFIKAT.JPG" class="img-fluid" alt="Sertifikat"></div>
         </div>
     </section>
 
@@ -452,52 +475,45 @@
             </div>
             <div class="kontak-item">
                 <p>📍 BTN Minasa Indah Blok B No.2 RT.001/RW.004, Kel. Batangkaluku, Kec. Somba Opu, Kab. Gowa 92111</p>
-                <p>📞 0857 5068 1600 / 0822 9159 3455</p>
+                <p>📞 0857 5068 1600</p>
                 <p>✉️ info@pt.widuri27517@gmail.com</p>
             </div>
-            <div class="visitor-box
-h4>Statistik Pengunjung</h4>
+            <div class="visitor-box">
+                <h4>Statistik Pengunjung</h4>
                 <p>👥 Total : <span id="total-visitor">0</span></p>
-                <p>📅 Hari ini : <span id="today-visitor">0</span></p>
-                <p>📊 Bulan ini : <span id="month-visitor">0</span></p>
+                <p>📅 Hari ini : <span id="today-visitor">0</span></p>
+                <p>📊 Bulan ini : <span id="month-visitor">0</span></p>
                 <p class="small-text">*Data diperbarui secara otomatis</p>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <p>&copy; PT. Windu Dua Lestari (Widuri)</p>
-        <p>Semua Hak Dilindungi Undang‑Undang</p>
+        <p>&copy; PT. Windu Dua Lestari (WIDURI)</p>
+        <p>Semua Hak Dilindungi Undang-Undang</p>
     </footer>
 
     <script>
         // === FUNGSI BUKA & TUTUP MENU SIDEBAR ===
         const sidebarMenu = document.getElementById('sidebarMenu');
         const menuToggleBtn = document.getElementById('menuToggleBtn');
-        const closeMenuBtn = document.getElementById('closeMenuBtn');
 
         // Buka menu
         menuToggleBtn.addEventListener('click', () => {
             sidebarMenu.classList.add('active');
         });
 
-        // Tutup menu
-        closeMenuBtn.addEventListener('click', () => {
-            sidebarMenu.classList.remove('active');
-            document.querySelectorAll('.menu-parent').forEach(el => el.classList.remove('open'));
-        });
-
         // Tutup menu saat klik link di menu
         function tutupMenu() {
             sidebarMenu.classList.remove('active');
-            document.querySelectorAll('.menu-parent').forEach(el => el.classList.remove('open'));
+            document.querySelectorAll('.daftar-layanan-parent').forEach(el => el.classList.remove('open'));
         }
 
-        // === FUNGSI BUKA/TUTUP SUB-MENU ===
-        function toggleSubmenu(e) {
+        // === FUNGSI BUKA/TUTUP DAFTAR LAYANAN ===
+        function toggleDaftarLayanan(e) {
             e.preventDefault();
             e.stopPropagation();
-            const parent = e.target.closest('.menu-parent');
+            const parent = e.target.closest('.daftar-layanan-parent');
             parent.classList.toggle('open');
         }
 
@@ -512,8 +528,6 @@ h4>Statistik Pengunjung</h4>
                 // Scroll ke konten layanan
                 layanan.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
-            // Tutup menu sidebar setelah memilih
-            tutupMenu();
         }
 
         // === FUNGSI TUTUP KONTEN LAYANAN ===
@@ -525,7 +539,7 @@ h4>Statistik Pengunjung</h4>
         document.addEventListener('click', (e) => {
             if (!sidebarMenu.contains(e.target) && !menuToggleBtn.contains(e.target)) {
                 sidebarMenu.classList.remove('active');
-                document.querySelectorAll('.menu-parent').forEach(el => el.classList.remove('open'));
+                document.querySelectorAll('.daftar-layanan-parent').forEach(el => el.classList.remove('open'));
             }
         });
 
