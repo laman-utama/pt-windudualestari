@@ -7,6 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
         :root {
             color-scheme: only light !important;
@@ -24,7 +25,13 @@
             --red-dark: #B00000;
             --red-light: #E62E2E;
         }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
         body { 
             font-family: 'Roboto', sans-serif; 
             background-color: #f9f9f9 !important; 
@@ -33,491 +40,1963 @@
             scroll-behavior: smooth; 
             padding-top: 0;
         }
-        img { max-width: 100%; height: auto; }
 
-        section { margin-bottom: 30px !important; padding-top: 12px !important; padding-bottom: 12px !important; }
-        .home-hero { margin-bottom: 25px !important; }
-        .page-banner { margin-bottom: 25px !important; }
-        .profile-content, .contact-container, .services-container { margin-top: 18px !important; margin-bottom: 22px !important; }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
 
-        .header { padding:12px 20px; display:flex; justify-content:space-between; align-items:center; background:#fff !important; box-shadow:0 2px 5px rgba(0,0,0,0.1); position:sticky; top:0; z-index:999; }
-        .logo { height:40px; }
-        .menu-toggle { font-size:24px; cursor:pointer; color:var(--primary-blue); transition:all .25s; padding:4px 8px; border-radius:50%; }
-        .menu-toggle:hover { background:var(--primary-blue-soft); color:var(--red-main); }
+        section {
+            margin-bottom: 30px !important;
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+        }
+
+        .home-hero {
+            margin-bottom: 25px !important;
+        }
+
+        .page-banner {
+            margin-bottom: 25px !important;
+        }
+
+        .profile-content,
+        .contact-container,
+        .services-container {
+            margin-top: 18px !important;
+            margin-bottom: 22px !important;
+        }
+
+        .header {
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff !important;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 999;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .menu-toggle {
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--primary-blue);
+            transition: all .25s;
+            padding: 4px 8px;
+            border-radius: 50%;
+        }
+
+        .menu-toggle:hover {
+            background: var(--primary-blue-soft);
+            color: var(--red-main);
+        }
 
         .sidebar-menu { 
-            position:fixed; top:65px; left:0; width:100%; height:calc(100vh - 65px); 
+            position: fixed;
+            top: 65px;
+            left: 0;
+            width: 100%;
+            height: calc(100vh - 65px); 
             background: linear-gradient(180deg, #F0F4FF 0%, #FFFFFF 100%) !important;
-            transform:translateX(-100%); transition:.35s cubic-bezier(.4,0,.2,1); z-index:1000; 
-            padding:0; border-right:none; box-shadow: 2px 0 20px rgba(0, 51, 153, 0.08);
-            overflow-y: auto; -webkit-overflow-scrolling: touch;
+            transform: translateX(-100%);
+            transition: .35s cubic-bezier(.4,0,.2,1);
+            z-index: 1000; 
+            padding: 0;
+            border-right: none;
+            box-shadow: 2px 0 20px rgba(0, 51, 153, 0.08);
+            overflow-y: auto;
+            -webkit-overflow-scrolling: touch;
             border-top: 1px solid rgba(0,51,153,0.08);
         }
-        .sidebar-menu.active { transform:translateX(0); }
 
-        .menu-list { list-style:none; margin-top:40px; padding:0 12px; }
-        .menu-list li { margin-bottom:4px; border-radius:10px; transition:all .25s ease; }
-        .menu-list a { 
-            display:flex; justify-content:space-between; align-items:center;
-            padding:14px 18px; font-size:16px !important; font-weight:700 !important; 
-            color:#1A2B4C; text-decoration:none; transition:all .25s ease;
-            border-radius:10px; white-space: nowrap; cursor:pointer;
+        .sidebar-menu.active {
+            transform: translateX(0);
         }
+
+        .menu-list {
+            list-style: none;
+            margin-top: 40px;
+            padding: 0 12px;
+        }
+
+        .menu-list li {
+            margin-bottom: 4px;
+            border-radius: 10px;
+            transition: all .25s ease;
+        }
+
+        .menu-list a { 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 18px;
+            font-size: 16px !important;
+            font-weight: 700 !important; 
+            color: #1A2B4C;
+            text-decoration: none;
+            transition: all .25s ease;
+            border-radius: 10px;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+
         .menu-list a:hover,
         .menu-list a.active { 
-            background: rgba(0, 51, 153, 0.08); color:var(--primary-blue);
+            background: rgba(0, 51, 153, 0.08);
+            color: var(--primary-blue);
         }
-        .menu-list a::after { content:""; }
 
-        .daftar-layanan-parent { position:relative; }
-        .daftar-layanan-link { cursor:pointer; user-select:none; }
+        .menu-list a::after {
+            content: "";
+        }
+
+        .daftar-layanan-parent {
+            position: relative;
+        }
+
+        .daftar-layanan-link {
+            cursor: pointer;
+            user-select: none;
+        }
+
         .daftar-layanan-icon { 
-            position:absolute; right:20px; top:50%; transform:translateY(-50%);
-            font-size:14px; color:#667E99; transition:transform .3s ease; pointer-events:none; 
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 14px;
+            color: #667E99;
+            transition: transform .3s ease;
+            pointer-events: none; 
         }
-        .daftar-layanan-parent.open .daftar-layanan-icon { transform:translateY(-50%) rotate(180deg); color:var(--primary-blue); }
-        .daftar-layanan-submenu { 
-            list-style:none; padding:8px 0 12px 0; margin:0; 
-            max-height:0; overflow:hidden; transition:max-height .35s ease;
-            background: rgba(255,255,255,0.8); border-radius:8px; margin-top:4px;
-        }
-        .daftar-layanan-parent.open .daftar-layanan-submenu { max-height:800px; }
-        .daftar-layanan-submenu li { border-radius:6px; margin:2px 0; }
-        .daftar-layanan-submenu a { 
-            display:block; padding:12px 18px; font-size:15px !important; font-weight:500 !important; color:#3A4B6C; 
-            text-decoration:none; transition:all .2s ease; border-radius:6px; white-space: normal;
-        }
-        .daftar-layanan-submenu a::after { content:""; display:none; }
-        .daftar-layanan-submenu a:hover { background: rgba(0, 51, 153, 0.06); color:var(--primary-blue); }
 
-        .wa-float-button { position:fixed; bottom:20px; right:20px; z-index:99999; padding:8px 12px; border-radius:30px; background:var(--wa-green); color:#fff !important; text-decoration:none; display:flex; align-items:center; gap:5px; font-size:14px; box-shadow:0 4px 10px rgba(37,211,102,.25); transition:all .3s; }
-        .wa-float-button:hover { transform:translateY(-2px); box-shadow:0 6px 14px rgba(37,211,102,.35); color:#fff; }
-        .wa-float-button i { font-size:16px; }
+        .daftar-layanan-parent.open .daftar-layanan-icon {
+            transform: translateY(-50%) rotate(180deg);
+            color: var(--primary-blue);
+        }
+
+        .daftar-layanan-submenu { 
+            list-style: none;
+            padding: 8px 0 12px 0;
+            margin: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height .35s ease;
+            background: rgba(255,255,255,0.8);
+            border-radius: 8px;
+            margin-top: 4px;
+        }
+
+        .daftar-layanan-parent.open .daftar-layanan-submenu {
+            max-height: 800px;
+        }
+
+        .daftar-layanan-submenu li {
+            border-radius: 6px;
+            margin: 2px 0;
+        }
+
+        .daftar-layanan-submenu a { 
+            display: block;
+            padding: 12px 18px;
+            font-size: 15px !important;
+            font-weight: 500 !important;
+            color: #3A4B6C; 
+            text-decoration: none;
+            transition: all .2s ease;
+            border-radius: 6px;
+            white-space: normal;
+        }
+
+        .daftar-layanan-submenu a::after {
+            content: "";
+            display: none;
+        }
+
+        .daftar-layanan-submenu a:hover {
+            background: rgba(0, 51, 153, 0.06);
+            color: var(--primary-blue);
+        }
+
+        .wa-float-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99999;
+            padding: 8px 12px;
+            border-radius: 30px;
+            background: var(--wa-green);
+            color: #fff !important;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(37,211,102,.25);
+            transition: all .3s;
+        }
+
+        .wa-float-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(37,211,102,.35);
+            color: #fff;
+        }
+
+        .wa-float-button i {
+            font-size: 16px;
+        }
 
         .home-hero { 
-            background:linear-gradient(rgba(0,26,51,.82),rgba(0,26,51,.82)), 
-            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
+            background:
+                linear-gradient(rgba(0,26,51,.82),rgba(0,26,51,.82)), 
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
             min-height: calc(100vh - 64px);
-            display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; 
-            color:#FFFFFF !important; padding:24px 20px; margin-top:0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center; 
+            color: #FFFFFF !important;
+            padding: 24px 20px;
+            margin-top: 0;
         }
-        .home-hero h1 { font-size:24px; font-weight:700; margin-bottom:18px; line-height:1.4; max-width:580px; letter-spacing:0.3px; }
-        .home-hero .ringkas { font-size:17px; opacity:0.9; margin-bottom:32px; max-width:540px; line-height:1.5; }
-        .btn-cta { background:var(--red-main); color:#fff !important; padding:13px 34px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:17px; box-shadow:0 5px 12px rgba(0,0,0,.25); transition:all .28s; border:none; letter-spacing:0.3px; margin-bottom:28px; }
-        .btn-cta:hover { background:var(--red-dark); transform:translateY(-2px); box-shadow:0 7px 16px rgba(217,0,0,.3); }
-        .hero-features { display:flex; flex-direction:column; gap:12px; max-width:520px; }
-        .hero-feature-item { display:flex; align-items:center; justify-content:center; gap:9px; font-size:16px; color:#fff; opacity:0.94; }
-        .hero-feature-item i { color:#80c8ff; font-size:18px; width:22px; text-align:center; }
+
+        .home-hero h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 18px;
+            line-height: 1.4;
+            max-width: 580px;
+            letter-spacing: 0.3px;
+        }
+
+        .home-hero .ringkas {
+            font-size: 17px;
+            opacity: 0.9;
+            margin-bottom: 32px;
+            max-width: 540px;
+            line-height: 1.5;
+        }
+
+        .btn-cta {
+            background: var(--red-main);
+            color: #fff !important;
+            padding: 13px 34px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 17px;
+            box-shadow: 0 5px 12px rgba(0,0,0,.25);
+            transition: all .28s;
+            border: none;
+            letter-spacing: 0.3px;
+            margin-bottom: 28px;
+        }
+
+        .btn-cta:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 16px rgba(217,0,0,.3);
+        }
+
+        .hero-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 520px;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            font-size: 16px;
+            color: #fff;
+            opacity: 0.94;
+        }
+
+        .hero-feature-item i {
+            color: #80c8ff;
+            font-size: 18px;
+            width: 22px;
+            text-align: center;
+        }
 
         .page-banner { 
-            position:relative; min-height:280px; padding-top: 55px !important; 
-            background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), 
-            url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
-            display:flex; flex-direction:column; align-items:flex-start; justify-content:center; padding-left:40px; color:#fff !important; overflow:hidden; 
+            position: relative;
+            min-height: 280px;
+            padding-top: 55px !important; 
+            background:
+                linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)), 
+                url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover no-repeat; 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            padding-left: 40px;
+            color: #fff !important;
+            overflow: hidden; 
         }
-        .page-banner h1 { font-size:42px; font-weight:700; margin-bottom:12px; line-height:1.1; letter-spacing:.3px; color:#fff !important; }
-        .breadcrumb { font-size:17px; font-weight:400; }
-        .breadcrumb a { color:#66b3ff; text-decoration:none; transition:color .2s; }
-        .breadcrumb a:hover { color:#fff; text-decoration:underline; }
-        .breadcrumb span { color:#fff !important; margin:0 6px; font-weight:500; }
 
-        .section-title { text-align:center; padding:25px 20px 12px; color:var(--primary-blue); font-size:26px; font-weight:700; margin-top:0; margin-bottom:8px; }
-        .grid-layanan { display:grid; grid-template-columns:1fr; gap:10px; padding:0 20px 10px; max-width:700px; margin:0 auto; }
-        .layanan-item { display:flex; align-items:center; gap:14px; padding:16px 20px; background:#fff !important; border:1px solid #e0e7ff; border-radius:8px; color:var(--primary-blue) !important; font-size:18px; font-weight:500; text-decoration:none; box-shadow:0 2px 4px rgba(0,0,0,.05); transition:all .3s cubic-bezier(.4,0,.2,1); cursor:pointer; overflow:hidden; }
-        .layanan-item:hover { background:#f8fbff !important; border-color:var(--primary-blue); transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,51,153,.15); padding-left:24px; }
-        .layanan-item i { font-size:24px; width:32px; text-align:center; color:var(--primary-blue); transition:transform .2s; }
-        .layanan-item:hover i { transform:scale(1.08); }
+        .page-banner h1 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            line-height: 1.1;
+            letter-spacing: .3px;
+            color: #fff !important;
+        }
 
-        .services-container { max-width:720px; margin:0 auto; padding:10px 20px 12px !important; position:relative; }
+        .breadcrumb {
+            font-size: 17px;
+            font-weight: 400;
+        }
+
+        .breadcrumb a {
+            color: #66b3ff;
+            text-decoration: none;
+            transition: color .2s;
+        }
+
+        .breadcrumb a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .breadcrumb span {
+            color: #fff !important;
+            margin: 0 6px;
+            font-weight: 500;
+        }
+
+        .section-title {
+            text-align: center;
+            padding: 25px 20px 12px;
+            color: var(--primary-blue);
+            font-size: 26px;
+            font-weight: 700;
+            margin-top: 0;
+            margin-bottom: 8px;
+        }
+
+        .grid-layanan {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            padding: 0 20px 10px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .layanan-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px 20px;
+            background: #fff !important;
+            border: 1px solid #e0e7ff;
+            border-radius: 8px;
+            color: var(--primary-blue) !important;
+            font-size: 18px;
+            font-weight: 500;
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,.05);
+            transition: all .3s cubic-bezier(.4,0,.2,1);
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .layanan-item:hover {
+            background: #f8fbff !important;
+            border-color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,51,153,.15);
+            padding-left: 24px;
+        }
+
+        .layanan-item i {
+            font-size: 24px;
+            width: 32px;
+            text-align: center;
+            color: var(--primary-blue);
+            transition: transform .2s;
+        }
+
+        .layanan-item:hover i {
+            transform: scale(1.08);
+        }
+
+        .services-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 10px 20px 12px !important;
+            position: relative;
+        }
+
         .service-item { 
-            background:#fff !important; border-radius:24px !important; overflow:hidden; box-shadow:0 4px 14px rgba(0,0,0,.1); 
-            margin:12px auto; padding:0; text-align:center; width:100%; max-width:520px;
-            display: none; opacity:0; transform:translateY(12px); transition:.3s ease; position:relative;
+            background: #fff !important;
+            border-radius: 24px !important;
+            overflow: hidden;
+            box-shadow: 0 4px 14px rgba(0,0,0,.1); 
+            margin: 12px auto;
+            padding: 0;
+            text-align: center;
+            width: 100%;
+            max-width: 520px;
+            display: none;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: .3s ease;
+            position: relative;
         }
-        .service-item.active { display:block; opacity:1; transform:translateY(0); margin:15px auto 30px; }
-        .tutup-btn { position:absolute; top:15px; right:16px; width:36px; height:36px; border-radius:50%; background:rgba(0,0,0,.65); color:#fff; border:none; font-size:20px; font-weight:bold; cursor:pointer; display:flex; align-items:center; justify-content:center; z-index:10; transition:.2s ease; box-shadow:0 2px 6px rgba(0,0,0,.2); }
-        .tutup-btn:hover { background:var(--red-main); transform:scale(1.08); }
+
+        .service-item.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            margin: 15px auto 30px;
+        }
+
+        .tutup-btn {
+            position: absolute;
+            top: 15px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(0,0,0,.65);
+            color: #fff;
+            border: none;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: .2s ease;
+            box-shadow: 0 2px 6px rgba(0,0,0,.2);
+        }
+
+        .tutup-btn:hover {
+            background: var(--red-main);
+            transform: scale(1.08);
+        }
         
         .service-item img { 
-            width:100%; height:auto; object-fit:cover !important; background:#f5f7fa; display:block; 
-            margin:0; border-radius:24px 24px 0 0 !important; min-height:220px;
+            width: 100%;
+            height: auto;
+            object-fit: cover !important;
+            background: #f5f7fa;
+            display: block; 
+            margin: 0;
+            border-radius: 24px 24px 0 0 !important;
+            min-height: 220px;
         }
-        .icon-wrapper { position:relative; margin-top:-35px !important; margin-bottom:14px !important; z-index:2; }
-        .service-icon-circle { width:74px !important; height:74px !important; background:var(--primary-blue); border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff !important; font-size:29px !important; margin:0 auto; border:4px solid #fff !important; box-shadow:0 3px 8px rgba(0,0,0,.18) !important; }
-        .service-title { font-size:28px !important; color:var(--primary-blue); font-weight:700; margin:15px auto 12px !important; padding:0 22px !important; text-align:center !important; letter-spacing:.2px; }
-        .service-desc { padding:0 26px 28px !important; font-size:20px !important; line-height:1.7 !important; color:var(--text) !important; margin:0; text-align:center !important; border-bottom: none !important; }
 
-        .profile-content { max-width:1000px; margin:0 auto; padding:0 20px 25px; }
-        .card { background:#fff !important; margin:12px 0; padding:18px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.1); text-align:center; transition:transform .3s, box-shadow .3s; }
-        .card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.12); }
-        .icon-circle { width:55px; height:55px; background:var(--primary-blue); color:#fff !important; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto 12px; font-size:24px; }
-        .card:hover .icon-circle { transform:scale(1.05); }
-        .card h2 { color:var(--primary-blue); margin-bottom:12px; font-size:22px; text-align:center; }
-        .card p { text-align:center; line-height:1.5; font-size:16px; color:var(--text) !important; margin:0; }
-        
-        /* === VIDEO PROFIL — BERPUTAR OTOMATIS, BERULANG, TANPA TOMBOL UNDUH === */
+        .icon-wrapper {
+            position: relative;
+            margin-top: -35px !important;
+            margin-bottom: 14px !important;
+            z-index: 2;
+        }
+
+        .service-icon-circle {
+            width: 74px !important;
+            height: 74px !important;
+            background: var(--primary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff !important;
+            font-size: 29px !important;
+            margin: 0 auto;
+            border: 4px solid #fff !important;
+            box-shadow: 0 3px 8px rgba(0,0,0,.18) !important;
+        }
+
+        .service-title {
+            font-size: 28px !important;
+            color: var(--primary-blue);
+            font-weight: 700;
+            margin: 15px auto 12px !important;
+            padding: 0 22px !important;
+            text-align: center !important;
+            letter-spacing: .2px;
+        }
+
+        .service-desc {
+            padding: 0 26px 28px !important;
+            font-size: 20px !important;
+            line-height: 1.7 !important;
+            color: var(--text) !important;
+            margin: 0;
+            text-align: center !important;
+            border-bottom: none !important;
+        }
+
+        .profile-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 25px;
+        }
+
+        .card {
+            background: #fff !important;
+            margin: 12px 0;
+            padding: 18px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,.1);
+            text-align: center;
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,.12);
+        }
+
+        .icon-circle {
+            width: 55px;
+            height: 55px;
+            background: var(--primary-blue);
+            color: #fff !important;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 24px;
+        }
+
+        .card:hover .icon-circle {
+            transform: scale(1.05);
+        }
+
+        .card h2 {
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            font-size: 22px;
+            text-align: center;
+        }
+
+        .card p {
+            text-align: center;
+            line-height: 1.5;
+            font-size: 16px;
+            color: var(--text) !important;
+            margin: 0;
+        }
+
+        /* =========================================================
+           VIDEO PROFIL
+           Hanya bagian video yang diperbaiki.
+           Struktur dan desain website lainnya tetap.
+           ========================================================= */
+
         .video-profil-card { 
-            background:#fff !important; 
-            margin:12px 0; 
-            padding:18px; 
-            border-radius:8px; 
-            box-shadow:0 2px 8px rgba(0,0,0,.1); 
-            text-align:center; 
+            background: #fff !important; 
+            margin: 12px 0; 
+            padding: 18px; 
+            border-radius: 8px; 
+            box-shadow: 0 2px 8px rgba(0,0,0,.1); 
+            text-align: center; 
         }
+
         .video-profil-card video { 
-            width:100%; 
-            border-radius:6px; 
-            outline:none; 
+            width: 100%; 
+            border-radius: 6px; 
+            outline: none;
+            display: block;
+            background: #000;
         }
-        video::-webkit-media-controls-download-button { display: none !important; }
-        video::-webkit-media-controls-fullscreen-button { display: none !important; }
-        video::-webkit-media-controls-enclosure { border-radius:6px; }
-        
-        /* === MOTTO — SAMA UKURAN DENGAN KOTAK TIM KAMI === */
+
+        /* Menyembunyikan tombol download pada browser WebKit/Chrome */
+        video::-webkit-media-controls-download-button {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-fullscreen-button {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-play-button {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-timeline {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-current-time-display {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-time-remaining-display {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-mute-button {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-volume-slider {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-overflow-button {
+            display: none !important;
+        }
+
+        video::-webkit-media-controls-enclosure {
+            border-radius: 6px;
+        }
+
         .motto-block { 
-            background:var(--primary-blue); 
-            color:#fff !important; 
-            padding:15px 20px; 
-            border-radius:8px; 
-            margin:12px 0; 
-            text-align:center; 
+            background: var(--primary-blue); 
+            color: #fff !important; 
+            padding: 15px 20px; 
+            border-radius: 8px; 
+            margin: 12px 0; 
+            text-align: center; 
         }
-        .section-header { display:flex; align-items:center; justify-content:center; margin-bottom:8px; font-size:13px; }
-        .line { width:25px; height:1px; background:#fff !important; margin:0 8px; }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+
+        .line {
+            width: 25px;
+            height: 1px;
+            background: #fff !important;
+            margin: 0 8px;
+        }
+
         .motto-block h2 { 
-            font-size:22px !important;
-            line-height:1.3 !important; 
-            letter-spacing:0.5px; 
+            font-size: 22px !important;
+            line-height: 1.3 !important; 
+            letter-spacing: 0.5px; 
         }
-        .img-fluid { width:100%; border-radius:6px; margin-top:8px; }
-        .cert-title { color:var(--primary-blue); font-weight:bold; margin:8px 0; font-size:17px; }
 
-        .contact-container { max-width:1000px; margin:0 auto; padding:0 20px 25px; display:grid; grid-template-columns:1fr; gap:15px; }
-        .info-card, .form-card { background:#fff !important; padding:18px; border-radius:8px; border:1px solid #eee !important; margin-top:0 !important; }
-        .info-card:hover, .form-card:hover { transform:translateY(-2px); box-shadow:0 4px 12px rgba(0,0,0,.08); }
-        .info-card h3, .form-card h3 { font-size:17px; color:var(--primary-blue); margin-bottom:12px; padding-bottom:6px; border-bottom:1px solid #eee !important; font-weight:bold; }
-        .info-item { margin-bottom:10px; font-size:14px; line-height:1.5; text-align:left !important; }
-        .info-card p, .info-card a { font-size:14px; color:var(--text) !important; text-decoration:none; text-align:left; }
-        .info-card a:hover { color:var(--red-main); text-decoration:underline; }
+        .img-fluid {
+            width: 100%;
+            border-radius: 6px;
+            margin-top: 8px;
+        }
 
-        .form-group { margin-bottom:12px; }
-        .form-group label { display:block; margin-bottom:4px; font-size:13px; font-weight:600; text-align:left; color:var(--text) !important; }
-        .form-group input, .form-group textarea { width:100%; padding:9px; border:1px solid #ddd !important; border-radius:6px; font-size:13px; transition:border-color .2s, box-shadow .2s; background:#fff !important; color:#333 !important; }
-        .form-group input:focus, .form-group textarea:focus { outline:none; border-color:var(--red-main); box-shadow:0 0 0 3px rgba(217,0,0,.08); }
-        .form-group textarea { height:90px; }
+        .cert-title {
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin: 8px 0;
+            font-size: 17px;
+        }
 
-        .checkbox-group { display:flex; flex-direction:column; gap:8px; margin-top:6px; }
-        .checkbox-group label { display:flex; align-items:center; gap:10px; padding:8px 10px; border:1px solid #ddd; border-radius:6px; cursor:pointer; font-size:14px; transition:all .2s; background:#fff; }
-        .checkbox-group label:hover { border-color:var(--primary-blue); background:rgba(0,51,153,.03); }
-        .checkbox-group input[type="checkbox"] { width:18px; height:18px; cursor:pointer; accent-color:var(--primary-blue); }
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px 25px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .info-card,
+        .form-card {
+            background: #fff !important;
+            padding: 18px;
+            border-radius: 8px;
+            border: 1px solid #eee !important;
+            margin-top: 0 !important;
+        }
+
+        .info-card:hover,
+        .form-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,.08);
+        }
+
+        .info-card h3,
+        .form-card h3 {
+            font-size: 17px;
+            color: var(--primary-blue);
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eee !important;
+            font-weight: bold;
+        }
+
+        .info-item {
+            margin-bottom: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            text-align: left !important;
+        }
+
+        .info-card p,
+        .info-card a {
+            font-size: 14px;
+            color: var(--text) !important;
+            text-decoration: none;
+            text-align: left;
+        }
+
+        .info-card a:hover {
+            color: var(--red-main);
+            text-decoration: underline;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 13px;
+            font-weight: 600;
+            text-align: left;
+            color: var(--text) !important;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 9px;
+            border: 1px solid #ddd !important;
+            border-radius: 6px;
+            font-size: 13px;
+            transition: border-color .2s, box-shadow .2s;
+            background: #fff !important;
+            color: #333 !important;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red-main);
+            box-shadow: 0 0 0 3px rgba(217,0,0,.08);
+        }
+
+        .form-group textarea {
+            height: 90px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-top: 6px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all .2s;
+            background: #fff;
+        }
+
+        .checkbox-group label:hover {
+            border-color: var(--primary-blue);
+            background: rgba(0,51,153,.03);
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--primary-blue);
+        }
 
         .btn-submit {
             background: linear-gradient(135deg, var(--red-light), var(--red-main));
-            color: #ffffff !important; border: none; padding: 11px 28px; border-radius: 8px; font-size: 14px; font-weight: 600; cursor: pointer; width: 100%; display: inline-flex; align-items: center; justify-content: center; gap: 7px; box-shadow: 0 3px 8px rgba(217, 0, 0, 0.22); transition: all 0.28s ease; letter-spacing: 0.3px;
+            color: #ffffff !important;
+            border: none;
+            padding: 11px 28px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            box-shadow: 0 3px 8px rgba(217, 0, 0, 0.22);
+            transition: all 0.28s ease;
+            letter-spacing: 0.3px;
         }
-        .btn-submit i { color: #ffffff !important; font-size: 16px; }
-        .btn-submit:hover { background: linear-gradient(135deg, var(--red-main), var(--red-dark)); transform: translateY(-3px); box-shadow: 0 6px 14px rgba(176, 0, 0, 0.28); }
-        .btn-submit:active { transform:translateY(0); box-shadow:0 2px 5px rgba(176,0,0,.2); }
 
-        .peta-indonesia-box { margin-top:15px; border:1px solid #eee; border-radius:8px; overflow:hidden; }
-        .peta-indonesia-box h4 { font-size:15px; padding:10px 15px; background:#fff; color:var(--primary-blue); display:flex; align-items:center; justify-content:center; gap:8px; border-bottom:1px solid #eee; text-align:center; }
-        .peta-indonesia-box img { width:100%; display:block; }
+        .btn-submit i {
+            color: #ffffff !important;
+            font-size: 16px;
+        }
 
-        .map-section-kontak { max-width:1000px; margin:15px auto 0; padding:0; }
-        .map-card { background:#fff !important; padding:15px; border-radius:8px; border:1px solid #eee !important; }
-        .map-container { width:100%; height:280px; border-radius:4px; overflow:hidden; margin-top:8px; }
-        .map-container iframe { width:100%; height:100%; border:none; }
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--red-main), var(--red-dark));
+            transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(176, 0, 0, 0.28);
+        }
 
-        .info-lengkap { max-width:1000px; margin:0 auto 20px !important; padding:25px 20px; background:var(--dark-blue) !important; color:#fff !important; border-radius:8px; text-align:center; }
-        .info-lengkap .logo-tengah img { width:75px; border-radius:50%; }
-        .info-lengkap h2 { font-size:22px; margin-bottom:4px; color:#fff !important; }
-        .info-lengkap h3 { font-size:17px; font-weight:normal; opacity:.9; margin-bottom:15px; color:#fff !important; }
-        .info-lengkap .deskripsi { font-size:15px; line-height:1.5; margin-bottom:20px; color:#fff !important; }
-        .info-lengkap h4 { font-size:19px; color:#B3D1FF !important; margin:15px 0 8px; }
-        .info-lengkap .jam-kerja p, .info-lengkap .kontak-item p { font-size:15px; margin:6px 0; display:flex; align-items:center; justify-content:center; gap:8px; opacity:.9; color:#fff !important; }
-        .info-lengkap .sosial { display:flex; gap:12px; justify-content:center; margin:15px 0; }
-        .info-lengkap .sosial a { color:#fff !important; font-size:22px; opacity:.8; transition:all .2s; border-radius:50%; width:32px; height:32px; display:flex; align-items:center; justify-content:center; }
-        .info-lengkap .sosial a:hover { opacity:1; transform:translateY(-2px); background:rgba(255,255,255,.1); }
-        .visitor-box { background:rgba(255,255,255,.12) !important; padding:15px; border-radius:6px; margin-top:20px; margin-bottom:10px !important; }
-        .visitor-box h4 { font-size:18px; color:#B3D1FF; margin-bottom:12px; }
-        .visitor-box p { font-size:15px; margin:8px 0; display:flex; align-items:center; justify-content:center; gap:6px; color:#fff !important; }
-        .small-text { font-size:13px; opacity:.7; margin-top:10px; color:#fff !important; }
+        .btn-submit:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 5px rgba(176,0,0,.2);
+        }
 
-        .footer { background:#001a33 !important; color:#fff !important; padding:18px 20px !important; text-align:center; font-size:14px; margin-top:0 !important; }
-        .footer p { margin:5px 0; line-height:1.6; color:#fff !important; }
+        .peta-indonesia-box {
+            margin-top: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .peta-indonesia-box h4 {
+            font-size: 15px;
+            padding: 10px 15px;
+            background: #fff;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border-bottom: 1px solid #eee;
+            text-align: center;
+        }
+
+        .peta-indonesia-box img {
+            width: 100%;
+            display: block;
+        }
+
+        .map-section-kontak {
+            max-width: 1000px;
+            margin: 15px auto 0;
+            padding: 0;
+        }
+
+        .map-card {
+            background: #fff !important;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee !important;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 280px;
+            border-radius: 4px;
+            overflow: hidden;
+            margin-top: 8px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .info-lengkap {
+            max-width: 1000px;
+            margin: 0 auto 20px !important;
+            padding: 25px 20px;
+            background: var(--dark-blue) !important;
+            color: #fff !important;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .info-lengkap .logo-tengah img {
+            width: 75px;
+            border-radius: 50%;
+        }
+
+        .info-lengkap h2 {
+            font-size: 22px;
+            margin-bottom: 4px;
+            color: #fff !important;
+        }
+
+        .info-lengkap h3 {
+            font-size: 17px;
+            font-weight: normal;
+            opacity: .9;
+            margin-bottom: 15px;
+            color: #fff !important;
+        }
+
+        .info-lengkap .deskripsi {
+            font-size: 15px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            color: #fff !important;
+        }
+
+        .info-lengkap h4 {
+            font-size: 19px;
+            color: #B3D1FF !important;
+            margin: 15px 0 8px;
+        }
+
+        .info-lengkap .jam-kerja p,
+        .info-lengkap .kontak-item p {
+            font-size: 15px;
+            margin: 6px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            opacity: .9;
+            color: #fff !important;
+        }
+
+        .info-lengkap .sosial {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .info-lengkap .sosial a {
+            color: #fff !important;
+            font-size: 22px;
+            opacity: .8;
+            transition: all .2s;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .info-lengkap .sosial a:hover {
+            opacity: 1;
+            transform: translateY(-2px);
+            background: rgba(255,255,255,.1);
+        }
+
+        .visitor-box {
+            background: rgba(255,255,255,.12) !important;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+            margin-bottom: 10px !important;
+        }
+
+        .visitor-box h4 {
+            font-size: 18px;
+            color: #B3D1FF;
+            margin-bottom: 12px;
+        }
+
+        .visitor-box p {
+            font-size: 15px;
+            margin: 8px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #fff !important;
+        }
+
+        .small-text {
+            font-size: 13px;
+            opacity: .7;
+            margin-top: 10px;
+            color: #fff !important;
+        }
+
+        .footer {
+            background: #001a33 !important;
+            color: #fff !important;
+            padding: 18px 20px !important;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 0 !important;
+        }
+
+        .footer p {
+            margin: 5px 0;
+            line-height: 1.6;
+            color: #fff !important;
+        }
 
         @media(max-width:768px) {
-            .grid-layanan { grid-template-columns:1fr; padding:0 15px; gap:8px; }
-            .contact-container { grid-template-columns:1fr; padding:0 15px; }
-            .services-container { padding:8px 15px 10px !important; }
-            .page-banner { padding-top: 55px !important; min-height: 230px; padding-left:20px; margin-bottom:20px !important; }
-            .page-banner h1 { font-size:26px; }
-            .layanan-item { font-size:17px; padding:15px 16px; }
-            .service-title { font-size:24px !important; padding:0 18px !important; margin:8px auto 12px !important; }
-            .service-desc { font-size:18px !important; padding:0 18px 24px !important; line-height:1.7 !important; }
-            .service-item img { border-radius:20px 20px 0 0 !important; min-height:180px; }
-            .icon-wrapper { margin-top:-25px !important; margin-bottom:14px !important; }
-            .service-icon-circle { width:70px !important; height:70px !important; font-size:28px !important; border-width:3px !important; }
-            .home-hero h1 { font-size:22px; }
-            section { margin-bottom:22px !important; padding-top:8px !important; padding-bottom:8px !important; }
-            .checkbox-group label { font-size:13px; padding:7px 9px; }
-            .daftar-layanan-submenu a { padding:12px 18px; font-size:16px; }
-            .sidebar-menu { width:100%; top:65px; height:calc(100vh - 65px); }
-            .menu-list { margin-top:30px; }
-            .daftar-layanan-icon { right:18px; font-size:12px; }
-            .motto-block h2 { font-size:20px !important; }
-            .motto-block { padding:12px 15px; }
+            .grid-layanan {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+                gap: 8px;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+            }
+
+            .services-container {
+                padding: 8px 15px 10px !important;
+            }
+
+            .page-banner {
+                padding-top: 55px !important;
+                min-height: 230px;
+                padding-left: 20px;
+                margin-bottom: 20px !important;
+            }
+
+            .page-banner h1 {
+                font-size: 26px;
+            }
+
+            .layanan-item {
+                font-size: 17px;
+                padding: 15px 16px;
+            }
+
+            .service-title {
+                font-size: 24px !important;
+                padding: 0 18px !important;
+                margin: 8px auto 12px !important;
+            }
+
+            .service-desc {
+                font-size: 18px !important;
+                padding: 0 18px 24px !important;
+                line-height: 1.7 !important;
+            }
+
+            .service-item img {
+                border-radius: 20px 20px 0 0 !important;
+                min-height: 180px;
+            }
+
+            .icon-wrapper {
+                margin-top: -25px !important;
+                margin-bottom: 14px !important;
+            }
+
+            .service-icon-circle {
+                width: 70px !important;
+                height: 70px !important;
+                font-size: 28px !important;
+                border-width: 3px !important;
+            }
+
+            .home-hero h1 {
+                font-size: 22px;
+            }
+
+            section {
+                margin-bottom: 22px !important;
+                padding-top: 8px !important;
+                padding-bottom: 8px !important;
+            }
+
+            .checkbox-group label {
+                font-size: 13px;
+                padding: 7px 9px;
+            }
+
+            .daftar-layanan-submenu a {
+                padding: 12px 18px;
+                font-size: 16px;
+            }
+
+            .sidebar-menu {
+                width: 100%;
+                top: 65px;
+                height: calc(100vh - 65px);
+            }
+
+            .menu-list {
+                margin-top: 30px;
+            }
+
+            .daftar-layanan-icon {
+                right: 18px;
+                font-size: 12px;
+            }
+
+            .motto-block h2 {
+                font-size: 20px !important;
+            }
+
+            .motto-block {
+                padding: 12px 15px;
+            }
         }
     </style>
 </head>
+
 <body>
-    <a href="https://wa.me/6285750681600" class="wa-float-button" target="_blank"><i class="fab fa-whatsapp"></i> Hubungi Kami</a>
+
+    <a href="https://wa.me/6285750681600" class="wa-float-button" target="_blank">
+        <i class="fab fa-whatsapp"></i> Hubungi Kami
+    </a>
 
     <div class="sidebar-menu" id="sidebarMenu">
         <ul class="menu-list">
-            <li><a href="#beranda" class="menu-link" onclick="tutupMenu()"><span>Beranda</span></a></li>
-            <li><a href="#profil" class="menu-link" onclick="tutupMenu()"><span>Profil</span></a></li>
-            <li><a href="#layanan" class="menu-link" onclick="tutupMenu()"><span>Layanan</span></a></li>
+            <li>
+                <a href="#beranda" class="menu-link" onclick="tutupMenu()">
+                    <span>Beranda</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#profil" class="menu-link" onclick="tutupMenu()">
+                    <span>Profil</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="#layanan" class="menu-link" onclick="tutupMenu()">
+                    <span>Layanan</span>
+                </a>
+            </li>
+
             <li class="daftar-layanan-parent">
                 <a class="menu-link daftar-layanan-link" onclick="toggleDaftarLayanan(event)">
                     <span>Daftar Layanan</span>
                     <i class="fas fa-chevron-down daftar-layanan-icon"></i>
                 </a>
+
                 <ul class="daftar-layanan-submenu">
-                    <li><a onclick="bukaLayanan('layanan-1'); tutupMenu();">Cleaning Service</a></li>
-                    <li><a onclick="bukaLayanan('layanan-2'); tutupMenu();">Gardener / Perawatan Taman</a></li>
-                    <li><a onclick="bukaLayanan('layanan-4'); tutupMenu();">Keamanan / Security</a></li>
-                    <li><a onclick="bukaLayanan('layanan-3'); tutupMenu();">Pengadaan Barang & Kimia Cleaning</a></li>
-                    <li><a onclick="bukaLayanan('layanan-5'); tutupMenu();">MEP (Mekanikal, Elektrikal, Plumbing)</a></li>
-                    <li><a onclick="bukaLayanan('layanan-6'); tutupMenu();">Kontraktor & Konstruksi</a></li>
-                    <li><a onclick="bukaLayanan('layanan-7'); tutupMenu();">Advertising (Percetakan) & Konveksi</a></li>
+                    <li>
+                        <a onclick="bukaLayanan('layanan-1'); tutupMenu();">
+                            Cleaning Service
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="bukaLayanan('layanan-2'); tutupMenu();">
+                            Gardener / Perawatan Taman
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="bukaLayanan('layanan-4'); tutupMenu();">
+                            Keamanan / Security
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="bukaLayanan('layanan-3'); tutupMenu();">
+                            Pengadaan Barang & Kimia Cleaning
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="bukaLayanan('layanan-5'); tutupMenu();">
+                            MEP (Mekanikal, Elektrikal, Plumbing)
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="bukaLayanan('layanan-6'); tutupMenu();">
+                            Kontraktor & Konstruksi
+                        </a>
+                    </li>
+
+                    <li>
+                        <a onclick="bukaLayanan('layanan-7'); tutupMenu();">
+                            Advertising (Percetakan) & Konveksi
+                        </a>
+                    </li>
                 </ul>
             </li>
-            <li><a href="#kontak" class="menu-link" onclick="tutupMenu()"><span>Kontak</span></a></li>
+
+            <li>
+                <a href="#kontak" class="menu-link" onclick="tutupMenu()">
+                    <span>Kontak</span>
+                </a>
+            </li>
         </ul>
     </div>
 
     <header class="header">
-        <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PT_WIDURI%20LOGO.png" alt="Logo PT Windu Dua Lestari" class="logo">
+        <img
+            src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PT_WIDURI%20LOGO.png"
+            alt="Logo PT Windu Dua Lestari"
+            class="logo"
+        >
+
         <span class="menu-toggle" id="menuToggleBtn">☰</span>
     </header>
 
     <section id="beranda">
         <div class="home-hero">
-            <h1>Solusi Profesional & Terpercaya untuk Bisnis Anda</h1>
-            <p class="ringkas">Penyedia layanan lengkap, amanah, dan siap melayani dengan standar tinggi</p>
-            <a href="#layanan" class="btn-cta">LIHAT SEMUA LAYANAN</a>
+
+            <h1>
+                Solusi Profesional & Terpercaya untuk Bisnis Anda
+            </h1>
+
+            <p class="ringkas">
+                Penyedia layanan lengkap, amanah, dan siap melayani dengan standar tinggi
+            </p>
+
+            <a href="#layanan" class="btn-cta">
+                LIHAT SEMUA LAYANAN
+            </a>
+
             <div class="hero-features">
-                <div class="hero-feature-item"><i class="fas fa-check-circle"></i> Profesional & Bersertifikat</div>
-                <div class="hero-feature-item"><i class="fas fa-shield-alt"></i> Amanah & Terjamin</div>
-                <div class="hero-feature-item"><i class="fas fa-bolt"></i> Sigap – Cepat – Tuntas</div>
+
+                <div class="hero-feature-item">
+                    <i class="fas fa-check-circle"></i>
+                    Profesional & Bersertifikat
+                </div>
+
+                <div class="hero-feature-item">
+                    <i class="fas fa-shield-alt"></i>
+                    Amanah & Terjamin
+                </div>
+
+                <div class="hero-feature-item">
+                    <i class="fas fa-bolt"></i>
+                    Sigap – Cepat – Tuntas
+                </div>
+
             </div>
         </div>
     </section>
 
     <section id="profil">
+
         <div class="page-banner">
             <h1>Profil Perusahaan</h1>
-            <div class="breadcrumb"><a href="#beranda">Beranda</a><span>›</span><span>Profil</span></div>
+
+            <div class="breadcrumb">
+                <a href="#beranda">Beranda</a>
+                <span>›</span>
+                <span>Profil</span>
+            </div>
         </div>
+
         <div class="profile-content">
-            <!-- === VIDEO PROFIL — BERPUTAR OTOMATIS, BERULANG TERUS, TANPA TOMBOL UNDUH === -->
+
+            <!-- =====================================================
+                 VIDEO PROFIL
+                 AUTOPLAY + MUTED + LOOP + INLINE
+                 TANPA TOMBOL DOWNLOAD
+                 ===================================================== -->
+
             <div class="video-profil-card">
-                <h3 class="cert-title">Video Profil Perusahaan</h3>
-                <video 
-                    autoplay 
-                    muted 
-                    loop 
+
+                <h3 class="cert-title">
+                    Video Profil Perusahaan
+                </h3>
+
+                <video
+                    id="videoProfil"
+                    autoplay
+                    muted
+                    loop
                     playsinline
+                    webkit-playsinline
                     preload="auto"
                     controlslist="nodownload nofullscreen noremoteplayback"
                     disablepictureinpicture
                     disableremoteplayback
+                    oncontextmenu="return false;"
                 >
-                    <source src="https://media.githubusercontent.com/media/laman-utama/pt-windudualestari/main/WIDURI%20VIDEO%20SLIDE.mp4" type="video/mp4">
-                    <source src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/WIDURI%20VIDEO%20SLIDE.mp4" type="video/mp4">
+
+                    <source
+                        src="https://media.githubusercontent.com/media/laman-utama/pt-windudualestari/main/WIDURI%20VIDEO%20SLIDE.mp4"
+                        type="video/mp4"
+                    >
+
                     Browser Anda tidak mendukung pemutaran video.
+
                 </video>
+
             </div>
-            
-            <div class="card"><h2>Profil Singkat</h2><p><strong>PT. Windu Dua Lestari</strong> didirikan tahun 2020 di Gowa, Sulawesi Selatan. Bergerak di jasa tenaga kerja, kebersihan, keamanan, pengadaan barang, perdagangan umum, percetakan‑konveksi, kontraktor & mekanikal‑elektrikal. Berkomitmen profesional, amanah, dan berkualitas — prinsip utama: <em>Sigap – Cepat – Tuntas</em>.</p></div>
-            <div class="card"><div class="icon-circle">🎯</div><h2>Visi</h2><p>Menjadi penyedia jasa terdepan di Indonesia yang mengutamakan kualitas dan pelayanan prima melalui manajemen & SDM berkualitas.</p></div>
-            <div class="card"><div class="icon-circle">✔</div><h2>Misi</h2><p>Membuka lapangan kerja serta menerapkan pelatihan dan manajemen profesional agar pelayanan tepat, cepat dan terjamin.</p></div>
-            <div class="motto-block"><div class="section-header"><div class="line"></div>Motto<div class="line"></div></div><h2>SIGAP – CEPAT – TUNTAS</h2></div>
-            <div class="card"><h3 class="cert-title">Tim Kami</h3><img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/TIM%20WIDURI.png" class="img-fluid" alt="Tim Kami"></div>
-            <div class="card"><h3 class="cert-title">Sertifikat</h3><img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/SERTIFIKAT.JPG" class="img-fluid" alt="Sertifikat"></div>
+
+            <div class="card">
+                <h2>Profil Singkat</h2>
+
+                <p>
+                    <strong>PT. Windu Dua Lestari</strong> didirikan tahun 2020 di Gowa,
+                    Sulawesi Selatan. Bergerak di jasa tenaga kerja, kebersihan, keamanan,
+                    pengadaan barang, perdagangan umum, percetakan-konveksi, kontraktor &
+                    mekanikal-elektrikal. Berkomitmen profesional, amanah, dan berkualitas —
+                    prinsip utama: <em>Sigap – Cepat – Tuntas</em>.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon-circle">🎯</div>
+
+                <h2>Visi</h2>
+
+                <p>
+                    Menjadi penyedia jasa terdepan di Indonesia yang mengutamakan kualitas
+                    dan pelayanan prima melalui manajemen & SDM berkualitas.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon-circle">✔</div>
+
+                <h2>Misi</h2>
+
+                <p>
+                    Membuka lapangan kerja serta menerapkan pelatihan dan manajemen profesional
+                    agar pelayanan tepat, cepat dan terjamin.
+                </p>
+            </div>
+
+            <div class="motto-block">
+
+                <div class="section-header">
+                    <div class="line"></div>
+                    Motto
+                    <div class="line"></div>
+                </div>
+
+                <h2>
+                    SIGAP – CEPAT – TUNTAS
+                </h2>
+
+            </div>
+
+            <div class="card">
+
+                <h3 class="cert-title">
+                    Tim Kami
+                </h3>
+
+                <img
+                    src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/TIM%20WIDURI.png"
+                    class="img-fluid"
+                    alt="Tim Kami"
+                >
+
+            </div>
+
+            <div class="card">
+
+                <h3 class="cert-title">
+                    Sertifikat
+                </h3>
+
+                <img
+                    src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/SERTIFIKAT.JPG"
+                    class="img-fluid"
+                    alt="Sertifikat"
+                >
+
+            </div>
+
         </div>
     </section>
 
     <section id="layanan">
+
         <div class="page-banner">
+
             <h1>Layanan Kami</h1>
-            <div class="breadcrumb"><a href="#beranda">Beranda</a><span>›</span><span>Layanan</span></div>
+
+            <div class="breadcrumb">
+                <a href="#beranda">Beranda</a>
+                <span>›</span>
+                <span>Layanan</span>
+            </div>
+
         </div>
-        <h2 class="section-title">Daftar Layanan Kami</h2>
+
+        <h2 class="section-title">
+            Daftar Layanan Kami
+        </h2>
+
         <div class="grid-layanan">
-            <a class="layanan-item" onclick="bukaLayanan('layanan-1')"><i class="fas fa-building"></i> Cleaning Service</a>
-            <a class="layanan-item" onclick="bukaLayanan('layanan-2')"><i class="fas fa-leaf"></i> Gardener / Perawatan Taman</a>
-            <a class="layanan-item" onclick="bukaLayanan('layanan-4')"><i class="fas fa-shield-alt"></i> Keamanan / Security</a>
-            <a class="layanan-item" onclick="bukaLayanan('layanan-3')"><i class="fas fa-shopping-basket"></i> Pengadaan Barang & Kimia Cleaning</a>
-            <a class="layanan-item" onclick="bukaLayanan('layanan-5')"><i class="fas fa-cog"></i> MEP (Mekanikal, Elektrikal, Plumbing)</a>
-            <a class="layanan-item" onclick="bukaLayanan('layanan-6')"><i class="fas fa-hard-hat"></i> Kontraktor & Konstruksi</a>
-            <a class="layanan-item" onclick="bukaLayanan('layanan-7')"><i class="fas fa-print"></i> Advertising (Percetakan) & Konveksi</a>
+
+            <a class="layanan-item" onclick="bukaLayanan('layanan-1')">
+                <i class="fas fa-building"></i>
+                Cleaning Service
+            </a>
+
+            <a class="layanan-item" onclick="bukaLayanan('layanan-2')">
+                <i class="fas fa-leaf"></i>
+                Gardener / Perawatan Taman
+            </a>
+
+            <a class="layanan-item" onclick="bukaLayanan('layanan-4')">
+                <i class="fas fa-shield-alt"></i>
+                Keamanan / Security
+            </a>
+
+            <a class="layanan-item" onclick="bukaLayanan('layanan-3')">
+                <i class="fas fa-shopping-basket"></i>
+                Pengadaan Barang & Kimia Cleaning
+            </a>
+
+            <a class="layanan-item" onclick="bukaLayanan('layanan-5')">
+                <i class="fas fa-cog"></i>
+                MEP (Mekanikal, Elektrikal, Plumbing)
+            </a>
+
+            <a class="layanan-item" onclick="bukaLayanan('layanan-6')">
+                <i class="fas fa-hard-hat"></i>
+                Kontraktor & Konstruksi
+            </a>
+
+            <a class="layanan-item" onclick="bukaLayanan('layanan-7')">
+                <i class="fas fa-print"></i>
+                Advertising (Percetakan) & Konveksi
+            </a>
+
         </div>
 
         <div class="services-container">
+
             <div class="service-item" id="layanan-1">
+
                 <button class="tutup-btn" onclick="tutupLayanan()">✕</button>
-                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/CLEANING%20SERVICE.JPG" alt="Cleaning Service">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-building"></i></div></div>
-                <h3 class="service-title">Cleaning Service</h3>
-                <p class="service-desc">Tenaga kebersihan terlatih & bersertifikat untuk kantor, gedung, rumah sakit, hotel, sekolah, perumahan — lengkap alat & bahan aman, menjamin lingkungan bersih & sehat.</p>
+
+                <img
+                    src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/CLEANING%20SERVICE.JPG"
+                    alt="Cleaning Service"
+                >
+
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-building"></i>
+                    </div>
+                </div>
+
+                <h3 class="service-title">
+                    Cleaning Service
+                </h3>
+
+                <p class="service-desc">
+                    Tenaga kebersihan terlatih & bersertifikat untuk kantor, gedung,
+                    rumah sakit, hotel, sekolah, perumahan — lengkap alat & bahan aman,
+                    menjamin lingkungan bersih & sehat.
+                </p>
+
             </div>
+
             <div class="service-item" id="layanan-2">
+
                 <button class="tutup-btn" onclick="tutupLayanan()">✕</button>
-                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/GARDENER.JPG" alt="Gardener">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-leaf"></i></div></div>
-                <h3 class="service-title">Gardener / Perawatan Taman</h3>
-                <p class="service-desc">Pemangkasan, penanaman, penyiraman, pemupukan, pengendalian hama & pemeliharaan rutin agar taman tetap asri, indah & sehat.</p>
+
+                <img
+                    src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/GARDENER.JPG"
+                    alt="Gardener"
+                >
+
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                </div>
+
+                <h3 class="service-title">
+                    Gardener / Perawatan Taman
+                </h3>
+
+                <p class="service-desc">
+                    Pemangkasan, penanaman, penyiraman, pemupukan, pengendalian hama &
+                    pemeliharaan rutin agar taman tetap asri, indah & sehat.
+                </p>
+
             </div>
+
             <div class="service-item" id="layanan-3">
+
                 <button class="tutup-btn" onclick="tutupLayanan()">✕</button>
-                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PERALATAN%20KIMIA.JPG" alt="Kimia & Alat">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-shopping-basket"></i></div></div>
-                <h3 class="service-title">Pengadaan Barang & Kimia Cleaning</h3>
-                <p class="service-desc">Pasokan bahan kimia pembersih berkualitas, alat & mesin kebersihan sesuai standar, aman dan lengkap untuk kebutuhan gedung, rumah sakit, hotel & kantor.</p>
+
+                <img
+                    src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/PERALATAN%20KIMIA.JPG"
+                    alt="Kimia & Alat"
+                >
+
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-shopping-basket"></i>
+                    </div>
+                </div>
+
+                <h3 class="service-title">
+                    Pengadaan Barang & Kimia Cleaning
+                </h3>
+
+                <p class="service-desc">
+                    Pasokan bahan kimia pembersih berkualitas, alat & mesin kebersihan
+                    sesuai standar, aman dan lengkap untuk kebutuhan gedung, rumah sakit,
+                    hotel & kantor.
+                </p>
+
             </div>
+
             <div class="service-item" id="layanan-4">
+
                 <button class="tutup-btn" onclick="tutupLayanan()">✕</button>
-                <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/SECURITY.JPG" alt="Keamanan">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-shield-alt"></i></div></div>
-                <h3 class="service-title">Keamanan / Security</h3>
-                <p class="service-desc">Tenaga keamanan terlatih, bersertifikat dan sah hukumnya untuk kantor, pabrik, perumahan, kawasan komersial & acara. Operasi teratur, disiplin tinggi, diawasi rutin demi keamanan aset & lingkungan.</p>
+
+                <img
+                    src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/SECURITY.JPG"
+                    alt="Keamanan"
+                >
+
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                </div>
+
+                <h3 class="service-title">
+                    Keamanan / Security
+                </h3>
+
+                <p class="service-desc">
+                    Tenaga keamanan terlatih, bersertifikat dan sah hukumnya untuk kantor,
+                    pabrik, perumahan, kawasan komersial & acara. Operasi teratur, disiplin
+                    tinggi, diawasi rutin demi keamanan aset & lingkungan.
+                </p>
+
             </div>
+
             <div class="service-item" id="layanan-5">
+
                 <button class="tutup-btn" onclick="tutupLayanan()">✕</button>
-                <img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/MEKANIKAL.JPG" alt="MEP">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-cog"></i></div></div>
-                <h3 class="service-title">MEP (Mekanikal, Elektrikal, Plumbing)</h3>
-                <p class="service-desc">Pemasangan, perbaikan & perawatan sistem listrik, AC, perpipaan, pompa air & peralatan mekanik gedung, rumah maupun industri oleh teknisi bersertifikat.</p>
+
+                <img
+                    src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/MEKANIKAL.JPG"
+                    alt="MEP"
+                >
+
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                </div>
+
+                <h3 class="service-title">
+                    MEP (Mekanikal, Elektrikal, Plumbing)
+                </h3>
+
+                <p class="service-desc">
+                    Pemasangan, perbaikan & perawatan sistem listrik, AC, perpipaan,
+                    pompa air & peralatan mekanik gedung, rumah maupun industri oleh
+                    teknisi bersertifikat.
+                </p>
+
             </div>
+
             <div class="service-item" id="layanan-6">
+
                 <button class="tutup-btn" onclick="tutupLayanan()">✕</button>
-                <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/KONTRAKTOR_KONSTRUKSI.JPG" alt="Konstruksi">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-hard-hat"></i></div></div>
-                <h3 class="service-title">Kontraktor & Konstruksi</h3>
-                <p class="service-desc">Pembangunan, renovasi, perbaikan & pemeliharaan gedung, rumah, ruko & fasilitas umum — dari perencanaan hingga selesai tepat waktu & berkualitas.</p>
+
+                <img
+                    src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/KONTRAKTOR_KONSTRUKSI.JPG"
+                    alt="Konstruksi"
+                >
+
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                </div>
+
+                <h3 class="service-title">
+                    Kontraktor & Konstruksi
+                </h3>
+
+                <p class="service-desc">
+                    Pembangunan, renovasi, perbaikan & pemeliharaan gedung, rumah, ruko &
+                    fasilitas umum — dari perencanaan hingga selesai tepat waktu &
+                    berkualitas.
+                </p>
+
             </div>
+
             <div class="service-item" id="layanan-7">
+
                 <button class="tutup-btn" onclick="tutupLayanan()">✕</button>
-                <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/ADVERTISING%20(PERCETAKAN)%20%26%20KONVEKSI.JPG" alt="Advertising">
-                <div class="icon-wrapper"><div class="service-icon-circle"><i class="fas fa-print"></i></div></div>
-                <h3 class="service-title">Advertising (Percetakan) & Konveksi</h3>
-                <p class="service-desc">Desain grafis, spanduk, baliho, stiker, kartu nama, brosur, buku, kalender serta jasa konveksi seragam dan produk jahit lainnya. Hasil tajam, warna tahan lama & harga terjangkau.</p>
+
+                <img
+                    src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/ADVERTISING%20(PERCETAKAN)%20%26%20KONVEKSI.JPG"
+                    alt="Advertising"
+                >
+
+                <div class="icon-wrapper">
+                    <div class="service-icon-circle">
+                        <i class="fas fa-print"></i>
+                    </div>
+                </div>
+
+                <h3 class="service-title">
+                    Advertising (Percetakan) & Konveksi
+                </h3>
+
+                <p class="service-desc">
+                    Desain grafis, spanduk, baliho, stiker, kartu nama, brosur, buku,
+                    kalender serta jasa konveksi seragam dan produk jahit lainnya.
+                    Hasil tajam, warna tahan lama & harga terjangkau.
+                </p>
+
             </div>
+
         </div>
     </section>
 
     <section id="kontak">
+
         <div class="page-banner">
+
             <h1>Hubungi Kami</h1>
-            <div class="breadcrumb"><a href="#beranda">Beranda</a><span>›</span><span>Kontak</span></div>
+
+            <div class="breadcrumb">
+                <a href="#beranda">Beranda</a>
+                <span>›</span>
+                <span>Kontak</span>
+            </div>
+
         </div>
-        <h2 class="section-title">Informasi & Pesanan</h2>
+
+        <h2 class="section-title">
+            Informasi & Pesanan
+        </h2>
+
         <div class="contact-container">
+
             <div class="info-card">
-                <h3>📞 Informasi Perusahaan</h3>
-                <div class="info-item"><strong>Alamat:</strong><br>BTN Minasa Indah Blok B No.2 RT.001/RW.004<br>Kel. Batangkaluku, Kec. Somba Opu<br>Kab. Gowa 92111, Sulawesi Selatan</div>
-                <div class="info-item"><strong>Telepon:</strong><br><a href="tel:085750681600">0857 5068 1600</a><br><a href="tel:082291593455">0822 9159 3455</a></div>
-                <div class="info-item"><strong>Email:</strong><br><a href="mailto:info@pt.widuri27517@gmail.com">info@pt.widuri27517@gmail.com</a></div>
-                <div class="info-item"><strong>Jam Kerja:</strong><br>Senin‑Sabtu : 08.00 – 17.00 WITA<br>Minggu & Libur : Tutup</div>
-                
-                <div class="map-section-kontak">
-                    <div class="map-card">
-                        <h3 style="font-size:17px; color:var(--primary-blue); margin-bottom:10px;">🗺️ Lokasi Kami</h3>
-                        <div class="map-container">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.88!2d119.4405!3d-5.1992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbefd7c4b5d7b9b%3A0x7d7b8c9d0e1f2a3b!2sBTN%20Minasa%20Indah%20Blok%20B%20No.2!5e0!3m2!1sid!2sid" allowfullscreen loading="lazy"></iframe>
-                        </div>
-                    </div>
+
+                <h3>
+                    📞 Informasi Perusahaan
+                </h3>
+
+                <div class="info-item">
+                    <strong>Alamat:</strong><br>
+                    BTN Minasa Indah Blok B No.2 RT.001/RW.004<br>
+                    Kel. Batangkaluku, Kec. Somba Opu<br>
+                    Kab. Gowa 92111, Sulawesi Selatan
                 </div>
+
+                <div class="info-item">
+                    <strong>Telepon:</strong><br>
+                    <a href="tel:085750681600">0857 5068 1600</a><br>
+                    <a href="tel:082291593455">0822 9159 3455</a>
+                </div>
+
+                <div class="info-item">
+                    <strong>Email:</strong><br>
+                    <a href="mailto:info@pt.widuri27517@gmail.com">
+                        info@pt.widuri27517@gmail.com
+                    </a>
+                </div>
+
+                <div class="info-item">
+                    <strong>Jam Kerja:</strong><br>
+                    Senin-Sabtu : 08.00 – 17.00 WITA<br>
+                    Minggu & Libur : Tutup
+                </div>
+
+                <div class="map-section-kontak">
+
+                    <div class="map-card">
+
+                        <h3 style="font-size:17px; color:var(--primary-blue); margin-bottom:10px;">
+                            🗺️ Lokasi Kami
+                        </h3>
+
+                        <div class="map-container">
+
+                            <iframe
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.88!2d119.4405!3d-5.1992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbefd7c4b5d7b9b%3A0x7d7b8c9d0e1f2a3b!2sBTN%20Minasa%20Indah%20Blok%20B%20No.2!5e0!3m2!1sid!2sid"
+                                allowfullscreen
+                                loading="lazy">
+                            </iframe>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
 
             <div class="form-card">
-                <h3>✉️ Formulir Pesanan</h3>
+
+                <h3>
+                    ✉️ Formulir Pesanan
+                </h3>
+
                 <form id="formPesanan">
+
                     <div class="form-group">
-                        <label>Nama Lengkap *</label>
-                        <input type="text" placeholder="Masukkan nama Anda" required>
+
+                        <label>
+                            Nama Lengkap *
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Masukkan nama Anda"
+                            required
+                        >
+
                     </div>
+
                     <div class="form-group">
-                        <label>Perusahaan</label>
-                        <input type="text" placeholder="Nama perusahaan">
+
+                        <label>
+                            Perusahaan
+                        </label>
+
+                        <input
+                            type="text"
+                            placeholder="Nama perusahaan"
+                        >
+
                     </div>
+
                     <div class="form-group">
-                        <label>Telepon *</label>
-                        <input type="tel" placeholder="Nomor WA/Telepon" required>
+
+                        <label>
+                            Telepon *
+                        </label>
+
+                        <input
+                            type="tel"
+                            placeholder="Nomor WA/Telepon"
+                            required
+                        >
+
                     </div>
+
                     <div class="form-group">
-                        <label>Layanan Dibutuhkan * <span style="font-weight:normal; font-size:12px;">(Bisa pilih lebih dari satu)</span></label>
+
+                        <label>
+                            Layanan Dibutuhkan *
+                            <span style="font-weight:normal; font-size:12px;">
+                                (Bisa pilih lebih dari satu)
+                            </span>
+                        </label>
+
                         <div class="checkbox-group">
-                            <label><input type="checkbox" name="layanan" value="Cleaning Service"> Cleaning Service</label>
-                            <label><input type="checkbox" name="layanan" value="Gardener / Perawatan Taman"> Gardener / Perawatan Taman</label>
-                            <label><input type="checkbox" name="layanan" value="Keamanan / Security"> Keamanan / Security</label>
-                            <label><input type="checkbox" name="layanan" value="Pengadaan Barang & Kimia Cleaning"> Pengadaan Barang & Kimia Cleaning</label>
-                            <label><input type="checkbox" name="layanan" value="MEP (Mekanikal, Elektrikal, Plumbing)"> MEP (Mekanikal, Elektrikal, Plumbing)</label>
-                            <label><input type="checkbox" name="layanan" value="Kontraktor & Konstruksi"> Kontraktor & Konstruksi</label>
-                            <label><input type="checkbox" name="layanan" value="Advertising (Percetakan) & Konveksi"> Advertising (Percetakan) & Konveksi</label>
-                            <label><input type="checkbox" name="layanan" value="Lainnya"> Lainnya</label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="Cleaning Service">
+                                Cleaning Service
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="Gardener / Perawatan Taman">
+                                Gardener / Perawatan Taman
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="Keamanan / Security">
+                                Keamanan / Security
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="Pengadaan Barang & Kimia Cleaning">
+                                Pengadaan Barang & Kimia Cleaning
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="MEP (Mekanikal, Elektrikal, Plumbing)">
+                                MEP (Mekanikal, Elektrikal, Plumbing)
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="Kontraktor & Konstruksi">
+                                Kontraktor & Konstruksi
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="Advertising (Percetakan) & Konveksi">
+                                Advertising (Percetakan) & Konveksi
+                            </label>
+
+                            <label>
+                                <input type="checkbox" name="layanan" value="Lainnya">
+                                Lainnya
+                            </label>
+
                         </div>
+
                     </div>
+
                     <div class="form-group">
-                        <label>Keterangan Pesanan *</label>
-                        <textarea placeholder="Tulis kebutuhan atau pesanan Anda…" required></textarea>
+
+                        <label>
+                            Keterangan Pesanan *
+                        </label>
+
+                        <textarea
+                            placeholder="Tulis kebutuhan atau pesanan Anda…"
+                            required>
+                        </textarea>
+
                     </div>
-                    <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> KIRIM PESAN</button>
+
+                    <button type="submit" class="btn-submit">
+                        <i class="fas fa-paper-plane"></i>
+                        KIRIM PESAN
+                    </button>
+
                 </form>
 
                 <div class="peta-indonesia-box">
-                    <h4>🗺️ Jangkauan Seluruh Indonesia</h4>
-                    <img src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/PETA%20INDONESIA%2001%20JPG.jpg" alt="Peta Indonesia">
+
+                    <h4>
+                        🗺️ Jangkauan Seluruh Indonesia
+                    </h4>
+
+                    <img
+                        src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/PETA%20INDONESIA%2001%20JPG.jpg"
+                        alt="Peta Indonesia"
+                    >
+
                 </div>
+
             </div>
+
         </div>
 
         <div class="info-lengkap">
-            <div class="logo-tengah"><img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/WIDURI_LOGO.png" alt="Logo PT Windu Dua Lestari"></div>
-            <h2>PT. Windu Dua Lestari</h2>
-            <h3>(Widuri)</h3>
-            <p class="deskripsi">Bergerak di kebersihan, keamanan, outsourcing tenaga kerja, pengadaan barang, perdagangan umum, advertising‑percetakan‑konveksi, kontraktor & mekanikal‑elektrikal — berkomitmen profesional & terpercaya.</p>
-            <h4>Jam Kerja</h4>
-            <div class="jam-kerja"><p>📅 Senin – Sabtu : 08.00 – 17.00 WITA</p><p>📅 Minggu & Libur : Tutup</p></div>
+
+            <div class="logo-tengah">
+
+                <img
+                    src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/WIDURI_LOGO.png"
+                    alt="Logo PT Windu Dua Lestari"
+                >
+
+            </div>
+
+            <h2>
+                PT. Windu Dua Lestari
+            </h2>
+
+            <h3>
+                (Widuri)
+            </h3>
+
+            <p class="deskripsi">
+                Bergerak di kebersihan, keamanan, outsourcing tenaga kerja,
+                pengadaan barang, perdagangan umum, advertising-percetakan-konveksi,
+                kontraktor & mekanikal-elektrikal — berkomitmen profesional & terpercaya.
+            </p>
+
+            <h4>
+                Jam Kerja
+            </h4>
+
+            <div class="jam-kerja">
+
+                <p>
+                    📅 Senin – Sabtu : 08.00 – 17.00 WITA
+                </p>
+
+                <p>
+                    📅 Minggu & Libur : Tutup
+                </p>
+
+            </div>
+
             <div class="sosial">
-                <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://wa.me/6285750681600" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+                <a href="#" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="https://wa.me/6285750681600" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+
             </div>
+
             <div class="kontak-item">
-                <p>📍 BTN Minasa Indah Blok B No.2 RT.001/RW.004, Kel. Batangkaluku, Kec. Somba Opu, Kab. Gowa 92111, Sulawesi Selatan</p>
-                <p>📧 info@pt.widuri27517@gmail.com</p>
-                <p>📞 0857 5068 1600 / 0822 9159 3455</p>
+
+                <p>
+                    📍 BTN Minasa Indah Blok B No.2 RT.001/RW.004,
+                    Kel. Batangkaluku, Kec. Somba Opu,
+                    Kab. Gowa 92111, Sulawesi Selatan
+                </p>
+
+                <p>
+                    📧 info@pt.widuri27517@gmail.com
+                </p>
+
+                <p>
+                    📞 0857 5068 1600 / 0822 9159 3455
+                </p>
+
             </div>
+
             <div class="visitor-box">
-                <h4>Statistik Pengunjung</h4>
-                <p>👥 Total Pengunjung : <span id="total-visitor">0</span></p>
-                <p>📅 Hari Ini : <span id="today-visitor">0</span></p>
-                <p>📊 Bulan Ini : <span id="month-visitor">0</span></p>
-                <p class="small-text">*Data diperbarui secara otomatis</p>
+
+                <h4>
+                    Statistik Pengunjung
+                </h4>
+
+                <p>
+                    👥 Total Pengunjung :
+                    <span id="total-visitor">0</span>
+                </p>
+
+                <p>
+                    📅 Hari Ini :
+                    <span id="today-visitor">0</span>
+                </p>
+
+                <p>
+                    📊 Bulan Ini :
+                    <span id="month-visitor">0</span>
+                </p>
+
+                <p class="small-text">
+                    *Data diperbarui secara otomatis
+                </p>
+
             </div>
+
         </div>
+
     </section>
 
     <footer class="footer">
-        <p>&copy; 2026 PT. Windu Dua Lestari (WIDURI)</p>
-        <p>Semua Hak Dilindungi Undang-Undang</p>
+
+        <p>
+            &copy; 2026 PT. Windu Dua Lestari (WIDURI)
+        </p>
+
+        <p>
+            Semua Hak Dilindungi Undang-Undang
+        </p>
+
     </footer>
 
     <script>
-        // === FUNGSI BUKA & TUTUP MENU SIDEBAR ===
+
+        // =========================================================
+        // FUNGSI BUKA & TUTUP MENU SIDEBAR
+        // =========================================================
+
         const sidebarMenu = document.getElementById('sidebarMenu');
         const menuToggleBtn = document.getElementById('menuToggleBtn');
 
@@ -526,61 +2005,324 @@
         });
 
         function tutupMenu() {
+
             sidebarMenu.classList.remove('active');
-            document.querySelectorAll('.daftar-layanan-parent').forEach(el => el.classList.remove('open'));
+
+            document.querySelectorAll('.daftar-layanan-parent')
+                .forEach(el => el.classList.remove('open'));
+
         }
 
-        // === FUNGSI BUKA/TUTUP DAFTAR LAYANAN ===
+
+        // =========================================================
+        // FUNGSI BUKA/TUTUP DAFTAR LAYANAN
+        // =========================================================
+
         function toggleDaftarLayanan(e) {
+
             e.preventDefault();
             e.stopPropagation();
+
             const parent = e.target.closest('.daftar-layanan-parent');
+
             parent.classList.toggle('open');
+
         }
 
-        // === FUNGSI BUKA KONTEN LAYANAN ===
+
+        // =========================================================
+        // FUNGSI BUKA KONTEN LAYANAN
+        // =========================================================
+
         function bukaLayanan(id) {
-            document.querySelectorAll('.service-item').forEach(el => el.classList.remove('active'));
+
+            document.querySelectorAll('.service-item')
+                .forEach(el => el.classList.remove('active'));
+
             const layanan = document.getElementById(id);
+
             if (layanan) {
+
                 layanan.classList.add('active');
-                layanan.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+                layanan.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
             }
+
         }
 
-        // === FUNGSI TUTUP KONTEN LAYANAN ===
+
+        // =========================================================
+        // FUNGSI TUTUP KONTEN LAYANAN
+        // =========================================================
+
         function tutupLayanan() {
-            document.querySelectorAll('.service-item').forEach(el => el.classList.remove('active'));
+
+            document.querySelectorAll('.service-item')
+                .forEach(el => el.classList.remove('active'));
+
         }
 
-        // === TUTUP MENU SAAT KLIK DI LUAR MENU ===
+
+        // =========================================================
+        // TUTUP MENU SAAT KLIK DI LUAR MENU
+        // =========================================================
+
         document.addEventListener('click', (e) => {
-            if (!sidebarMenu.contains(e.target) && !menuToggleBtn.contains(e.target)) {
+
+            if (
+                !sidebarMenu.contains(e.target) &&
+                !menuToggleBtn.contains(e.target)
+            ) {
+
                 sidebarMenu.classList.remove('active');
-                document.querySelectorAll('.daftar-layanan-parent').forEach(el => el.classList.remove('open'));
+
+                document.querySelectorAll('.daftar-layanan-parent')
+                    .forEach(el => el.classList.remove('open'));
+
             }
+
         });
 
-        // === FORMULIR KIRIM KE WHATSAPP ===
-        const formPesanan = document.getElementById('formPesanan');
-        if (formPesanan) {
-            formPesanan.addEventListener('submit', function(e) {
-                e.preventDefault();
 
-                const nama = this.querySelector('input[placeholder="Masukkan nama Anda"]').value.trim();
-                const perusahaan = this.querySelector('input[placeholder="Nama perusahaan"]').value.trim();
-                const telepon = this.querySelector('input[placeholder="Nomor WA/Telepon"]').value.trim();
-                const keterangan = this.querySelector('textarea[placeholder="Tulis kebutuhan atau pesanan Anda…"]').value.trim();
+        // =========================================================
+        // =========================================================
+        // VIDEO PROFIL
+        // AUTOPLAY + LOOP + MUTED + TANPA DOWNLOAD
+        // =========================================================
+        // =========================================================
 
-                const checkboxes = this.querySelectorAll('input[name="layanan"]:checked');
-                const layananTerpilih = Array.from(checkboxes).map(cb => cb.value).join(', ');
+        (function() {
 
-                if (!nama || !telepon || !keterangan || layananTerpilih === '') {
-                    alert('Harap lengkapi data yang wajib diisi!');
-                    return;
+            const videoProfil = document.getElementById('videoProfil');
+
+            if (!videoProfil) {
+                return;
+            }
+
+
+            // Pastikan video selalu muted
+            // agar autoplay diperbolehkan browser.
+
+            videoProfil.muted = true;
+
+            videoProfil.defaultMuted = true;
+
+            videoProfil.setAttribute('muted', '');
+
+            videoProfil.setAttribute('playsinline', '');
+
+            videoProfil.setAttribute('webkit-playsinline', '');
+
+
+            // Tidak menggunakan kontrol bawaan browser.
+
+            videoProfil.removeAttribute('controls');
+
+
+            // -----------------------------------------------------
+            // FUNGSI MEMULAI VIDEO
+            // -----------------------------------------------------
+
+            function putarVideoProfil() {
+
+                videoProfil.muted = true;
+
+                videoProfil.loop = true;
+
+                const promise = videoProfil.play();
+
+                if (promise !== undefined) {
+
+                    promise.catch(function() {
+
+                        // Browser dapat menunda autoplay.
+                        // Tidak menampilkan pesan/error kepada pengunjung.
+
+                    });
+
                 }
 
-                const pesan = `Halo PT. Windu Dua Lestari, saya ingin mengirim pesanan.%0A%0A` +
+            }
+
+
+            // -----------------------------------------------------
+            // PUTAR SAAT HALAMAN SELESAI DIMUAT
+            // -----------------------------------------------------
+
+            if (document.readyState === 'loading') {
+
+                document.addEventListener(
+                    'DOMContentLoaded',
+                    putarVideoProfil
+                );
+
+            } else {
+
+                putarVideoProfil();
+
+            }
+
+
+            // -----------------------------------------------------
+            // PUTAR KEMBALI SAAT MENU PROFIL DIBUKA
+            // -----------------------------------------------------
+
+            document.querySelectorAll('a[href="#profil"]')
+                .forEach(function(link) {
+
+                    link.addEventListener('click', function() {
+
+                        setTimeout(function() {
+
+                            putarVideoProfil();
+
+                        }, 400);
+
+                    });
+
+                });
+
+
+            // -----------------------------------------------------
+            // JIKA VIDEO TERPAUSE, COBA PUTAR KEMBALI
+            // -----------------------------------------------------
+
+            videoProfil.addEventListener('pause', function() {
+
+                setTimeout(function() {
+
+                    if (!document.hidden) {
+
+                        putarVideoProfil();
+
+                    }
+
+                }, 300);
+
+            });
+
+
+            // -----------------------------------------------------
+            // JIKA VIDEO SELESAI, KEMBALI KE AWAL
+            // -----------------------------------------------------
+
+            videoProfil.addEventListener('ended', function() {
+
+                videoProfil.currentTime = 0;
+
+                putarVideoProfil();
+
+            });
+
+
+            // -----------------------------------------------------
+            // SAAT PENGUNJUNG KEMBALI KE TAB WEBSITE
+            // -----------------------------------------------------
+
+            document.addEventListener(
+                'visibilitychange',
+                function() {
+
+                    if (!document.hidden) {
+
+                        putarVideoProfil();
+
+                    }
+
+                }
+            );
+
+
+            // -----------------------------------------------------
+            // JIKA VIDEO BELUM SIAP, PUTAR SETELAH DATA DIMUAT
+            // -----------------------------------------------------
+
+            videoProfil.addEventListener(
+                'loadeddata',
+                function() {
+
+                    putarVideoProfil();
+
+                }
+            );
+
+
+            videoProfil.addEventListener(
+                'canplay',
+                function() {
+
+                    putarVideoProfil();
+
+                }
+            );
+
+
+        })();
+
+
+        // =========================================================
+        // FORMULIR KIRIM KE WHATSAPP
+        // =========================================================
+
+        const formPesanan = document.getElementById('formPesanan');
+
+        if (formPesanan) {
+
+            formPesanan.addEventListener('submit', function(e) {
+
+                e.preventDefault();
+
+                const nama =
+                    this.querySelector(
+                        'input[placeholder="Masukkan nama Anda"]'
+                    ).value.trim();
+
+                const perusahaan =
+                    this.querySelector(
+                        'input[placeholder="Nama perusahaan"]'
+                    ).value.trim();
+
+                const telepon =
+                    this.querySelector(
+                        'input[placeholder="Nomor WA/Telepon"]'
+                    ).value.trim();
+
+                const keterangan =
+                    this.querySelector(
+                        'textarea[placeholder="Tulis kebutuhan atau pesanan Anda…"]'
+                    ).value.trim();
+
+                const checkboxes =
+                    this.querySelectorAll(
+                        'input[name="layanan"]:checked'
+                    );
+
+                const layananTerpilih =
+                    Array.from(checkboxes)
+                        .map(cb => cb.value)
+                        .join(', ');
+
+                if (
+                    !nama ||
+                    !telepon ||
+                    !keterangan ||
+                    layananTerpilih === ''
+                ) {
+
+                    alert(
+                        'Harap lengkapi data yang wajib diisi!'
+                    );
+
+                    return;
+
+                }
+
+                const pesan =
+                    `Halo PT. Windu Dua Lestari, saya ingin mengirim pesanan.%0A%0A` +
                     `📋 DATA PEMESANAN%0A` +
                     `Nama: ${nama}%0A` +
                     `Perusahaan: ${perusahaan || '-'}%0A` +
@@ -588,49 +2330,130 @@
                     `Layanan: ${layananTerpilih}%0A` +
                     `Keterangan: ${keterangan}`;
 
-                window.open(`https://wa.me/6285750681600?text=${pesan}`, '_blank');
+                window.open(
+                    `https://wa.me/6285750681600?text=${pesan}`,
+                    '_blank'
+                );
+
                 this.reset();
+
             });
+
         }
 
-        // === STATISTIK PENGUNJUNG ===
-        (function() {
-            const sekarang = new Date();
-            const hariIni = sekarang.toDateString();
-            const bulanIni = `${sekarang.getFullYear()}-${sekarang.getMonth() + 1}`;
 
-            let total = parseInt(localStorage.getItem('totalVisitor') || '0') + 1;
-            let todayData = JSON.parse(localStorage.getItem('todayVisitor') || `{"date":"${hariIni}","count":0}`);
-            let monthData = JSON.parse(localStorage.getItem('monthVisitor') || `{"month":"${bulanIni}","count":0}`);
+        // =========================================================
+        // STATISTIK PENGUNJUNG
+        // =========================================================
+
+        (function() {
+
+            const sekarang = new Date();
+
+            const hariIni =
+                sekarang.toDateString();
+
+            const bulanIni =
+                `${sekarang.getFullYear()}-${sekarang.getMonth() + 1}`;
+
+
+            let total =
+                parseInt(
+                    localStorage.getItem('totalVisitor') || '0'
+                ) + 1;
+
+
+            let todayData =
+                JSON.parse(
+                    localStorage.getItem('todayVisitor') ||
+                    `{"date":"${hariIni}","count":0}`
+                );
+
+
+            let monthData =
+                JSON.parse(
+                    localStorage.getItem('monthVisitor') ||
+                    `{"month":"${bulanIni}","count":0}`
+                );
+
 
             // Reset harian jika hari berbeda
+
             if (todayData.date !== hariIni) {
-                todayData = { date: hariIni, count: 1 };
+
+                todayData = {
+                    date: hariIni,
+                    count: 1
+                };
+
             } else {
+
                 todayData.count += 1;
+
             }
+
 
             // Reset bulanan jika bulan berbeda
+
             if (monthData.month !== bulanIni) {
-                monthData = { month: bulanIni, count: 1 };
+
+                monthData = {
+                    month: bulanIni,
+                    count: 1
+                };
+
             } else {
+
                 monthData.count += 1;
+
             }
 
+
             // Simpan
-            localStorage.setItem('totalVisitor', total);
-            localStorage.setItem('todayVisitor', JSON.stringify(todayData));
-            localStorage.setItem('monthVisitor', JSON.stringify(monthData));
+
+            localStorage.setItem(
+                'totalVisitor',
+                total
+            );
+
+            localStorage.setItem(
+                'todayVisitor',
+                JSON.stringify(todayData)
+            );
+
+            localStorage.setItem(
+                'monthVisitor',
+                JSON.stringify(monthData)
+            );
+
 
             // Tampilkan
-            const totalEl = document.getElementById('total-visitor');
-            const todayEl = document.getElementById('today-visitor');
-            const monthEl = document.getElementById('month-visitor');
 
-            if (totalEl) totalEl.textContent = total;
-            if (todayEl) todayEl.textContent = todayData.count;
-            if (monthEl) monthEl.textContent = monthData.count;
+            const totalEl =
+                document.getElementById('total-visitor');
+
+            const todayEl =
+                document.getElementById('today-visitor');
+
+            const monthEl =
+                document.getElementById('month-visitor');
+
+
+            if (totalEl) {
+                totalEl.textContent = total;
+            }
+
+            if (todayEl) {
+                todayEl.textContent = todayData.count;
+            }
+
+            if (monthEl) {
+                monthEl.textContent = monthData.count;
+            }
+
         })();
+
     </script>
+
 </body>
 </html>
