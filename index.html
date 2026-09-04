@@ -155,7 +155,7 @@
         .card h2 { color:var(--primary-blue); margin-bottom:12px; font-size:22px; text-align:center; }
         .card p { text-align:center; line-height:1.5; font-size:16px; color:var(--text) !important; margin:0; }
         
-        /* === VIDEO PROFIL — BERPUTAR OTOMATIS, BERULANG, TANPA TOMBOL UNDUH === */
+        /* === VIDEO PROFIL — PERBAIKAN PEMUTARAN & SUMBER CDN === */
         .video-profil-card { 
             background:#fff !important; 
             margin:12px 0; 
@@ -168,6 +168,7 @@
             width:100%; 
             border-radius:6px; 
             outline:none; 
+            background: #000;
         }
         video::-webkit-media-controls-download-button { display: none !important; }
         video::-webkit-media-controls-fullscreen-button { display: none !important; }
@@ -321,26 +322,30 @@
             <div class="breadcrumb"><a href="#beranda">Beranda</a><span>›</span><span>Profil</span></div>
         </div>
         <div class="profile-content">
-            <!-- === VIDEO PROFIL — BERPUTAR OTOMATIS, BERULANG TERUS, TANPA TOMBOL UNDUH === -->
+            
+            <!-- === VIDEO PROFIL YANG DIPERBAIKI === -->
             <div class="video-profil-card">
                 <h3 class="cert-title">Video Profil Perusahaan</h3>
                 <video 
+                    id="profilVideo"
                     autoplay 
                     muted 
                     loop 
                     playsinline
-                    preload="auto"
+                    preload="metadata"
                     controlslist="nodownload nofullscreen noremoteplayback"
                     disablepictureinpicture
-                    disableremoteplayback
                 >
-                    <source src="https://media.githubusercontent.com/media/laman-utama/pt-windudualestari/main/WIDURI%20VIDEO%20SLIDE.mp4" type="video/mp4">
+                    <!-- Sumber utama menggunakan jsDelivr CDN untuk stabilitas GitHub -->
+                    <source src="https://cdn.jsdelivr.net/gh/laman-utama/pt-windudualestari@main/WIDURI%20VIDEO%20SLIDE.mp4" type="video/mp4">
+                    <!-- Fallback ke raw github jika cdn gagal -->
                     <source src="https://raw.githubusercontent.com/laman-utama/pt-windudualestari/main/WIDURI%20VIDEO%20SLIDE.mp4" type="video/mp4">
                     Browser Anda tidak mendukung pemutaran video.
                 </video>
             </div>
-            
-            <div class="card"><h2>Profil Singkat</h2><p><strong>PT. Windu Dua Lestari</strong> didirikan tahun 2020 di Gowa, Sulawesi Selatan. Bergerak di jasa tenaga kerja, kebersihan, keamanan, pengadaan barang, perdagangan umum, percetakan‑konveksi, kontraktor & mekanikal‑elektrikal. Berkomitmen profesional, amanah, dan berkualitas — prinsip utama: <em>Sigap – Cepat – Tuntas</em>.</p></div>
+            <!-- === AKHIR VIDEO PROFIL === -->
+
+            <div class="card"><h2>Profil Singkat</h2><p><strong>PT. Windu Dua Lestari</strong> didirikan tahun 2020 di Gowa, Sulawesi Selatan. Bergerak di jasa tenaga kerja, kebersihan, keamanan, pengadaan barang, perdagangan umum, percetakan‑konveksi, kontraktor & mekanikal‑elektrikal. Berkomitmen profesional, amanah, dan berkualitas — prinsip utama: <em>Sigap – Cepat– Tuntas</em>.</p></div>
             <div class="card"><div class="icon-circle">🎯</div><h2>Visi</h2><p>Menjadi penyedia jasa terdepan di Indonesia yang mengutamakan kualitas dan pelayanan prima melalui manajemen & SDM berkualitas.</p></div>
             <div class="card"><div class="icon-circle">✔</div><h2>Misi</h2><p>Membuka lapangan kerja serta menerapkan pelatihan dan manajemen profesional agar pelayanan tepat, cepat dan terjamin.</p></div>
             <div class="motto-block"><div class="section-header"><div class="line"></div>Motto<div class="line"></div></div><h2>SIGAP – CEPAT – TUNTAS</h2></div>
@@ -427,14 +432,14 @@
         <div class="contact-container">
             <div class="info-card">
                 <h3>📞 Informasi Perusahaan</h3>
-                <div class="info-item"><strong>Alamat:</strong><br>BTN Minasa Indah Blok B No.2 RT.001/RW.004<br>Kel. Batangkaluku, Kec. Somba Opu<br>Kab. Gowa 92111, Sulawesi Selatan</div>
-                <div class="info-item"><strong>Telepon:</strong><br><a href="tel:085750681600">0857 5068 1600</a><br><a href="tel:082291593455">0822 9159 3455</a></div>
+                <div class="info-item"><strong>Alamat:</strong><br>BTN Minasa Indah Blok B No.2 RT.001/RW.004<br>Kel. Batangkaluku, Kec. Somba Opu<br>Kab. Gowa 92111, Sulawesi Selatan</div>
+                <div class="info-item"><strong>Telepon:</strong><br><a href="tel:085750681600">0857 5068 1600</a><br><a href="tel:082291593455">0822 9159 3455</a></div>
                 <div class="info-item"><strong>Email:</strong><br><a href="mailto:info@pt.widuri27517@gmail.com">info@pt.widuri27517@gmail.com</a></div>
-                <div class="info-item"><strong>Jam Kerja:</strong><br>Senin‑Sabtu : 08.00 – 17.00 WITA<br>Minggu & Libur : Tutup</div>
+                <div class="info-item"><strong>Jam Kerja:</strong><br>Senin-Sabtu : 08.00 – 17.00 WITA<br>Minggu & Libur : Tutup</div>
                 
                 <div class="map-section-kontak">
                     <div class="map-card">
-                        <h3 style="font-size:17px; color:var(--primary-blue); margin-bottom:10px;">🗺️ Lokasi Kami</h3>
+                        <h3 style="font-size:17px; color:var(--primary-blue); margin-bottom:10px;">🗺️ Lokasi Kami</h3>
                         <div class="map-container">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.88!2d119.4405!3d-5.1992!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dbefd7c4b5d7b9b%3A0x7d7b8c9d0e1f2a3b!2sBTN%20Minasa%20Indah%20Blok%20B%20No.2!5e0!3m2!1sid!2sid" allowfullscreen loading="lazy"></iframe>
                         </div>
@@ -446,7 +451,7 @@
                 <h3>✉️ Formulir Pesanan</h3>
                 <form id="formPesanan">
                     <div class="form-group">
-                        <label>Nama Lengkap *</label>
+                        <label>Nama Lengkap *</label>
                         <input type="text" placeholder="Masukkan nama Anda" required>
                     </div>
                     <div class="form-group">
@@ -454,11 +459,11 @@
                         <input type="text" placeholder="Nama perusahaan">
                     </div>
                     <div class="form-group">
-                        <label>Telepon *</label>
+                        <label>Telepon *</label>
                         <input type="tel" placeholder="Nomor WA/Telepon" required>
                     </div>
                     <div class="form-group">
-                        <label>Layanan Dibutuhkan * <span style="font-weight:normal; font-size:12px;">(Bisa pilih lebih dari satu)</span></label>
+                        <label>Layanan Dibutuhkan * <span style="font-weight:normal; font-size:12px;">(Bisa pilih lebih dari satu)</span></label>
                         <div class="checkbox-group">
                             <label><input type="checkbox" name="layanan" value="Cleaning Service"> Cleaning Service</label>
                             <label><input type="checkbox" name="layanan" value="Gardener / Perawatan Taman"> Gardener / Perawatan Taman</label>
@@ -471,7 +476,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label>Keterangan Pesanan *</label>
+                        <label>Keterangan Pesanan *</label>
                         <textarea placeholder="Tulis kebutuhan atau pesanan Anda…" required></textarea>
                     </div>
                     <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> KIRIM PESAN</button>
@@ -486,26 +491,26 @@
 
         <div class="info-lengkap">
             <div class="logo-tengah"><img src="https://raw.githubusercontent.com/awsolutions-id/widuri-company-profile/main/WIDURI_LOGO.png" alt="Logo PT Windu Dua Lestari"></div>
-            <h2>PT. Windu Dua Lestari</h2>
+            <h2>PT. Windu Dua Lestari</h2>
             <h3>(Widuri)</h3>
-            <p class="deskripsi">Bergerak di kebersihan, keamanan, outsourcing tenaga kerja, pengadaan barang, perdagangan umum, advertising‑percetakan‑konveksi, kontraktor & mekanikal‑elektrikal — berkomitmen profesional & terpercaya.</p>
+            <p class="deskripsi">Bergerak di kebersihan, keamanan, outsourcing tenaga kerja, pengadaan barang, perdagangan umum, advertising-percetakan-konveksi, kontraktor & mekanikal-elektrikal — berkomitmen profesional & terpercaya.</p>
             <h4>Jam Kerja</h4>
-            <div class="jam-kerja"><p>📅 Senin – Sabtu : 08.00 – 17.00 WITA</p><p>📅 Minggu & Libur : Tutup</p></div>
+            <div class="jam-kerja"><p>📅 Senin – Sabtu : 08.00 – 17.00 WITA</p><p>📅 Minggu & Libur : Tutup</p></div>
             <div class="sosial">
                 <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://wa.me/6285750681600" target="_blank"><i class="fab fa-whatsapp"></i></a>
             </div>
             <div class="kontak-item">
-                <p>📍 BTN Minasa Indah Blok B No.2 RT.001/RW.004, Kel. Batangkaluku, Kec. Somba Opu, Kab. Gowa 92111, Sulawesi Selatan</p>
-                <p>📧 info@pt.widuri27517@gmail.com</p>
-                <p>📞 0857 5068 1600 / 0822 9159 3455</p>
+                <p>📍 BTN Minasa Indah Blok B No.2 RT.001/RW.004, Kel. Batangkaluku, Kec. Somba Opu, Kab. Gowa 92111, Sulawesi Selatan</p>
+                <p>📧 info@pt.widuri27517@gmail.com</p>
+                <p>📞 0857 5068 1600 / 0822 9159 3455</p>
             </div>
             <div class="visitor-box">
                 <h4>Statistik Pengunjung</h4>
-                <p>👥 Total Pengunjung : <span id="total-visitor">0</span></p>
-                <p>📅 Hari Ini : <span id="today-visitor">0</span></p>
-                <p>📊 Bulan Ini : <span id="month-visitor">0</span></p>
+                <p>👥 Total Pengunjung : <span id="total-visitor">0</span></p>
+                <p>📅 Hari Ini : <span id="today-visitor">0</span></p>
+                <p>📊 Bulan Ini : <span id="month-visitor">0</span></p>
                 <p class="small-text">*Data diperbarui secara otomatis</p>
             </div>
         </div>
@@ -581,7 +586,7 @@
                 }
 
                 const pesan = `Halo PT. Windu Dua Lestari, saya ingin mengirim pesanan.%0A%0A` +
-                    `📋 DATA PEMESANAN%0A` +
+                    ` DATA PEMESANAN%0A` +
                     `Nama: ${nama}%0A` +
                     `Perusahaan: ${perusahaan || '-'}%0A` +
                     `Telepon: ${telepon}%0A` +
@@ -631,6 +636,26 @@
             if (todayEl) todayEl.textContent = todayData.count;
             if (monthEl) monthEl.textContent = monthData.count;
         })();
+
+        // === SCRIPT KHUSUS UNTUK MEMASTIKAN VIDEO BERPUTAR DI GITHUB PAGES ===
+        document.addEventListener('DOMContentLoaded', function() {
+            const vid = document.getElementById('profilVideo');
+            if(vid) {
+                // Paksa play saat halaman load
+                vid.play().catch(function(error) {
+                    console.log("Autoplay dicegah oleh browser, menunggu interaksi user");
+                });
+                
+                // Pause saat tab tidak aktif untuk hemat kuota
+                document.addEventListener('visibilitychange', function() {
+                    if (document.hidden) {
+                        vid.pause();
+                    } else {
+                        vid.play();
+                    }
+                });
+            }
+        });
     </script>
 </body>
 </html>
